@@ -11,7 +11,7 @@ services:
     ports:
       - 5432:5432
     networks:
-      - zapcomm-network
+      - network-project
     deploy:
       resources:
         limits:
@@ -24,13 +24,13 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes 
     networks:
-      - zapcomm-network
+      - network-project
     deploy:
       resources:
         limits:
           memory: 512M
 
-  backend:
+  bkend:
     build:
       context: ./backend
     ports:
@@ -41,7 +41,7 @@ services:
       - db
       - redis
     networks:
-      - zapcomm-network
+      - network-project
     deploy:
       resources:
         limits:
@@ -54,7 +54,7 @@ services:
       npm run dev:server
       "
   
-  frontend:
+  ftend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -70,16 +70,16 @@ services:
     stdin_open: true
     tty: true
     depends_on:
-      - backend
+      - bkend
     networks:
-      - zapcomm-network
+      - network-project
     command: >
       sh -c "
       npm start
       "
 
 networks:
-  zapcomm-network:
+  network-project:
     driver: bridge
   
 
