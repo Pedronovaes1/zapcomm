@@ -1,0 +1,600 @@
+body {
+    margin: 0;
+    line-height: normal;
+}
+.ajuda-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #f8f8ff;
+    width: 238px;
+    height: 1531px;
+}
+.ajuda-item {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #f8f8ff;
+    width: 238px;
+    height: 1170px;
+}
+.ajuda-inner {
+    position: absolute;
+    top: 0px;
+    left: 238px;
+    background-color: #f0f0f0;
+    width: 2px;
+    height: 1518px;
+}
+.rectangle-div {
+    position: absolute;
+    top: 0px;
+    left: 992px;
+    background-color: #f0f0f0;
+    width: 5px;
+    height: 159px;
+    transform:  rotate(180deg);
+    transform-origin: 0 0;
+}
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 16px;
+    background-color: #369fff;
+    width: 243px;
+    height: 60px;
+    opacity: 0.1;
+}
+.chevron-down-1-icon {
+    position: absolute;
+    top: 26px;
+    left: 209px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.group-item {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.bruno-fernandes {
+    position: absolute;
+    top: 10px;
+    left: 65px;
+    font-weight: 600;
+}
+.incio {
+    position: absolute;
+    top: 34px;
+    left: 65px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 32px;
+    left: 1157px;
+    width: 243px;
+    height: 60px;
+    font-size: 14px;
+    color: #303030;
+    font-family: Manrope;
+}
+.claritynotification-outline-b-icon {
+    position: absolute;
+    top: 49px;
+    left: 1012px;
+    width: 25px;
+    height: 26px;
+    overflow: hidden;
+}
+.central-de-ajuda {
+    position: absolute;
+    top: 107px;
+    left: 288px;
+    font-size: 25px;
+    font-family: Manrope;
+    color: #303030;
+}
+.span {
+    font-weight: 500;
+}
+.ol-bruno-bem-container {
+    position: absolute;
+    top: 50px;
+    left: 288px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    font-family: Manrope;
+}
+.search {
+    position: absolute;
+    top: 0px;
+    left: 34px;
+    font-weight: 500;
+}
+.search-1-icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+.search-parent {
+    position: absolute;
+    top: 121px;
+    left: 826px;
+    width: 92px;
+    height: 20px;
+    font-size: 14px;
+    color: #bdbdbd;
+    font-family: Manrope;
+}
+.dashboard {
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.chamados {
+    position: absolute;
+    top: 67px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.kanban {
+    position: absolute;
+    top: 131px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.respostas {
+    margin: 0;
+}
+.respostas-rpidas {
+    position: absolute;
+    top: 195px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.tarefas {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.iconlylight-outlinesetting {
+    position: absolute;
+    top: 257px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
+.group-inner {
+    position: absolute;
+    top: 577px;
+    left: 125px;
+    border-radius: 50%;
+    background-color: #369fff;
+    width: 8px;
+    height: 8px;
+}
+.iconlylight-outlinehome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder {
+    position: absolute;
+    top: 128px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat {
+    position: absolute;
+    top: 193px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.dashboard-parent {
+    position: absolute;
+    top: 206px;
+    left: 44px;
+    width: 133px;
+    height: 585px;
+    font-size: 14px;
+    color: #000;
+    font-family: Manrope;
+}
+.contatos {
+    position: absolute;
+    top: 3px;
+    left: 54px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.ajuda1 {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+    color: #369fff;
+}
+.administrao {
+    position: absolute;
+    top: 322px;
+    left: 55px;
+    font-weight: 500;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.chevron-down-1-icon1 {
+    position: absolute;
+    top: 329px;
+    left: 162px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.tags-parent {
+    position: absolute;
+    top: 518px;
+    left: 45px;
+    width: 176px;
+    height: 341px;
+    font-size: 14px;
+    color: #000;
+    font-family: Manrope;
+}
+.chat-icon {
+    position: absolute;
+    height: 1.23%;
+    width: 1.39%;
+    top: 51.85%;
+    right: 95.42%;
+    bottom: 46.91%;
+    left: 3.19%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.removalai-a4195dd2-18cb-4e23-icon {
+    position: absolute;
+    top: 38px;
+    left: 30px;
+    width: 188px;
+    height: 57px;
+    object-fit: cover;
+}
+.base {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 10px;
+    background-color: #e2e2f2;
+    width: 34.6px;
+    height: 16.5px;
+}
+.switch {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 8.19px;
+    background-color: #343434;
+    width: 16.4px;
+    height: 16.5px;
+}
+.toggle-button {
+    position: absolute;
+    top: 1.23px;
+    left: 42.4px;
+    width: 34.6px;
+    height: 16.5px;
+}
+.modo-dark {
+    position: absolute;
+    top: 1.98px;
+    left: 82.47px;
+}
+.contrast-icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 17.7px;
+    height: 17.7px;
+}
+.other-contents {
+    position: absolute;
+    top: 107px;
+    left: 1264px;
+    width: 136.5px;
+    height: 17.7px;
+    font-size: 10px;
+    color: #343434;
+}
+.patients-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 15px;
+    width: 948px;
+    height: 768px;
+}
+.all {
+    position: absolute;
+    top: 57.29px;
+    left: 643.8px;
+    display: inline-block;
+    width: 17.5px;
+    height: 37.7px;
+    text-shadow: 1px 0 0 #fbfaff, 0 1px 0 #fbfaff, -1px 0 0 #fbfaff, 0 -1px 0 #fbfaff;
+}
+.patients {
+    position: absolute;
+    top: 220px;
+    left: 358px;
+    width: 948px;
+    height: 768px;
+    font-size: 8px;
+    color: #fff;
+}
+.como-utilizar-o {
+    position: absolute;
+    top: 821px;
+    left: 498px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    width: 319px;
+}
+.mais-sobre {
+    position: absolute;
+    top: 863px;
+    left: 614px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #369fff;
+    display: flex;
+    align-items: flex-end;
+    width: 86px;
+}
+.mais-sobre1 {
+    position: absolute;
+    top: 864px;
+    left: 1074px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #369fff;
+    display: flex;
+    align-items: flex-end;
+    width: 86px;
+}
+.como-utilizar-o1 {
+    position: absolute;
+    top: 821px;
+    left: 957px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    width: 319px;
+}
+.acessibilidade {
+    position: absolute;
+    top: 631px;
+    left: 498px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    width: 319px;
+}
+.mais-sobre2 {
+    position: absolute;
+    top: 672px;
+    left: 498px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #369fff;
+    display: flex;
+    align-items: flex-end;
+    width: 86px;
+}
+.mais-sobre3 {
+    position: absolute;
+    top: 673px;
+    left: 1074px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #369fff;
+    display: flex;
+    align-items: flex-end;
+    width: 86px;
+}
+.como-utilizar-o2 {
+    position: absolute;
+    top: 630px;
+    left: 957px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    width: 319px;
+}
+.central-de-ajuda1 {
+    position: absolute;
+    top: 257px;
+    left: 716px;
+    font-size: 25px;
+    font-family: Manrope;
+    color: #303030;
+}
+.ajuda-child1 {
+    position: absolute;
+    top: 315px;
+    left: 627px;
+    border-radius: 5px;
+    border: 2px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 429px;
+    height: 44px;
+}
+.com-oque-eu {
+    position: absolute;
+    top: 1px;
+    left: 31px;
+    font-weight: 500;
+    display: inline-block;
+    width: 211px;
+    height: 18px;
+}
+.search-1-icon1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20.2px;
+    height: 20px;
+    overflow: hidden;
+    opacity: 0.2;
+}
+.com-oque-eu-posso-ajudar-parent {
+    position: absolute;
+    top: 323px;
+    left: 700px;
+    width: 242px;
+    height: 20px;
+    font-size: 14px;
+    color: #bdbdbd;
+    font-family: Manrope;
+}
+.como-utilizar-o3 {
+    position: absolute;
+    top: 434px;
+    left: 498px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    width: 319px;
+}
+.mais-sobre4 {
+    position: absolute;
+    top: 477px;
+    left: 615px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #369fff;
+    display: flex;
+    align-items: flex-end;
+    width: 86px;
+}
+.mais-sobre5 {
+    position: absolute;
+    top: 478px;
+    left: 1074px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #369fff;
+    display: flex;
+    align-items: flex-end;
+    width: 86px;
+}
+.como-utilizar-o4 {
+    position: absolute;
+    top: 435px;
+    left: 957px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-end;
+    width: 319px;
+}
+.image-1-icon {
+    position: absolute;
+    top: 629px;
+    left: 399px;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+}
+.iconsax {
+    position: absolute;
+    top: 834px;
+    left: 861px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+}
+.users-icon {
+    position: absolute;
+    top: 436px;
+    left: 861px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+}
+.share-2-icon {
+    position: absolute;
+    top: 436px;
+    left: 410px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+}
+.key-icon {
+    position: absolute;
+    top: 834px;
+    left: 410px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+}
+.dollar-sign-icon {
+    position: absolute;
+    top: 642px;
+    left: 861px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+}
+.ajuda {
+    width: 100%;
+    position: relative;
+    background-color: #f8f8ff;
+    height: 1620px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 24px;
+    color: #0c2454;
+    font-family: Poppins;
+}
+

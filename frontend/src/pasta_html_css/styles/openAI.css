@@ -1,0 +1,557 @@
+body {
+    margin: 0;
+    line-height: normal;
+}
+.open-ai-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #f8f8ff;
+    width: 238px;
+    height: 1024px;
+}
+.open-ai-item {
+    position: absolute;
+    top: 0px;
+    left: 238px;
+    background-color: #f0f0f0;
+    width: 2px;
+    height: 1518px;
+}
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 16px;
+    background-color: #369fff;
+    width: 243px;
+    height: 60px;
+    opacity: 0.1;
+}
+.chevron-down-1-icon {
+    position: absolute;
+    top: 26px;
+    left: 209px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.group-item {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.bruno-fernandes {
+    position: absolute;
+    top: 10px;
+    left: 65px;
+    font-weight: 600;
+}
+.incio {
+    position: absolute;
+    top: 34px;
+    left: 65px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 32px;
+    left: 1157px;
+    width: 243px;
+    height: 60px;
+    color: #303030;
+}
+.claritynotification-outline-b-icon {
+    position: absolute;
+    top: 49px;
+    left: 1012px;
+    width: 25px;
+    height: 26px;
+    overflow: hidden;
+}
+.open-ai1 {
+    position: absolute;
+    top: 105px;
+    left: 288px;
+    font-size: 30px;
+    color: #303030;
+}
+.span {
+    font-weight: 500;
+}
+.ol-bruno-bem-container {
+    position: absolute;
+    top: 50px;
+    left: 288px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: #0c2454;
+}
+.dashboard {
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.chamados {
+    position: absolute;
+    top: 67px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.kanban {
+    position: absolute;
+    top: 131px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.respostas {
+    margin: 0;
+}
+.respostas-rpidas {
+    position: absolute;
+    top: 195px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.tarefas {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.iconlylight-outlinesetting {
+    position: absolute;
+    top: 257px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinehome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder {
+    position: absolute;
+    top: 128px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat {
+    position: absolute;
+    top: 193px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.dashboard-parent {
+    position: absolute;
+    top: 206px;
+    left: 44px;
+    width: 128px;
+    height: 281px;
+}
+.contatos {
+    position: absolute;
+    top: 3px;
+    left: 54px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.administrao {
+    position: absolute;
+    top: 323px;
+    left: 54px;
+    font-weight: 500;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.chevron-down-1-icon1 {
+    position: absolute;
+    top: 330px;
+    left: 162px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.tags-parent {
+    position: absolute;
+    top: 518px;
+    left: 45px;
+    width: 176px;
+    height: 342px;
+}
+.chat-icon {
+    position: absolute;
+    height: 1.31%;
+    width: 1.39%;
+    top: 55%;
+    right: 95.35%;
+    bottom: 43.7%;
+    left: 3.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.removalai-a4195dd2-18cb-4e23-icon {
+    position: absolute;
+    top: 38px;
+    left: 30px;
+    width: 188px;
+    height: 57px;
+    object-fit: cover;
+}
+.patients-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 15px;
+    width: 1143px;
+    height: 751px;
+}
+.all {
+    position: absolute;
+    top: 59.02px;
+    left: 776.23px;
+    font-size: 8px;
+    display: inline-block;
+    font-family: Poppins;
+    color: #fff;
+    width: 21.1px;
+    height: 36.9px;
+    text-shadow: 1px 0 0 #fbfaff, 0 1px 0 #fbfaff, -1px 0 0 #fbfaff, 0 -1px 0 #fbfaff;
+}
+.patients-item {
+    position: absolute;
+    top: 55px;
+    left: 358.53px;
+    border-radius: 5px;
+    border: 2px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 310.8px;
+    height: 44px;
+}
+.ttulo {
+    position: absolute;
+    top: 194px;
+    left: 94.46px;
+    display: inline-block;
+    width: 65px;
+    height: 15px;
+}
+.mximo-de-token {
+    position: absolute;
+    top: 194px;
+    left: 444px;
+}
+.aes {
+    position: absolute;
+    top: 193px;
+    left: 908px;
+    display: inline-block;
+    width: 56.9px;
+    height: 18px;
+}
+.patients-inner {
+    position: absolute;
+    top: 234px;
+    left: 41.64px;
+    border-radius: 10px;
+    width: 1055.3px;
+    height: 96px;
+}
+.rectangle-icon {
+    position: absolute;
+    top: 342px;
+    left: 43.67px;
+    border-radius: 10px;
+    width: 1055.3px;
+    height: 96px;
+}
+.rectangle-div {
+    position: absolute;
+    top: 271px;
+    left: 73.13px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child1 {
+    position: absolute;
+    top: 376px;
+    left: 73.13px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.novo-prompt {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-weight: 500;
+}
+.novo-prompt-wrapper {
+    position: absolute;
+    top: 66px;
+    left: 370px;
+    width: 85px;
+    height: 19px;
+    color: #bdbdbd;
+}
+.patients-child2 {
+    position: absolute;
+    top: 55px;
+    left: 704.87px;
+    border-radius: 10px;
+    background-color: #34d3a3;
+    width: 184.9px;
+    height: 41px;
+    cursor: pointer;
+}
+.adicionar-prompt {
+    position: absolute;
+    top: 62px;
+    left: 729px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    display: inline-block;
+    width: 135px;
+    height: 18px;
+}
+.vector-icon {
+    position: absolute;
+    top: 274px;
+    left: 857.22px;
+    width: 24.4px;
+    height: 24px;
+}
+.lixeira-2-icon {
+    position: absolute;
+    top: 386px;
+    left: 941.32px;
+    width: 23.5px;
+    height: 24px;
+    object-fit: cover;
+}
+.lixeira-1-icon {
+    position: absolute;
+    top: 273px;
+    left: 935.45px;
+    width: 23.5px;
+    height: 24px;
+    object-fit: cover;
+}
+.vector-icon1 {
+    position: absolute;
+    top: 381px;
+    left: 857.22px;
+    width: 24.4px;
+    height: 24px;
+}
+.setorfila {
+    position: absolute;
+    top: 196px;
+    left: 268px;
+}
+.patients-child3 {
+    position: absolute;
+    top: 271px;
+    left: 259px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child4 {
+    position: absolute;
+    top: 269px;
+    left: 503px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child5 {
+    position: absolute;
+    top: 376px;
+    left: 259px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child6 {
+    position: absolute;
+    top: 378px;
+    left: 503px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients {
+    position: absolute;
+    top: 176px;
+    left: 257px;
+    width: 1143px;
+    height: 751px;
+    color: #343434;
+}
+.campanhas {
+    position: absolute;
+    top: 3px;
+    left: 54px;
+    font-weight: 500;
+}
+.open-ai2 {
+    position: absolute;
+    top: 131px;
+    left: 55px;
+    font-weight: 500;
+    color: #369fff;
+}
+.usurios {
+    position: absolute;
+    top: 451px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.filas-chatbot {
+    position: absolute;
+    top: 387px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.api {
+    position: absolute;
+    top: 515px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.configuraes {
+    position: absolute;
+    top: 579px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.vector-icon2 {
+    position: absolute;
+    height: 1.15%;
+    width: 7.64%;
+    top: 1.51%;
+    right: 0%;
+    bottom: 97.34%;
+    left: 92.36%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.iconlylight-outlinesetting3 {
+    position: absolute;
+    top: 319px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.chat-icon1 {
+    position: absolute;
+    height: 3.34%;
+    width: 12.74%;
+    top: 64.72%;
+    right: 84.71%;
+    bottom: 31.94%;
+    left: 2.55%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder3 {
+    position: absolute;
+    top: 510px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory3 {
+    position: absolute;
+    top: 449px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinesetting4 {
+    position: absolute;
+    top: 574px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.informativos-parent {
+    position: absolute;
+    top: 886px;
+    left: 63px;
+    width: 157px;
+    height: 598px;
+}
+.open-ai-inner {
+    position: absolute;
+    top: 1022px;
+    left: 193px;
+    border-radius: 50%;
+    background-color: #369fff;
+    width: 8px;
+    height: 8px;
+}
+.open-ai {
+    width: 100%;
+    position: relative;
+    background-color: #f8f8ff;
+    height: 1531px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    font-family: Manrope;
+}
+
