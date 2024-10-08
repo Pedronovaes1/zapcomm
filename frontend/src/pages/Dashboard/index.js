@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
   },
   container: {
-    paddingTop: theme.spacing(4),
+    paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(4),
   },
   fixedHeightPaper: {
