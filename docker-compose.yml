@@ -3,9 +3,9 @@ services:
   db:
     image: postgres:13
     environment:
-      POSTGRES_USER: pedro_henrique
-      POSTGRES_PASSWORD: 1234567
-      POSTGRES_DB: db_zapcomm
+      POSTGRES_USER: seu_user
+      POSTGRES_PASSWORD: sua_senha
+      POSTGRES_DB: db_name
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
