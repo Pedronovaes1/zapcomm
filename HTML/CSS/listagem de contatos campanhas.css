@@ -1,0 +1,601 @@
+.lista-de-contatos-campanhas-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #f8f8ff;
+    width: 238px;
+    height: 1024px;
+}
+.lista-de-contatos-campanhas-item {
+    position: absolute;
+    top: 0px;
+    left: 238px;
+    background-color: #f0f0f0;
+    width: 2px;
+    height: 1518px;
+}
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 16px;
+    background-color: #369fff;
+    width: 243px;
+    height: 60px;
+    opacity: 0.1;
+}
+.chevron-down-1-icon {
+    position: absolute;
+    top: 26px;
+    left: 209px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.group-item {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.bruno-fernandes {
+    position: absolute;
+    top: 10px;
+    left: 65px;
+    font-weight: 600;
+}
+.incio {
+    position: absolute;
+    top: 34px;
+    left: 65px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 32px;
+    left: 1157px;
+    width: 243px;
+    height: 60px;
+    color: #303030;
+}
+.claritynotification-outline-b-icon {
+    position: absolute;
+    top: 49px;
+    left: 1012px;
+    width: 25px;
+    height: 26px;
+    overflow: hidden;
+}
+.lista-de-contatos {
+    position: absolute;
+    top: 105px;
+    left: 288px;
+    font-size: 30px;
+    color: #303030;
+}
+.span {
+    font-weight: 500;
+}
+.ol-bruno-bem-container {
+    position: absolute;
+    top: 50px;
+    left: 288px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: #0c2454;
+}
+.dashboard {
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.chamados {
+    position: absolute;
+    top: 67px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.kanban {
+    position: absolute;
+    top: 131px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.respostas {
+    margin: 0;
+}
+.respostas-rpidas {
+    position: absolute;
+    top: 195px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.tarefas {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+}
+.iconlylight-outlinesetting {
+    position: absolute;
+    top: 257px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinehome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder {
+    position: absolute;
+    top: 128px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat {
+    position: absolute;
+    top: 193px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.dashboard-parent {
+    position: absolute;
+    top: 206px;
+    left: 44px;
+    width: 128px;
+    height: 281px;
+}
+.contatos {
+    position: absolute;
+    top: 3px;
+    left: 54px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.ajuda {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.administrao {
+    position: absolute;
+    top: 323px;
+    left: 54px;
+    font-weight: 500;
+    white-space: pre-wrap;
+}
+.chevron-down-1-icon1 {
+    position: absolute;
+    top: 330px;
+    left: 162px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.tags-parent {
+    position: absolute;
+    top: 518px;
+    left: 45px;
+    width: 176px;
+    height: 342px;
+}
+.chat-icon {
+    position: absolute;
+    height: 1.31%;
+    width: 1.39%;
+    top: 55%;
+    right: 95.35%;
+    bottom: 43.7%;
+    left: 3.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.removalai-a4195dd2-18cb-4e23-icon {
+    position: absolute;
+    top: 38px;
+    left: 30px;
+    width: 188px;
+    height: 57px;
+    object-fit: cover;
+}
+.pesquisar {
+    position: absolute;
+    top: 0px;
+    left: 34px;
+    font-weight: 500;
+}
+.search-1-icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+.pesquisar-parent {
+    position: absolute;
+    top: 213px;
+    left: 559px;
+    width: 110px;
+    height: 20px;
+    color: #bdbdbd;
+}
+.lista-de-contatos-campanhas-inner {
+    position: absolute;
+    top: 202px;
+    left: 544px;
+    border-radius: 5px;
+    border: 2px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 306px;
+    height: 44px;
+}
+.rectangle-div {
+    position: absolute;
+    top: 202px;
+    left: 860px;
+    border-radius: 10px;
+    background-color: #34d3a3;
+    width: 182px;
+    height: 41px;
+    cursor: pointer;
+}
+.nova-lista {
+    position: absolute;
+    top: 212px;
+    left: 914px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    width: 83px;
+    height: 18px;
+}
+.patients-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 15px;
+    width: 1143px;
+    height: 751px;
+}
+.all {
+    position: absolute;
+    top: 39.21px;
+    left: 798.64px;
+    font-size: 8px;
+    display: inline-block;
+    font-family: Poppins;
+    color: #fff;
+    width: 21.7px;
+    height: 24.5px;
+    text-shadow: 1px 0 0 #fbfaff, 0 1px 0 #fbfaff, -1px 0 0 #fbfaff, 0 -1px 0 #fbfaff;
+}
+.nome {
+    position: absolute;
+    top: 129px;
+    left: 212px;
+    display: inline-block;
+    width: 42.2px;
+    height: 12.6px;
+}
+.aes {
+    position: absolute;
+    top: 128.9px;
+    left: 998px;
+    display: inline-block;
+    width: 58.5px;
+    height: 12px;
+}
+.patients-item {
+    position: absolute;
+    top: 155.48px;
+    left: 42.85px;
+    border-radius: 10px;
+    width: 1085.7px;
+    height: 96px;
+}
+.vector-icon {
+    position: absolute;
+    top: 197px;
+    left: 976px;
+    width: 24.2px;
+    height: 24px;
+}
+.lixeira-1-icon {
+    position: absolute;
+    top: 195px;
+    left: 1033px;
+    width: 24.2px;
+    height: 24px;
+    object-fit: cover;
+}
+.contatos1 {
+    position: absolute;
+    top: 126px;
+    left: 555px;
+    display: inline-block;
+    width: 142px;
+    height: 12.6px;
+}
+.patients {
+    position: absolute;
+    top: 278px;
+    left: 264px;
+    width: 1143px;
+    height: 751px;
+    color: #343434;
+}
+.lista-de-contatos-campanhas-child1 {
+    position: absolute;
+    top: 463px;
+    left: 454px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.lista-de-contatos-campanhas-child2 {
+    position: absolute;
+    top: 463px;
+    left: 817px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.informativos {
+    position: absolute;
+    top: 100px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.campanhas {
+    position: absolute;
+    top: 0px;
+    left: 55px;
+    font-weight: 500;
+}
+.listagem {
+    position: absolute;
+    top: 24px;
+    left: 75px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.lista-de-contatos1 {
+    position: absolute;
+    top: 47px;
+    left: 75px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+}
+.configuraes {
+    position: absolute;
+    top: 70px;
+    left: 75px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.open-ai {
+    position: absolute;
+    top: 156px;
+    left: 56px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.integraes {
+    position: absolute;
+    top: 221px;
+    left: 56px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.conexes {
+    position: absolute;
+    top: 286px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.lista-de-arquivo {
+    position: absolute;
+    top: 352px;
+    left: 55px;
+    font-weight: 500;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.usurios {
+    position: absolute;
+    top: 482px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.filas-chatbot {
+    position: absolute;
+    top: 417px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.api {
+    position: absolute;
+    top: 547px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.configuraes1 {
+    position: absolute;
+    top: 613px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.iconlylight-outlinesetting2 {
+    position: absolute;
+    top: 286px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder2 {
+    position: absolute;
+    top: 154px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat2 {
+    position: absolute;
+    top: 221px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory2 {
+    position: absolute;
+    top: 100px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.vector-icon1 {
+    position: absolute;
+    height: 1.09%;
+    width: 6.94%;
+    top: 1.27%;
+    right: 7.51%;
+    bottom: 97.64%;
+    left: 85.55%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.chat-icon1 {
+    position: absolute;
+    height: 3.16%;
+    width: 11.56%;
+    top: 65.82%;
+    right: 84.97%;
+    bottom: 31.01%;
+    left: 3.47%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder3 {
+    position: absolute;
+    top: 547px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory3 {
+    position: absolute;
+    top: 480px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.setting-icon {
+    position: absolute;
+    height: 83.33%;
+    width: 79.17%;
+    top: 8.33%;
+    right: 10.42%;
+    bottom: 8.33%;
+    left: 10.42%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder4 {
+    position: absolute;
+    top: -255px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinesetting3 {
+    position: absolute;
+    top: 608px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+}
+.group-inner {
+    position: absolute;
+    top: 29.5px;
+    left: 68.5px;
+    border-right: 1px solid #000;
+    box-sizing: border-box;
+    width: 1px;
+    height: 54.2px;
+}
+.informativos-parent {
+    position: absolute;
+    top: 886px;
+    left: 60px;
+    width: 173px;
+    height: 632px;
+}
+.lista-de-contatos-campanhas {
+    width: 100%;
+    position: relative;
+    background-color: #f8f8ff;
+    height: 1531px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    font-family: Manrope;
+}
+
