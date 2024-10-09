@@ -3,15 +3,15 @@ services:
   db:
     image: postgres:13
     environment:
-      POSTGRES_USER: seu_user
-      POSTGRES_PASSWORD: sua_senha
-      POSTGRES_DB: db_name
+      POSTGRES_USER: pedro_henrique
+      POSTGRES_PASSWORD: 1234567
+      POSTGRES_DB: db_zapcomm
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
-      - network-project
+      - zapcomm-network
     deploy:
       resources:
         limits:
@@ -24,7 +24,7 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes 
     networks:
-      - network-project
+      - zapcomm-network
     deploy:
       resources:
         limits:
@@ -41,7 +41,7 @@ services:
       - db
       - redis
     networks:
-      - network-project
+      - zapcomm-network
     deploy:
       resources:
         limits:
@@ -70,16 +70,16 @@ services:
     stdin_open: true
     tty: true
     depends_on:
-      - bkend
+      - backend
     networks:
-      - network-project
+      - zapcomm-network
     command: >
       sh -c "
       npm start
       "
 
 networks:
-  network-project:
+  zapcomm-network:
     driver: bridge
   
 

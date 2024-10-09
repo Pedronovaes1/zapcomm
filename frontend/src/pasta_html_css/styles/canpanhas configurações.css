@@ -1,0 +1,669 @@
+.configuraes-campanha-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #f8f8ff;
+    width: 238px;
+    height: 1024px;
+}
+.configuraes-campanha-item {
+    position: absolute;
+    top: 0px;
+    left: 238px;
+    background-color: #f0f0f0;
+    width: 2px;
+    height: 1518px;
+}
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 16px;
+    background-color: #369fff;
+    width: 243px;
+    height: 60px;
+    opacity: 0.1;
+}
+.chevron-down-1-icon {
+    position: absolute;
+    top: 26px;
+    left: 209px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.group-item {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.bruno-fernandes {
+    position: absolute;
+    top: 10px;
+    left: 65px;
+    font-weight: 600;
+}
+.incio {
+    position: absolute;
+    top: 34px;
+    left: 65px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 32px;
+    left: 1157px;
+    width: 243px;
+    height: 60px;
+    font-size: 14px;
+    color: #303030;
+}
+.claritynotification-outline-b-icon {
+    position: absolute;
+    top: 49px;
+    left: 1012px;
+    width: 25px;
+    height: 26px;
+    overflow: hidden;
+}
+.configuraes-de-campanhas {
+    position: absolute;
+    top: 105px;
+    left: 288px;
+    font-size: 30px;
+    color: #303030;
+}
+.span {
+    font-weight: 500;
+}
+.ol-bruno-bem-container {
+    position: absolute;
+    top: 50px;
+    left: 288px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: #0c2454;
+}
+.dashboard {
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.chamados {
+    position: absolute;
+    top: 67px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.kanban {
+    position: absolute;
+    top: 131px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.respostas {
+    margin: 0;
+}
+.respostas-rpidas {
+    position: absolute;
+    top: 195px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.tarefas {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.iconlylight-outlinesetting {
+    position: absolute;
+    top: 257px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinehome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder {
+    position: absolute;
+    top: 128px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat {
+    position: absolute;
+    top: 193px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.dashboard-parent {
+    position: absolute;
+    top: 206px;
+    left: 44px;
+    width: 128px;
+    height: 281px;
+    font-size: 14px;
+}
+.contatos {
+    position: absolute;
+    top: 3px;
+    left: 54px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.administrao {
+    position: absolute;
+    top: 323px;
+    left: 54px;
+    font-weight: 500;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.chevron-down-1-icon1 {
+    position: absolute;
+    top: 330px;
+    left: 162px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.tags-parent {
+    position: absolute;
+    top: 518px;
+    left: 45px;
+    width: 176px;
+    height: 342px;
+    font-size: 14px;
+}
+.chat-icon {
+    position: absolute;
+    height: 1.31%;
+    width: 1.39%;
+    top: 55%;
+    right: 95.35%;
+    bottom: 43.7%;
+    left: 3.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.removalai-a4195dd2-18cb-4e23-icon {
+    position: absolute;
+    top: 38px;
+    left: 30px;
+    width: 188px;
+    height: 57px;
+    object-fit: cover;
+}
+.patients-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 15px;
+    width: 1143px;
+    height: 751px;
+}
+.all {
+    position: absolute;
+    top: 59.02px;
+    left: 776.23px;
+    display: inline-block;
+    width: 21.1px;
+    height: 36.9px;
+    text-shadow: 1px 0 0 #fbfaff, 0 1px 0 #fbfaff, -1px 0 0 #fbfaff, 0 -1px 0 #fbfaff;
+}
+.patients {
+    position: absolute;
+    top: 196px;
+    left: 263px;
+    width: 1143px;
+    height: 751px;
+    font-size: 8px;
+    color: #fff;
+    font-family: Poppins;
+}
+.configuraes-campanha-inner {
+    position: absolute;
+    top: 352px;
+    left: 290px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 360px;
+    height: 43px;
+}
+.rectangle-div {
+    position: absolute;
+    top: 352px;
+    left: 662px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 347px;
+    height: 43px;
+}
+.configuraes-campanha-child1 {
+    position: absolute;
+    top: 352px;
+    left: 1021px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 370px;
+    height: 43px;
+}
+.intervalos {
+    position: absolute;
+    top: 266px;
+    left: 290px;
+    font-size: 24px;
+}
+.intervalo-randmico-de {
+    position: absolute;
+    top: 318px;
+    left: 294px;
+}
+.intervalo-maior-aps {
+    position: absolute;
+    top: 319px;
+    left: 665px;
+}
+.intervalo-de-disparo {
+    position: absolute;
+    top: 319px;
+    left: 1021px;
+}
+.segundos {
+    position: absolute;
+    top: 360px;
+    left: 314px;
+    font-family: Poppins;
+    color: #757575;
+}
+.segundos1 {
+    position: absolute;
+    top: 360px;
+    left: 685px;
+    font-family: Poppins;
+    color: #757575;
+}
+.segundos2 {
+    position: absolute;
+    top: 360px;
+    left: 1044px;
+    font-family: Poppins;
+    color: #757575;
+}
+.group-inner {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 272px;
+    height: 54px;
+    cursor: pointer;
+}
+.group-child1 {
+    position: absolute;
+    top: 0px;
+    left: 279px;
+    border-radius: 20px;
+    background-color: #34d3a3;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 272px;
+    height: 54.1px;
+}
+.adicionar-varivel {
+    position: absolute;
+    top: 16px;
+    left: 71px;
+}
+.salvar-configuraes {
+    position: absolute;
+    top: 15px;
+    left: 328px;
+    font-family: Poppins;
+    color: #000;
+}
+.rectangle-group {
+    position: absolute;
+    top: 424px;
+    left: 829px;
+    width: 551px;
+    height: 54.1px;
+    color: #303030;
+}
+.contedo {
+    position: absolute;
+    top: 514px;
+    left: 773px;
+    font-size: 20px;
+    font-family: Poppins;
+    color: #303030;
+}
+.configuraes-campanha-child2 {
+    position: absolute;
+    top: 568px;
+    left: 296px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 1094px;
+    height: 75px;
+}
+.atalho {
+    position: absolute;
+    top: 514px;
+    left: 390px;
+    font-size: 20px;
+    font-family: Poppins;
+    color: #303030;
+}
+.div {
+    position: absolute;
+    top: 589px;
+    left: 416px;
+    font-size: 20px;
+    font-family: Poppins;
+    color: #303030;
+    text-shadow: 1px 0 0 #e7e7e7, 0 1px 0 #e7e7e7, -1px 0 0 #e7e7e7, 0 -1px 0 #e7e7e7;
+}
+.polygon-icon {
+    position: absolute;
+    top: 372px;
+    left: 610px;
+    width: 14px;
+    height: 9px;
+    object-fit: contain;
+}
+.configuraes-campanha-child3 {
+    position: absolute;
+    top: 372px;
+    left: 965px;
+    width: 14px;
+    height: 9px;
+    object-fit: contain;
+}
+.configuraes-campanha-child4 {
+    position: absolute;
+    top: 372px;
+    left: 1353px;
+    width: 14px;
+    height: 9px;
+    object-fit: contain;
+}
+.informativos {
+    position: absolute;
+    top: 100px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.campanhas {
+    position: absolute;
+    top: 0px;
+    left: 55px;
+    font-weight: 500;
+}
+.listagem {
+    position: absolute;
+    top: 24px;
+    left: 75px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.lista-de-contatos {
+    position: absolute;
+    top: 47px;
+    left: 75px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.configuraes {
+    position: absolute;
+    top: 70px;
+    left: 75px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+    cursor: pointer;
+}
+.open-ai {
+    position: absolute;
+    top: 156px;
+    left: 56px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.integraes {
+    position: absolute;
+    top: 221px;
+    left: 56px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.conexes {
+    position: absolute;
+    top: 286px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.lista-de-arquivo {
+    position: absolute;
+    top: 352px;
+    left: 55px;
+    font-weight: 500;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.usurios {
+    position: absolute;
+    top: 482px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.filas-chatbot {
+    position: absolute;
+    top: 417px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.api {
+    position: absolute;
+    top: 547px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.configuraes1 {
+    position: absolute;
+    top: 613px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.iconlylight-outlinesetting2 {
+    position: absolute;
+    top: 286px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder2 {
+    position: absolute;
+    top: 154px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat2 {
+    position: absolute;
+    top: 221px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory2 {
+    position: absolute;
+    top: 100px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.vector-icon {
+    position: absolute;
+    height: 1.09%;
+    width: 6.94%;
+    top: 1.27%;
+    right: 7.51%;
+    bottom: 97.64%;
+    left: 85.55%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.chat-icon1 {
+    position: absolute;
+    height: 3.16%;
+    width: 11.56%;
+    top: 65.82%;
+    right: 84.97%;
+    bottom: 31.01%;
+    left: 3.47%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder3 {
+    position: absolute;
+    top: 547px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory3 {
+    position: absolute;
+    top: 480px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.setting-icon {
+    position: absolute;
+    height: 83.33%;
+    width: 79.17%;
+    top: 8.33%;
+    right: 10.42%;
+    bottom: 8.33%;
+    left: 10.42%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder4 {
+    position: absolute;
+    top: -255px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinesetting3 {
+    position: absolute;
+    top: 608px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+}
+.line-div {
+    position: absolute;
+    top: 32.5px;
+    left: 66.5px;
+    border-right: 1px solid #000;
+    box-sizing: border-box;
+    width: 1px;
+    height: 54.2px;
+}
+.informativos-parent {
+    position: absolute;
+    top: 886px;
+    left: 46px;
+    width: 173px;
+    height: 632px;
+    font-size: 14px;
+}
+.trash-3-icon {
+    position: absolute;
+    top: 595px;
+    left: 1338px;
+    width: 28px;
+    height: 28px;
+    overflow: hidden;
+}
+.configuraes-campanha {
+    width: 100%;
+    position: relative;
+    background-color: #f8f8ff;
+    height: 1531px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    font-family: Manrope;
+}
+
