@@ -1,0 +1,770 @@
+.chamados-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #f8f8ff;
+    width: 238px;
+    height: 1531px;
+}
+.chamados-inner {
+    position: absolute;
+    top: 0px;
+    left: 238px;
+    background-color: #f0f0f0;
+    width: 2px;
+    height: 1518px;
+}
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 16px;
+    background-color: #369fff;
+    width: 243px;
+    height: 60px;
+    opacity: 0.1;
+}
+.chevron-down-1-icon {
+    position: absolute;
+    top: 26px;
+    left: 209px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.group-item {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.bruno-fernandes {
+    position: absolute;
+    top: 10px;
+    left: 65px;
+    font-weight: 600;
+}
+.incio {
+    position: absolute;
+    top: 34px;
+    left: 65px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 32px;
+    left: 1157px;
+    width: 243px;
+    height: 60px;
+    color: #303030;
+}
+.claritynotification-outline-b-icon {
+    position: absolute;
+    top: 49px;
+    left: 1012px;
+    width: 25px;
+    height: 26px;
+    overflow: hidden;
+}
+.chamados1 {
+    position: absolute;
+    top: 105px;
+    left: 288px;
+    font-size: 30px;
+    color: #303030;
+}
+.span {
+    font-weight: 500;
+}
+.ol-bruno-bem-container {
+    position: absolute;
+    top: 50px;
+    left: 288px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: #0c2454;
+}
+.dashboard {
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.chamados2 {
+    position: absolute;
+    top: 67px;
+    left: 55px;
+    font-weight: 500;
+    color: #369fff;
+}
+.kanban {
+    position: absolute;
+    top: 131px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.respostas {
+    margin: 0;
+}
+.respostas-rpidas {
+    position: absolute;
+    top: 195px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.tarefas {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.iconlylight-outlinesetting {
+    position: absolute;
+    top: 257px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.group-inner {
+    position: absolute;
+    top: 74px;
+    left: 137px;
+    border-radius: 50%;
+    background-color: #369fff;
+    width: 8px;
+    height: 8px;
+}
+.iconlylight-outlinehome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder {
+    position: absolute;
+    top: 128px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat {
+    position: absolute;
+    top: 193px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.dashboard-parent {
+    position: absolute;
+    top: 206px;
+    left: 44px;
+    width: 145px;
+    height: 281px;
+}
+.tags {
+    position: absolute;
+    top: 67px;
+    left: 55px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.contatos {
+    position: absolute;
+    top: 3px;
+    left: 54px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.administrao {
+    position: absolute;
+    top: 323px;
+    left: 54px;
+    font-weight: 500;
+    white-space: pre-wrap;
+    cursor: pointer;
+}
+.chevron-down-1-icon1 {
+    position: absolute;
+    top: 330px;
+    left: 162px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.tags-parent {
+    position: absolute;
+    top: 518px;
+    left: 45px;
+    width: 176px;
+    height: 342px;
+}
+.chat-icon {
+    position: absolute;
+    height: 1.31%;
+    width: 1.39%;
+    top: 55%;
+    right: 95.35%;
+    bottom: 43.7%;
+    left: 3.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.removalai-a4195dd2-18cb-4e23-icon {
+    position: absolute;
+    top: 38px;
+    left: 30px;
+    width: 188px;
+    height: 57px;
+    object-fit: cover;
+}
+.base {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 10px;
+    background-color: #e2e2f2;
+    width: 34.6px;
+    height: 16.5px;
+}
+.switch {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 8.19px;
+    background-color: #343434;
+    width: 16.4px;
+    height: 16.5px;
+}
+.toggle-button {
+    position: absolute;
+    top: 1.23px;
+    left: 42.4px;
+    width: 34.6px;
+    height: 16.5px;
+}
+.modo-dark {
+    position: absolute;
+    top: 1.98px;
+    left: 82.47px;
+}
+.contrast-icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 17.7px;
+    height: 17.7px;
+}
+.other-contents {
+    position: absolute;
+    top: 107px;
+    left: 1264px;
+    width: 136.5px;
+    height: 17.7px;
+    font-size: 10px;
+    color: #343434;
+    font-family: Poppins;
+}
+.switch1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 8.19px;
+    background-color: #34d3a3;
+    width: 16.4px;
+    height: 16.5px;
+}
+.toggle-button1 {
+    position: absolute;
+    top: 233px;
+    left: 954px;
+    width: 34.6px;
+    height: 16.5px;
+}
+.todos {
+    position: absolute;
+    top: 231px;
+    left: 995px;
+    color: #343434;
+}
+.line-div {
+    position: absolute;
+    top: -1.01px;
+    left: 984.75px;
+    border-right: 2px solid #f0f0f0;
+    box-sizing: border-box;
+    width: 2px;
+    height: 148px;
+}
+.abertos {
+    position: relative;
+    font-weight: 500;
+    color: #34d3a3;
+}
+.resolvidos {
+    position: relative;
+    font-weight: 500;
+}
+.abertos-parent {
+    position: absolute;
+    top: 235px;
+    left: 296px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    text-align: right;
+    font-size: 20px;
+}
+.rectangle-div {
+    position: absolute;
+    top: 223px;
+    left: 668px;
+    border-radius: 10px;
+    background-color: #34d3a3;
+    width: 120px;
+    height: 39px;
+    cursor: pointer;
+}
+.chamados-child1 {
+    position: absolute;
+    top: 223px;
+    left: 797px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    box-sizing: border-box;
+    width: 120px;
+    height: 39px;
+}
+.novo {
+    position: absolute;
+    top: 231px;
+    left: 709px;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    width: 44px;
+    height: 23px;
+}
+.filas {
+    position: absolute;
+    top: 229px;
+    left: 814px;
+    font-size: 16px;
+    font-family: Poppins;
+}
+.div {
+    position: absolute;
+    top: 236px;
+    left: 912px;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: Poppins;
+    display: inline-block;
+    width: 21.6px;
+    transform:  rotate(90deg);
+    transform-origin: 0 0;
+}
+.content-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.aguardando {
+    position: relative;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: right;
+}
+.content {
+    width: 349px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 24px 7px 29px;
+    box-sizing: border-box;
+    gap: 116px;
+}
+.divider {
+    width: 349px;
+    position: relative;
+    background-color: #000;
+    height: 1px;
+    opacity: 0.08;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.global-list-child {
+    align-self: stretch;
+    height: 72px;
+}
+.message-component-child {
+    width: 48px;
+    position: relative;
+    border-radius: 12px;
+    height: 48px;
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.full-name-here {
+    flex: 1;
+    position: relative;
+    line-height: 150%;
+    font-weight: 600;
+}
+.m {
+    position: relative;
+    line-height: 150%;
+    font-weight: 600;
+    opacity: 0.3;
+}
+.full-name-here-parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+}
+.enter-your-message {
+    align-self: stretch;
+    position: relative;
+    font-size: 12px;
+    line-height: 150%;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.4);
+}
+.frame-parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.message-component-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.message-component {
+    align-self: stretch;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12px;
+    gap: 16px;
+}
+.frame-child {
+    width: 167px;
+    height: 22px;
+}
+.frame-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.message-component1 {
+    align-self: stretch;
+    border-radius: 12px;
+    background-color: rgba(97, 94, 240, 0.06);
+    height: 77px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12px;
+    box-sizing: border-box;
+    gap: 16px;
+}
+.message-list {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 16px;
+    gap: 8px;
+    margin-top: -64px;
+}
+.global-list {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 14px;
+    font-family: Inter;
+}
+.messages-panel {
+    position: absolute;
+    top: 295px;
+    left: 249px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 1px 0px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 0px 10px 10px 0px;
+    background-color: #fff;
+    width: 396px;
+    height: 1024px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 16px;
+}
+.user-content-child {
+    width: 40px;
+    position: relative;
+    border-radius: 10px;
+    height: 40px;
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.florencio-dorrance {
+    position: relative;
+    line-height: 125%;
+    font-weight: 600;
+}
+.frame-inner {
+    width: 10px;
+    position: relative;
+    border-radius: 50%;
+    background-color: #68d391;
+    height: 10px;
+}
+.online {
+    position: relative;
+    line-height: 150%;
+    font-weight: 600;
+    opacity: 0.6;
+}
+.ellipse-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 12px;
+}
+.user-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.panel-header {
+    width: 640px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 358px 24px 6px;
+    box-sizing: border-box;
+}
+.divider1 {
+    width: 640px;
+    position: relative;
+    background-color: #000;
+    height: 1px;
+    opacity: 0.08;
+}
+.frame-child1 {
+    width: 40px;
+    position: relative;
+    border-radius: 8.33px;
+    height: 40px;
+    overflow: hidden;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.message-content-goes {
+    position: relative;
+    line-height: 150%;
+}
+.message-item {
+    border-radius: 12px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 16px;
+}
+.message-item-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.frame-parent6 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.message-item3 {
+    border-radius: 12px;
+    background-color: rgba(32, 88, 124, 0.83);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 16px;
+}
+.frame-parent7 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 16px;
+    color: #fff;
+}
+.message-item6 {
+    width: 217px;
+    border-radius: 12px;
+    background-color: #f1f1f1;
+    height: 37px;
+    display: none;
+}
+.message-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.message-list1 {
+    width: 745px;
+    height: 694px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px;
+    box-sizing: border-box;
+    gap: 32px;
+    font-size: 14px;
+}
+.iconsax {
+    width: 24px;
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.type-a-message {
+    position: relative;
+    line-height: 150%;
+    opacity: 0.4;
+}
+.type-a-message-parent {
+    flex: 1;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 2px solid #e2e8f0;
+    box-sizing: border-box;
+    height: 48px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.message-box {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px;
+    gap: 24px;
+    font-size: 14px;
+}
+.message-panel {
+    position: absolute;
+    top: 298px;
+    left: 662px;
+    border-radius: 20px;
+    background-color: #fff;
+    width: 758px;
+    height: 1024px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 20px;
+    font-family: Inter;
+}
+.chamados-child2 {
+    position: absolute;
+    top: 349.5px;
+    left: 252.5px;
+    border-top: 3px solid #34d3a3;
+    box-sizing: border-box;
+    width: 174px;
+    height: 3px;
+}
+.chamados {
+    width: 100%;
+    position: relative;
+    background-color: #f8f8f8;
+    height: 1531px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    font-family: Manrope;
+}
+
