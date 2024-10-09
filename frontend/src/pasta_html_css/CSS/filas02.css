@@ -1,0 +1,782 @@
+.filas-chatbot-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #f8f8ff;
+    width: 238px;
+    height: 1024px;
+}
+.filas-chatbot-item {
+    position: absolute;
+    top: 0px;
+    left: 238px;
+    background-color: #f0f0f0;
+    width: 2px;
+    height: 1518px;
+}
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 16px;
+    background-color: #369fff;
+    width: 243px;
+    height: 60px;
+    opacity: 0.1;
+}
+.chevron-down-1-icon {
+    position: absolute;
+    top: 26px;
+    left: 209px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.group-item {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+.bruno-fernandes {
+    position: absolute;
+    top: 10px;
+    left: 65px;
+    font-weight: 600;
+}
+.incio {
+    position: absolute;
+    top: 34px;
+    left: 65px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #369fff;
+}
+.rectangle-parent {
+    position: absolute;
+    top: 32px;
+    left: 1157px;
+    width: 243px;
+    height: 60px;
+    color: #303030;
+}
+.claritynotification-outline-b-icon {
+    position: absolute;
+    top: 49px;
+    left: 1012px;
+    width: 25px;
+    height: 26px;
+    overflow: hidden;
+}
+.filas-chatbot1 {
+    position: absolute;
+    top: 105px;
+    left: 288px;
+    font-size: 30px;
+    color: #303030;
+}
+.span {
+    font-weight: 500;
+}
+.ol-bruno-bem-container {
+    position: absolute;
+    top: 50px;
+    left: 288px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: #0c2454;
+}
+.dashboard {
+    position: absolute;
+    top: 3px;
+    left: 55px;
+    font-weight: 600;
+    color: #369fff;
+}
+.chamados {
+    position: absolute;
+    top: 67px;
+    left: 55px;
+    font-weight: 500;
+}
+.kanban {
+    position: absolute;
+    top: 131px;
+    left: 55px;
+    font-weight: 500;
+}
+.respostas {
+    margin: 0;
+}
+.respostas-rpidas {
+    position: absolute;
+    top: 195px;
+    left: 55px;
+    font-weight: 500;
+}
+.tarefas {
+    position: absolute;
+    top: 259px;
+    left: 55px;
+    font-weight: 500;
+}
+.iconlylight-outlinesetting {
+    position: absolute;
+    top: 257px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.group-inner {
+    position: absolute;
+    top: 10px;
+    left: 137px;
+    border-radius: 50%;
+    background-color: #369fff;
+    width: 8px;
+    height: 8px;
+}
+.iconlylight-outlinehome {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinefolder {
+    position: absolute;
+    top: 128px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinechat {
+    position: absolute;
+    top: 193px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.iconlylight-outlinecategory {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.dashboard-parent {
+    position: absolute;
+    top: 206px;
+    left: 44px;
+    width: 145px;
+    height: 281px;
+}
+.contatos {
+    position: absolute;
+    top: 3px;
+    left: 54px;
+    font-weight: 500;
+}
+.administrao {
+    position: absolute;
+    top: 323px;
+    left: 54px;
+    font-weight: 500;
+    white-space: pre-wrap;
+}
+.chevron-down-1-icon1 {
+    position: absolute;
+    top: 330px;
+    left: 162px;
+    width: 14px;
+    height: 8px;
+    overflow: hidden;
+}
+.tags-parent {
+    position: absolute;
+    top: 518px;
+    left: 45px;
+    width: 176px;
+    height: 342px;
+}
+.iconlylight-outlinesetting3 {
+    position: absolute;
+    top: 319px;
+    left: 1px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+.vector-icon {
+    position: absolute;
+    height: 1.75%;
+    width: 7.1%;
+    top: 3.21%;
+    right: 0%;
+    bottom: 95.04%;
+    left: 92.9%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.informativos-parent {
+    position: absolute;
+    top: 947px;
+    left: 45px;
+    width: 169px;
+    height: 343px;
+}
+.chat-icon {
+    position: absolute;
+    height: 1.31%;
+    width: 1.39%;
+    top: 55%;
+    right: 95.35%;
+    bottom: 43.7%;
+    left: 3.26%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.removalai-a4195dd2-18cb-4e23-icon {
+    position: absolute;
+    top: 38px;
+    left: 30px;
+    width: 188px;
+    height: 57px;
+    object-fit: cover;
+}
+.filas-chatbot-inner {
+    position: absolute;
+    top: 907.5px;
+    left: 0.5px;
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(21, 13, 13, 0.4);
+    box-sizing: border-box;
+    width: 240px;
+    height: 1px;
+}
+.patients-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 15px;
+    width: 1143px;
+    height: 751px;
+}
+.nome {
+    position: absolute;
+    top: 194px;
+    left: 237px;
+}
+.all {
+    position: absolute;
+    top: 59.02px;
+    left: 776.23px;
+    font-size: 8px;
+    display: inline-block;
+    font-family: Poppins;
+    color: #fff;
+    width: 21.1px;
+    height: 36.9px;
+    text-shadow: 1px 0 0 #fbfaff, 0 1px 0 #fbfaff, -1px 0 0 #fbfaff, 0 -1px 0 #fbfaff;
+}
+.id {
+    position: absolute;
+    top: 194px;
+    left: 108px;
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+}
+.ordenao {
+    position: absolute;
+    top: 195px;
+    left: 490px;
+}
+.aes {
+    position: absolute;
+    top: 195px;
+    left: 908px;
+    display: inline-block;
+    width: 56.9px;
+    height: 18px;
+}
+.patients-item {
+    position: absolute;
+    top: 234px;
+    left: 41.64px;
+    border-radius: 10px;
+    width: 1055.3px;
+    height: 96px;
+}
+.patients-inner {
+    position: absolute;
+    top: 342px;
+    left: 43.67px;
+    border-radius: 10px;
+    width: 1055.3px;
+    height: 96px;
+}
+.rectangle-div {
+    position: absolute;
+    top: 271px;
+    left: 73.13px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child1 {
+    position: absolute;
+    top: 376px;
+    left: 73.13px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child2 {
+    position: absolute;
+    top: 78px;
+    left: 898px;
+    border-radius: 10px;
+    background-color: #34d3a3;
+    width: 184.9px;
+    height: 41px;
+}
+.adicionar {
+    position: absolute;
+    top: 87px;
+    left: 959px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    display: inline-block;
+    width: 74.1px;
+    height: 18px;
+}
+.vector-icon1 {
+    position: absolute;
+    top: 274px;
+    left: 857.22px;
+    width: 24.4px;
+    height: 24px;
+}
+.lixeira-2-icon {
+    position: absolute;
+    top: 386px;
+    left: 941.32px;
+    width: 23.5px;
+    height: 24px;
+    object-fit: cover;
+}
+.lixeira-1-icon {
+    position: absolute;
+    top: 273px;
+    left: 935.45px;
+    width: 23.5px;
+    height: 24px;
+    object-fit: cover;
+}
+.vector-icon2 {
+    position: absolute;
+    top: 381px;
+    left: 857.22px;
+    width: 24.4px;
+    height: 24px;
+}
+.color {
+    position: absolute;
+    top: 194px;
+    left: 361px;
+    display: inline-block;
+    width: 65px;
+    height: 15px;
+}
+.patients-child3 {
+    position: absolute;
+    top: 271px;
+    left: 217px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child4 {
+    position: absolute;
+    top: 271px;
+    left: 351px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child5 {
+    position: absolute;
+    top: 269px;
+    left: 497px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child6 {
+    position: absolute;
+    top: 376px;
+    left: 217px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child7 {
+    position: absolute;
+    top: 378px;
+    left: 351px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child8 {
+    position: absolute;
+    top: 376px;
+    left: 497px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.mensagem-de-saudao {
+    position: absolute;
+    top: 195px;
+    left: 618px;
+}
+.patients-child9 {
+    position: absolute;
+    top: 269px;
+    left: 661px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients-child10 {
+    position: absolute;
+    top: 375px;
+    left: 662px;
+    border-radius: 8.26px;
+    background-color: rgba(38, 50, 56, 0.24);
+    width: 86.3px;
+    height: 29px;
+}
+.patients {
+    position: absolute;
+    top: 218px;
+    left: 269px;
+    width: 1143px;
+    height: 751px;
+    color: #343434;
+}
+.filas-chatbot-child1 {
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    background-color: rgba(217, 217, 217, 0.6);
+    width: 1440px;
+    height: 1531px;
+}
+.group-child1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    width: 1094px;
+    height: 741px;
+}
+.adicionar-fila {
+    position: absolute;
+    top: 12px;
+    left: 44px;
+    font-size: 30px;
+}
+.line-div {
+    position: absolute;
+    top: 67.5px;
+    left: 2.5px;
+    border-top: 1px solid rgba(231, 231, 231, 0.6);
+    box-sizing: border-box;
+    width: 1089px;
+    height: 1px;
+}
+.group-child2 {
+    position: absolute;
+    top: 105px;
+    left: 27px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 253px;
+    height: 43px;
+}
+.group-child3 {
+    position: absolute;
+    top: 278px;
+    left: 27px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 1016px;
+    height: 160px;
+}
+.group-child4 {
+    position: absolute;
+    top: 449px;
+    left: 27px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 1016px;
+    height: 160px;
+}
+.group-child5 {
+    position: absolute;
+    top: 164px;
+    left: 27px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 1016px;
+    height: 44px;
+}
+.group-child6 {
+    position: absolute;
+    top: 221px;
+    left: 27px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 1016px;
+    height: 44px;
+}
+.group-child7 {
+    position: absolute;
+    top: 656px;
+    left: 856px;
+    border-radius: 20px;
+    background-color: #34d3a3;
+    width: 187px;
+    height: 54px;
+    cursor: pointer;
+}
+.group-child8 {
+    position: absolute;
+    top: 637px;
+    left: 127px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #34d3a3;
+    box-sizing: border-box;
+    width: 129px;
+    height: 34px;
+    cursor: pointer;
+}
+.group-child9 {
+    position: absolute;
+    top: 655px;
+    left: 664px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 1px solid #757575;
+    box-sizing: border-box;
+    width: 187px;
+    height: 54px;
+    cursor: pointer;
+}
+.adicionar1 {
+    position: absolute;
+    top: 667px;
+    left: 902px;
+    font-size: 20px;
+}
+.cancelar {
+    position: absolute;
+    top: 667px;
+    left: 711px;
+    font-size: 20px;
+}
+.opes {
+    position: absolute;
+    top: 642px;
+    left: 52px;
+}
+.adicionar2 {
+    position: absolute;
+    top: 642px;
+    left: 144px;
+}
+.nome1 {
+    position: absolute;
+    top: 116px;
+    left: 44px;
+    font-family: Manrope;
+    color: #a0a0a0;
+    display: inline-block;
+    width: 47px;
+    height: 22px;
+}
+.integrao {
+    position: absolute;
+    top: 173px;
+    left: 52px;
+    color: #a0a0a0;
+    display: inline-block;
+    width: 94px;
+    height: 20px;
+}
+.prompt {
+    position: absolute;
+    top: 230px;
+    left: 55px;
+    color: #a0a0a0;
+    display: inline-block;
+    width: 94px;
+    height: 20px;
+}
+.mensagem-de-saudao1 {
+    position: absolute;
+    top: 291px;
+    left: 53px;
+    color: #a0a0a0;
+    display: inline-block;
+    width: 212px;
+    height: 20px;
+}
+.mensagem-de-fora {
+    position: absolute;
+    top: 467px;
+    left: 52px;
+    color: #a0a0a0;
+    display: inline-block;
+    width: 276px;
+    height: 20px;
+}
+.polygon-icon {
+    position: absolute;
+    top: 182px;
+    left: 1004px;
+    width: 11.3px;
+    height: 10px;
+    object-fit: contain;
+}
+.group-child10 {
+    position: absolute;
+    top: 238px;
+    left: 1004px;
+    width: 11.3px;
+    height: 10px;
+    object-fit: contain;
+}
+.group-child11 {
+    position: absolute;
+    top: 105px;
+    left: 286px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 253px;
+    height: 43px;
+}
+.group-child12 {
+    position: absolute;
+    top: 105px;
+    left: 545px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+    width: 253px;
+    height: 43px;
+}
+.ordem-da-fila {
+    position: absolute;
+    top: 116px;
+    left: 558px;
+    font-family: Manrope;
+    color: #a0a0a0;
+}
+.dados-da-fila {
+    position: absolute;
+    top: 36px;
+    left: 590px;
+    font-size: 20px;
+    font-family: Manrope;
+}
+.horrios-de-atendimento {
+    position: absolute;
+    top: 36px;
+    left: 772px;
+    font-size: 20px;
+    font-family: Manrope;
+    cursor: pointer;
+}
+.cor {
+    position: absolute;
+    top: 116px;
+    left: 301px;
+    font-family: Manrope;
+    color: #a0a0a0;
+    display: inline-block;
+    width: 47px;
+    height: 22px;
+}
+.rectangle-group {
+    position: absolute;
+    top: 310px;
+    left: 258px;
+    width: 1094px;
+    height: 741px;
+    font-size: 16px;
+    font-family: Poppins;
+}
+.filas-chatbot-child2 {
+    position: absolute;
+    top: 376.5px;
+    left: 828.5px;
+    border-top: 3px solid #34d3a3;
+    box-sizing: border-box;
+    width: 160px;
+    height: 3px;
+}
+.filas-chatbot {
+    width: 100%;
+    position: relative;
+    background-color: #f8f8ff;
+    height: 1531px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    font-family: Manrope;
+}
+
