@@ -1,58 +1,32 @@
 import api from "../../services/api";
 
-const usePlans = () => {
-
-    const findAll = async (params) => {
-        const { data } = await api.request({
-            url: `/helps`,
-            method: 'GET',
-            params
-        });
-        return data;
+const useHelps = () => {
+  const findAll = async (params) => {
+    try {
+      const { data } = await api.request({
+        url: `/helps`,
+        method: 'GET',
+        params,
+      });
+      return data;
+    } catch (error) {
+      console.error("Erro ao buscar todos os dados:", error);
+      throw error; 
     }
+  };
 
-    const list = async (params) => {
-        const { data } = await api.request({
-            url: '/helps/list',
-            method: 'GET',
-            params
-        });
-        return data;
-    }
+  const list = async (params) => {
+  };
 
-    const save = async (data) => {
-        const { data: responseData } = await api.request({
-            url: '/helps',
-            method: 'POST',
-            data
-        });
-        return responseData;
-    }
+ 
 
-    const update = async (data) => {
-        const { data: responseData } = await api.request({
-            url: `/helps/${data.id}`,
-            method: 'PUT',
-            data
-        });
-        return responseData;
-    }
+  return {
+    findAll,
+    list,
+    save,
+    update,
+    remove,
+  };
+};
 
-    const remove = async (id) => {
-        const { data } = await api.request({
-            url: `/helps/${id}`,
-            method: 'DELETE'
-        });
-        return data;
-    }
-
-    return {
-        findAll,
-        list,
-        save,
-        update,
-        remove
-    }
-}
-
-export default usePlans;
+export default useHelps;

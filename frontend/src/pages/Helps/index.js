@@ -11,6 +11,8 @@ const useStyles = makeStyles(theme => ({
   mainPaperContainer: {
     overflowY: 'auto',
     maxHeight: 'calc(100vh - 200px)',
+    padding: theme.spacing(2),
+    backgroundColor: '#F8F8FF', 
   },
   mainPaper: {
     width: '100%',
@@ -21,61 +23,54 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(3),
   },
   helpPaper: {
-    position: 'relative',
-    width: '100%',
-    minHeight: '340px',
-    padding: theme.spacing(2),
-    boxShadow: theme.shadows[3],
-    borderRadius: theme.spacing(1),
-    cursor: 'pointer',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    maxWidth: '340px',
-  },
-  paperHover: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: theme.spacing(3),
+    boxShadow: theme.shadows[3],
+    borderRadius: theme.spacing(1),
     transition: 'transform 0.3s, box-shadow 0.3s',
+    cursor: 'pointer',
     '&:hover': {
-      transform: 'scale(1.03)',
-      boxShadow: `0 0 8px`,
-      color: theme.palette.primary.main,
+      transform: 'scale(1.05)',
+      boxShadow: `0 0 12px ${theme.palette.primary.main}`,
     },
   },
-  videoThumbnail: {
-    width: '100%',
-    height: 'calc(100% - 56px)',
-    objectFit: 'cover',
-    borderRadius: `${theme.spacing(1)}px ${theme.spacing(1)}px 0 0`,
+  helpIcon: {
+    fontSize: '3rem',
+    color: theme.palette.primary.main,
+    marginBottom: theme.spacing(1),
   },
-  videoTitle: {
-    marginTop: theme.spacing(1),
-    flex: 1,
+  helpTitle: {
+    fontWeight: 600,
+    textAlign: 'center',
+    marginBottom: theme.spacing(1),
   },
-  videoDescription: {
-    maxHeight: '100px',
-    overflow: 'hidden',
+  helpDescription: {
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
   },
   videoModal: {
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
   },
   videoModalContent: {
-    outline: 'none',
-    width: '90%',
-    maxWidth: 1024,
-    aspectRatio: '16/9',
     position: 'relative',
-    backgroundColor: 'white',
+    width: '80%',
+    height: '80%',
+    backgroundColor: '#fff', 
     borderRadius: theme.spacing(1),
-    overflow: 'hidden',
+    boxShadow: theme.shadows[5],
   },
 }));
 
 const Helps = () => {
   const classes = useStyles();
   const [records, setRecords] = useState([]);
-  const { list } = useHelps();
+  const { list } = useHelps(); 
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
@@ -133,25 +128,29 @@ const Helps = () => {
 
   const renderHelps = () => {
     return (
-      <>
-        <div className={`${classes.mainPaper} ${classes.mainPaperContainer}`}>
+      <div className={classes.mainPaperContainer}>
+        <div className={classes.mainPaper}>
           {records.length ? records.map((record, key) => (
-            <Paper key={key} className={`${classes.helpPaper} ${classes.paperHover}`} onClick={() => openVideoModal(record.video)}>
-              <img
-                src={`https://img.youtube.com/vi/${record.video}/mqdefault.jpg`}
-                alt="Thumbnail"
-                className={classes.videoThumbnail}
-              />
-              <Typography variant="button" className={classes.videoTitle}>
+            <Paper
+              key={key}
+              className={classes.helpPaper}
+              onClick={() => openVideoModal(record.video)}
+            >
+              <div className={classes.helpIcon}>
+                <IconButton>{/* Ícone aqui */}</IconButton>
+              </div>
+              
+              <Typography variant="h6" className={classes.helpTitle}>
                 {record.title}
               </Typography>
-              <Typography variant="caption" className={classes.videoDescription}>
+              
+              <Typography variant="body2" className={classes.helpDescription}>
                 {record.description}
               </Typography>
             </Paper>
           )) : null}
         </div>
-      </>
+      </div>
     );
   };
 
