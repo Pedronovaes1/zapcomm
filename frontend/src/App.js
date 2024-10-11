@@ -33,17 +33,17 @@ const App = () => {
         {
             scrollbarStyles: {
                 "&::-webkit-scrollbar": {
-                    width: '8px',
-                    height: '8px',
+                    width: '4px',
+                    height: '4px',
                 },
                 "&::-webkit-scrollbar-thumb": {
-                    boxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
-                    backgroundColor: "#682EE3",
+                    boxShadow: 'inset 0 0 2px rgba(0, 0, 0, 0.3)',
+                    backgroundColor: "#34D3A3",
                 },
             },
             scrollbarStylesSoft: {
                 "&::-webkit-scrollbar": {
-                    width: "8px",
+                    width: "4px",
                 },
                 "&::-webkit-scrollbar-thumb": {
                     backgroundColor: mode === "light" ? "#F3F3F3" : "#333333",
