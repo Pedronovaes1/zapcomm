@@ -49,7 +49,7 @@ import useVersion from "../hooks/useVersion";
 const useStyles = makeStyles((theme) => ({
   ListSubheader: {
     height: 26,
-    marginTop: "-15px",
+    marginTop: "-20px",
     marginBottom: "-10px",
   },
 }));
@@ -69,8 +69,8 @@ function ListItemLink(props) {
   return (
     <li>
       <ListItem button dense component={renderLink} className={className}>
-        {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-        <ListItemText primary={primary} />
+        {icon ? <ListItemIcon style={{marginTop:"20px"}}>{icon}</ListItemIcon> : null}
+        <ListItemText primary={primary} style={{marginTop: "20px"}}/>
       </ListItem>
     </li>
   );
@@ -283,8 +283,8 @@ const MainListItems = (props) => {
   };
 
   return (
-    <div onClick={drawerClose}>
-      <Can
+    <div onClick={drawerClose}> 
+      <Can //usado para verificar a permissão do usuário 
         role={user.profile}
         perform="dashboard:view"
         yes={() => (
@@ -355,6 +355,7 @@ const MainListItems = (props) => {
         to="/helps"
         primary={i18n.t("mainDrawer.listItems.helps")}
         icon={<HelpOutlineIcon />}
+        style={{ marginBottom: "20px" }}
       />
 
       <Can
@@ -362,7 +363,7 @@ const MainListItems = (props) => {
         perform="drawer-admin-items:view"
         yes={() => (
           <>
-            <Divider />
+            <Divider style={{marginTop:"10px"}}/>
             <ListSubheader
               hidden={collapsed}
               style={{
@@ -484,11 +485,6 @@ const MainListItems = (props) => {
                 />
               </>
             )}
-            <ListItemLink
-              to="/financeiro"
-              primary={i18n.t("mainDrawer.listItems.financeiro")}
-              icon={<LocalAtmIcon />}
-            />
 
             <ListItemLink
               to="/settings"
