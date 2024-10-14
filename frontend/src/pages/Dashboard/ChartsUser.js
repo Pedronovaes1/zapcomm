@@ -107,9 +107,6 @@ export const ChatsUser = () => {
 
     return (
         <>
-            <Typography component="h2" variant="h6" color="primary" gutterBottom>
-                Total de Conversas por Usuários
-            </Typography>
 
             <Stack direction={'row'} spacing={2} alignItems={'center'} sx={{ my: 2, }} >
 
@@ -135,7 +132,7 @@ export const ChatsUser = () => {
                 <Button className="buttonHover" onClick={handleGetTicketsInformation} variant='contained'>Filtrar</Button>
 
             </Stack>
-            <Bar options={options} data={dataCharts} style={{ maxWidth: '100%', maxHeight: '280px', }} />
+            <Bar options={options} data={dataCharts} style={{ maxWidth: '80%', maxHeight: '280px', }} />
         </>
     );
 }
