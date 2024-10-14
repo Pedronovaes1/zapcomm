@@ -15,6 +15,7 @@ import { i18n } from "../../translate/i18n";
 import { nomeEmpresa } from "../../../package.json";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import logo from "../../assets/logo.png";
+import Moneyverse from "../../assets/Moneyverse.png";
 
 
 const Copyright = () => {
@@ -32,38 +33,60 @@ const Copyright = () => {
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		width: "100vw",
-		height: "100vh",
+		width: "100%",
 		//background: "linear-gradient(to right, #682EE3 , #682EE3 , #682EE3)",
 		//backgroundImage: "url(https://i.imgur.com/CGby9tN.png)",
-		backgroundColor: theme.palette.primary.main,
+		backgroundColor: "#FFFFFF",
 		backgroundRepeat: "no-repeat",
 		backgroundSize: "100% 100%",
-		backgroundPosition: "center",
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
 		justifyContent: "center",
 		textAlign: "center",
+		margin: "0",
+		padding: "0",
+		boxSizing: "border-box",
+	},
+	container:{
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-around",
+		height: "100vh",
+		boxSizing: "border-box",
+		paddingLeft: "0",
+		paddingRight: "0",
 	},
 	paper: {
-		backgroundColor: theme.palette.login,
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		padding: "55px 30px",
-		borderRadius: "12.5px",
+		width: "65%",
 	},
+	infoContainer: {
+		backgroundColor: "#0C2454",
+		color: "#FFFFFF",
+		padding: theme.spacing(4),
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+		width: "35%",
+		height: "100%",
+    },
 	avatar: {
-		margin: theme.spacing(1),  
+	 
 		backgroundColor: theme.palette.secondary.main,
 	},
 	form: {
-		width: "100%", // Fix IE 11 issue.
+		width: "50%", // Fix IE 11 issue.
 		marginTop: theme.spacing(1),
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
+		backgroundColor: "#34D3A3",
+		color: "black",
 	},
 	powered: {
 		color: "white"
@@ -88,79 +111,89 @@ const Login = () => {
 
 	
 	return (
-		<div className={classes.root}>
-		<Container component="main" maxWidth="xs">
-			<CssBaseline/>
-			<div className={classes.paper}>
-				<div>
-					<img style={{ margin: "0 auto", width: "70%" }} src={logo} alt="Whats" />
-				</div>
-				{/*<Typography component="h1" variant="h5">
-					{i18n.t("login.title")}
-				</Typography>*/}
-				<form className={classes.form} noValidate onSubmit={handlSubmit}>
-					<TextField
-						variant="outlined"
-						margin="normal"
-						required
-						fullWidth
-						id="email"
-						label={i18n.t("login.form.email")}
-						name="email"
-						value={user.email}
-						onChange={handleChangeInput}
-						autoComplete="email"
-						autoFocus
-					/>
-					<TextField
-						variant="outlined"
-						margin="normal"
-						required
-						fullWidth
-						name="password"
-						label={i18n.t("login.form.password")}
-						type="password"
-						id="password"
-						value={user.password}
-						onChange={handleChangeInput}
-						autoComplete="current-password"
-					/>
+		<Box className={classes.root}>
+			<CssBaseline />
+			<Container className={classes.container} component="main" maxWidth="false">
+				<CssBaseline />	
+				<div className={classes.paper}>
 					
-					{/* <Grid container justify="flex-end">
-					  <Grid item xs={6} style={{ textAlign: "right" }}>
-						<Link component={RouterLink} to="/forgetpsw" variant="body2">
-						  Esqueceu sua senha?
-						</Link>
-					  </Grid>
-					</Grid>*/}
+					<img style={{ margin: "40px auto", width: "35%" }} src={logo} alt="Whats" />
 					
-					<Button
-						type="submit"
-						fullWidth
-						variant="contained"
-						color="primary"
-						className={classes.submit}
-					>
-						{i18n.t("login.buttons.submit")}
-					</Button>
-					{ <Grid container>
-						<Grid item>
-							<Link
-								href="#"
-								variant="body2"
-								component={RouterLink}
-								to="/signup"
-							>
-								{i18n.t("login.buttons.register")}
+					{/*<Typography component="h1" variant="h5">
+						{i18n.t("login.title")}
+					</Typography>*/}
+					<form className={classes.form} noValidate onSubmit={handlSubmit}>
+						<TextField
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="email"
+							label={i18n.t("login.form.email")}
+							name="email"
+							value={user.email}
+							onChange={handleChangeInput}
+							autoComplete="email"
+							autoFocus
+						/>
+						<TextField //esses textfield faz a página principal do container
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							name="password"
+							label={i18n.t("login.form.password")}
+							type="password"
+							id="password"
+							value={user.password}
+							onChange={handleChangeInput}
+							autoComplete="current-password"
+						/>
+						
+						{/* <Grid container justify="flex-end">
+						<Grid item xs={6} style={{ textAlign: "right" }}>
+							<Link component={RouterLink} to="/forgetpsw" variant="body2">
+							Esqueceu sua senha?
 							</Link>
 						</Grid>
-					</Grid> }
-				</form>
-			
-			</div>
-			<Box mt={8}><Copyright /></Box>
+						</Grid>*/}
+						
+						<Button
+							type="submit"
+							fullWidth
+							variant="contained"
+							color="primary"
+							className={classes.submit}
+						>
+							{i18n.t("login.buttons.submit")}
+						</Button>
+						{ <Grid container>
+							<Grid item>
+								<Link
+									href="#"
+									variant="body2"
+									component={RouterLink}
+									to="/signup"
+								>
+									{i18n.t("login.buttons.register")}
+								</Link>
+							</Grid>
+						</Grid> }
+					</form>	
+				</div>
+				<div className={classes.infoContainer}>
+					<img src={Moneyverse} style={{ filter: "brightness(1.1) contrast(1.2) saturate(1.0)"}}/>
+					<Typography variant="h5" style={{textAlign:"justify", marginTop: "40px"}}>Seja Bem-vindo!</Typography>
+					<ul style={{ lineHeight: "30px", fontSize:"14px", textAlign: "justify", fontWeight: "200"}}>
+						<li>Lorem Ipsum is simply dummy. </li>
+						<li>Lorem Ipsum is simply dummy. </li>
+						<li>ULorem Ipsum is simply dummy. </li>
+						<li>Lorem Ipsum is simply dummy.</li>
+					</ul>
+				</div>
+				{/*<Box mt={8}><Copyright /></Box>*/}
 		</Container>
-		</div>
+		</Box>
 	);
 };
 

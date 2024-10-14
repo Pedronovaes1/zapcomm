@@ -33,17 +33,17 @@ const App = () => {
         {
             scrollbarStyles: {
                 "&::-webkit-scrollbar": {
-                    width: '8px',
-                    height: '8px',
+                    width: '4px',
+                    height: '4px',
                 },
                 "&::-webkit-scrollbar-thumb": {
-                    boxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
-                    backgroundColor: "#682EE3",
+                    boxShadow: 'inset 0 0 2px rgba(0, 0, 0, 0.3)',
+                    backgroundColor: "#34D3A3",
                 },
             },
             scrollbarStylesSoft: {
                 "&::-webkit-scrollbar": {
-                    width: "8px",
+                    width: "4px",
                 },
                 "&::-webkit-scrollbar-thumb": {
                     backgroundColor: mode === "light" ? "#F3F3F3" : "#333333",
@@ -51,8 +51,8 @@ const App = () => {
             },
             palette: {
                 type: mode,
-                primary: { main: mode === "light" ? "#682EE3" : "#FFFFFF" },
-                textPrimary: mode === "light" ? "#682EE3" : "#FFFFFF",
+                primary: { main: mode === "light" ? "#0C2454" : "#FFFFFF" },
+                textPrimary: mode === "light" ? "#0c2c54" : "#FFFFFF",
                 borderPrimary: mode === "light" ? "#682EE3" : "#FFFFFF",
                 dark: { main: mode === "light" ? "#333333" : "#F3F3F3" },
                 light: { main: mode === "light" ? "#F3F3F3" : "#333333" },
@@ -60,7 +60,7 @@ const App = () => {
                 optionsBackground: mode === "light" ? "#fafafa" : "#333",
 				options: mode === "light" ? "#fafafa" : "#666",
 				fontecor: mode === "light" ? "#128c7e" : "#fff",
-                fancyBackground: mode === "light" ? "#fafafa" : "#333",
+                fancyBackground: mode === "light" ? "#F8F8FF" : "#333",
 				bordabox: mode === "light" ? "#eee" : "#333",
 				newmessagebox: mode === "light" ? "#eee" : "#333",
 				inputdigita: mode === "light" ? "#fff" : "#666",
@@ -74,7 +74,7 @@ const App = () => {
                 total: mode === "light" ? "#fff" : "#222",
                 messageIcons: mode === "light" ? "grey" : "#F3F3F3",
                 inputBackground: mode === "light" ? "#FFFFFF" : "#333",
-                barraSuperior: mode === "light" ? "linear-gradient(to right, #682EE3, #682EE3 , #682EE3)" : "#666",
+                barraSuperior: mode === "light" ? "#F8F8FF" : "#666",
 				boxticket: mode === "light" ? "#EEE" : "#666",
 				campaigntab: mode === "light" ? "#ededed" : "#666",
 				mediainput: mode === "light" ? "#ededed" : "#1c1c1c",

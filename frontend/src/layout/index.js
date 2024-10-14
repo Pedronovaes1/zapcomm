@@ -10,6 +10,7 @@ import {
   Typography,
   Divider,
   MenuItem,
+  Button,
   IconButton,
   Menu,
   useTheme,
@@ -20,6 +21,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import CachedIcon from "@material-ui/icons/Cached";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import MainListItems from "./MainListItems";
 import NotificationsPopOver from "../components/NotificationsPopOver";
@@ -41,6 +43,7 @@ import { useDate } from "../hooks/useDate";
 import ColorModeContext from "../layout/themeContext";
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import VerticalLine from "../components/VerticalLine/VerticalLine";
 
 const drawerWidth = 240;
 
@@ -53,9 +56,9 @@ const useStyles = makeStyles((theme) => ({
     },
     backgroundColor: theme.palette.fancyBackground,
     '& .MuiButton-outlinedPrimary': {
-      color: theme.mode === 'light' ? '#FFF' : '#FFF',
+      color: theme.mode === 'light' ? '#F8F8FF' : '#FFF',
 	  //backgroundColor: theme.mode === 'light' ? '#682ee2' : '#682ee2',
-	backgroundColor: theme.mode === 'light' ? theme.palette.primary.main : '#1c1c1c',
+	  backgroundColor: theme.mode === 'light' ? theme.palette.primary.main : '#F8F8FF',
       //border: theme.mode === 'light' ? '1px solid rgba(0 124 102)' : '1px solid rgba(255, 255, 255, 0.5)',
     },
     '& .MuiTab-textColorPrimary.Mui-selected': {
@@ -69,13 +72,17 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 24, // keep right padding when drawer closed
     color: theme.palette.dark.main,
     background: theme.palette.barraSuperior,
+
   },
-  toolbarIcon: {
+  toolbarIcon: { /* Aqui fica a parte do drawer com a logo */
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "0 8px",
+    padding: "10px",
+    paddingBottom: "40px",
+    paddingTop: "33px",
     minHeight: "48px",
+    backgroundColor: theme.palette.fancyBackground,
     [theme.breakpoints.down("sm")]: {
       height: "48px"
     }
@@ -100,14 +107,16 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: 36,
+    color: "#0C2454",
   },
   menuButtonHidden: {
     display: "none",
+    color: "#0C2454",
   },
   title: {
     flexGrow: 1,
     fontSize: 14,
-    color: "white",
+    color: "#0C2454",
   },
   drawerPaper: {
     position: "relative",
@@ -130,7 +139,7 @@ const useStyles = makeStyles((theme) => ({
     }),
     width: theme.spacing(7),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9),
+      width: theme.spacing(10),
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%"
@@ -156,12 +165,23 @@ const useStyles = makeStyles((theme) => ({
   },
   containerWithScroll: {
     flex: 1,
+    backgroundColor: theme.palette.fancyBackground,
     padding: theme.spacing(1),
     overflowY: "scroll",
     ...theme.scrollbarStyles,
   },
   NotificationsPopOver: {
     // color: theme.barraSuperior.secondary.main,
+  },
+  Profile:{
+    padding: "20px 60px", 
+    margin: "7px 0px",
+    backgroundColor: "rgba(54, 159, 255, 0.15)",
+    color:"#000000", 
+    borderRadius: "10px", 
+    display:"flex", 
+    alignItems:"center",
+    cursor: "pointer",
   },
   logo: {
     width: "80%",
@@ -350,11 +370,11 @@ const LoggedInLayout = ({ children, themeToggle }) => {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <Divider />
+        
         <List className={classes.containerWithScroll}>
           <MainListItems drawerClose={drawerClose} collapsed={!drawerOpen} />
         </List>
-        <Divider />
+        
       </Drawer>
       <UserModal
         open={userModalOpen}
@@ -365,6 +385,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
         position="absolute"
         className={clsx(classes.appBar, drawerOpen && classes.appBarShift)}
         color="primary"
+        style={{ border: "none", boxShadow: "none"}}
       >
         <Toolbar variant="dense" className={classes.toolbar}>
           <IconButton
@@ -396,44 +417,61 @@ const LoggedInLayout = ({ children, themeToggle }) => {
               <>
                 Olá  <b>{user.name}</b>, Bem vindo a <b>{user?.company?.name}</b>!
               </>
-            )}
+            )} 
           </Typography>
-
-          <IconButton edge="start" onClick={toggleColorMode}>
-            {theme.mode === 'dark' ? <Brightness7Icon style={{ color: "white" }} /> : <Brightness4Icon style={{ color: "white" }} />}
-          </IconButton>
-
+          <VerticalLine/>
+          
+        <div style={{display: "flex", flexDirection: "column", alignItems: "end"}}>
+          
+          { /*
           <NotificationsVolume
             setVolume={setVolume}
             volume={volume}
           />
-
+          
           <IconButton
             onClick={handleRefreshPage}
             aria-label={i18n.t("mainDrawer.appBar.refresh")}
             color="inherit"
+            style={{ color: "#0c2c54" }} 
           >
-            <CachedIcon style={{ color: "white" }} />
-          </IconButton>
+            <CachedIcon style={{ color: "#0c2c54" }} />
+          </IconButton> }
 
-          {user.id && <NotificationsPopOver volume={volume} />}
-
-          <AnnouncementsPopover />
-
-          <ChatPopover />
-
-          <div>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              variant="contained"
-              style={{ color: "white" }}
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
+          {user.id && <NotificationsPopOver volume={volume} /> */}
+ 
+          {/*Essa é a parte do botão de usuário*/}
+         <div style={{display: "flex", flexDirection:"row", alignItems:"initial"}}>
+          <AnnouncementsPopover/>
+          <div 
+            className={classes.Profile}
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenu}
+          >
+             
+              <AccountCircle  style={{color: "#0C2454"}}/>   
+              <div style={{display: "flex", alignItems: "center"}}>
+                <Typography variant="caption" style={{marginLeft: "7px"}}>
+                  {user.name}
+                </Typography>                  
+              </div>
+              <ArrowDropDownIcon />
+              
+          </div>
+          
+          </div>
+          <Button edge="start" onClick={toggleColorMode} style={{marginBottom: "4px"}}>
+            {theme.mode === 'dark' ? <Brightness7Icon style={{ color: "white" }} /> : <Brightness4Icon style={{ color: "#0c2c54", width: 20 }} />}
+            <Typography 
+            component="h6"
+            variant="arial"
+            style={{marginLeft: "7px"}}>
+              {theme.mode === 'dark' ? 'Modo dark' : 'Modo claro'}  
+            </Typography>
+          </Button> 
+          <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
               getContentAnchorEl={null}
@@ -448,14 +486,14 @@ const LoggedInLayout = ({ children, themeToggle }) => {
               open={menuOpen}
               onClose={handleCloseMenu}
             >
-              <MenuItem onClick={handleOpenUserModal}>
-                {i18n.t("mainDrawer.appBar.user.profile")}
-              </MenuItem>
-              <MenuItem onClick={handleClickLogout}>
-                {i18n.t("mainDrawer.appBar.user.logout")}
-              </MenuItem>
-            </Menu>
-          </div>
+                <MenuItem onClick={handleOpenUserModal}>
+                  {i18n.t("mainDrawer.appBar.user.profile")}
+                </MenuItem>
+                <MenuItem onClick={handleClickLogout}>
+                  {i18n.t("mainDrawer.appBar.user.logout")}
+                </MenuItem>
+            </Menu>  
+        </div>  
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
