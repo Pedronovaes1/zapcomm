@@ -55,6 +55,9 @@ import moment from "moment";
 import { ChartsDate } from "./ChartsDate";
 import Box from "@material-ui/core/Box";
 import VerticalLine from "../../components/VerticalLine/VerticalLine";
+import Intersect from "../../assets/Intersect.png";
+
+import api from '../../services/api';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -184,6 +187,14 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  GeralCard:{
+    display: "flex", 
+    flexDirection: "row",
+    width: "100%",
+    gap: "20px", 
+    alignItems:"center",
+    justifyContent: "center",
+  },
   card5: {
     padding: theme.spacing(2),
     display: "flex",
@@ -236,8 +247,10 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeightPaper2: {
     padding: theme.spacing(2),
+    marginTop: "30px",
     display: "flex",
     overflow: "auto",
+    alignItems: "center",
     flexDirection: "column",
   },
 }));
@@ -451,7 +464,7 @@ const Dashboard = () => {
          
           <div style={{display: "flex", flexDirection: "column", paddingLeft: "30px",paddingRight: "20px",gap: "20px",width: "65%"}}>  
             {/* CARDS */}  
-            <div style={{display: "flex", flexDirection: "row",width: "100%",gap: "20px",justifyContent: "center", alignItems:"center"}}>
+            <div className={classes.GeralCard}>
               {/* EM ATENDIMENTO */}
               <Grid item xs={12} sm={6} md={4}>
                 <Paper
@@ -477,6 +490,7 @@ const Dashboard = () => {
                           {counters.supportHappening}
                         </Typography>
                       </Grid>
+                  
                     </Grid>
                   </Grid>
                 </Paper>
@@ -514,7 +528,7 @@ const Dashboard = () => {
             </div>        
 
             {/*Cards e gráficos*/}
-            <div style={{display: "flex", flexDirection: "row",width: "100%",gap: "20px", alignItems:"center",justifyContent: "center"}}>
+            <div className={classes.GeralCard}>
               {/* FINALIZADOS */}
               <Grid item xs={12} sm={6} md={4}>
                 <Paper
@@ -575,15 +589,23 @@ const Dashboard = () => {
                 </Paper>  
               </Grid>
               </div>
+              {/*Gráficos */}
               {/* TOTAL DE ATENDIMENTOS POR USUARIO */}
-              <Grid item xs={12}>
-                <Paper className={classes.fixedHeightPaper2}>
+              <Grid item xs={12} style={{marginTop: "30px"}}>
+                <Typography component="h2" variant="h6" color="primary" gutterBottom>
+                Total de Conversas por Usuários
+                </Typography>
+                <Paper className={classes.fixedHeightPaper2}> 
                   <ChatsUser />
                 </Paper>
               </Grid>
 
               {/* TOTAL DE ATENDIMENTOS */}
-              <Grid item xs={12}>
+                <Grid item xs={12}>
+                <Typography component="h2" variant="h6" color="primary" gutterBottom>
+                  Total de Conversas
+                </Typography>
+
                 <Paper className={classes.fixedHeightPaper2}>
                   <ChartsDate />
                 </Paper>
@@ -591,7 +613,7 @@ const Dashboard = () => {
             
           </div>
 
-          <div style={{width: "35%"}}> 
+        <div style={{width: "35%"}}> 
             <div style={{display: "flex",flexDirection: "column", gap:"10px", alignItems: "flex-start", justifyContent: "center", marginBottom: "30px", marginTop: "50px"}}>
               <Typography
                 variant="h6"
@@ -664,8 +686,8 @@ const Dashboard = () => {
 
 
 		  
-		  {/* FILTROS */}
-          <Grid item xs={12} sm={6} md={4} style={{marginTop: "100px"}}>
+		      {/* FILTROS */}
+          <Grid item xs={12} sm={6} md={4} style={{marginTop: "130px"}}>
             < Typography
               variant="h6"
               style={{marginLeft: "60px"}}
@@ -710,7 +732,7 @@ const Dashboard = () => {
               />
             ) : null}
           </Grid>
-          </div>
+        </div>
 
 
           {/* ATENDENTES ATIVOS */}
