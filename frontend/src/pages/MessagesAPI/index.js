@@ -15,8 +15,13 @@ import usePlans from "../../hooks/usePlans";
 const useStyles = makeStyles((theme) => ({
   mainPaper: {
     flex: 1,
-    padding: theme.spacing(2),
-    paddingBottom: 100
+    padding: theme.spacing(10),
+    paddingBottom: 100,
+    paddingTop: 100,
+    marginTop: "100px",
+    marginLeft: "40px",
+    borderRadius: "10px",
+    boxShadow: "0px 0px 1px 0px #333",
   },
   mainHeader: {
     marginTop: theme.spacing(1),
@@ -161,9 +166,10 @@ const MessagesAPI = () => {
               <Grid item xs={12} className={classes.textRight}>
                 <Button
                   type="submit"
-                  color="primary"
+                  
                   variant="contained"
                   className={classes.btnWrapper}
+                  style={{backgroundColor: "#34D3A3"}}
                 >
                   {isSubmitting ? (
                     <CircularProgress
@@ -231,9 +237,10 @@ const MessagesAPI = () => {
               <Grid item xs={12} className={classes.textRight}>
                 <Button
                   type="submit"
-                  color="primary"
+                  
                   variant="contained"
                   className={classes.btnWrapper}
+                  style={{backgroundColor: "#34D3A3"}}
                 >
                   {isSubmitting ? (
                     <CircularProgress
