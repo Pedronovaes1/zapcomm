@@ -15,13 +15,16 @@ import usePlans from "../../hooks/usePlans";
 const useStyles = makeStyles((theme) => ({
   mainPaper: {
     flex: 1,
-    padding: theme.spacing(10),
+    padding: theme.spacing(6),
     paddingBottom: 100,
     paddingTop: 100,
     marginTop: "100px",
-    marginLeft: "40px",
+    marginLeft: "50px",
+    marginRight: "40px",
+    marginBottom: "50px",
     borderRadius: "10px",
     boxShadow: "0px 0px 1px 0px #333",
+
   },
   mainHeader: {
     marginTop: theme.spacing(1),
@@ -260,7 +263,6 @@ const MessagesAPI = () => {
   return (
     <Paper
       className={classes.mainPaper}
-      style={{marginLeft: "5px"}}
       // className={classes.elementMargin}
       variant="outlined"
     >
