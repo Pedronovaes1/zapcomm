@@ -125,11 +125,11 @@ export const ChatsUser = () => {
                         value={finalDate}
                         onChange={(newValue) => { setFinalDate(newValue) }}
                         label="Fim"
-                        renderInput={(params) => <TextField fullWidth {...params} sx={{ width: '20ch' }} />}
+                        renderInput={(params) => <TextField fullWidth {...params} sx={{ width: '10ch' }} />}
                     />
                 </LocalizationProvider>
 
-                <Button className="buttonHover" onClick={handleGetTicketsInformation} variant='contained'>Filtrar</Button>
+                <Button className="buttonHover" onClick={handleGetTicketsInformation} variant='contained' >Filtrar</Button>
 
             </Stack>
             <Bar options={options} data={dataCharts} style={{ maxWidth: '80%', maxHeight: '280px', }} />
