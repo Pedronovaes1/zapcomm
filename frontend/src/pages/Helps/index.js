@@ -12,10 +12,15 @@ import { i18n } from "../../translate/i18n";
 
 const useStyles = makeStyles(theme => ({
   mainPaperContainer: {
-    overflowY: 'auto',
+    overflow: 'auto', // Permite rolagem
     maxHeight: 'calc(100vh - 200px)',
     padding: theme.spacing(2),
     backgroundColor: '#F8F8FF',
+    position: 'relative', // Necessário para o scrollbar
+    '&::-webkit-scrollbar': {
+      display: 'none', // Oculta a barra de rolagem no Chrome e Safari
+    },
+    scrollbarWidth: 'none', // Oculta a barra de rolagem no Firefox
   },
   mainPaper: {
     width: '100%',
@@ -103,7 +108,6 @@ const useStyles = makeStyles(theme => ({
 const Helps = () => {
   const classes = useStyles();
 
-
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const helpsData = [
@@ -153,7 +157,6 @@ const Helps = () => {
   const openVideoModal = (videoId) => {
     setSelectedVideo(videoId);
   };
-
 
   const closeVideoModal = () => {
     setSelectedVideo(null);
