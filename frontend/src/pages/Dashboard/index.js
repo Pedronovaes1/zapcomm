@@ -57,6 +57,8 @@ import Box from "@material-ui/core/Box";
 import VerticalLine from "../../components/VerticalLine/VerticalLine";
 import Intersect from "../../assets/Intersect.png";
 
+import api from '../../services/api';
+
 const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: theme.spacing(10),
@@ -245,7 +247,7 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeightPaper2: {
     padding: theme.spacing(2),
-    marginTop: "60px",
+    marginTop: "30px",
     display: "flex",
     overflow: "auto",
     alignItems: "center",
@@ -488,7 +490,7 @@ const Dashboard = () => {
                           {counters.supportHappening}
                         </Typography>
                       </Grid>
-                      {/*<img src={Intersect}/> */}
+                  
                     </Grid>
                   </Grid>
                 </Paper>
@@ -589,7 +591,7 @@ const Dashboard = () => {
               </div>
               {/*Gráficos */}
               {/* TOTAL DE ATENDIMENTOS POR USUARIO */}
-              <Grid item xs={12}>
+              <Grid item xs={12} style={{marginTop: "30px"}}>
                 <Typography component="h2" variant="h6" color="primary" gutterBottom>
                 Total de Conversas por Usuários
                 </Typography>
@@ -599,8 +601,11 @@ const Dashboard = () => {
               </Grid>
 
               {/* TOTAL DE ATENDIMENTOS */}
-              <Grid item xs={12}>
-                
+                <Grid item xs={12}>
+                <Typography component="h2" variant="h6" color="primary" gutterBottom>
+                  Total de Conversas
+                </Typography>
+
                 <Paper className={classes.fixedHeightPaper2}>
                   <ChartsDate />
                 </Paper>
@@ -682,7 +687,7 @@ const Dashboard = () => {
 
 		  
 		      {/* FILTROS */}
-          <Grid item xs={12} sm={6} md={4} style={{marginTop: "100px"}}>
+          <Grid item xs={12} sm={6} md={4} style={{marginTop: "130px"}}>
             < Typography
               variant="h6"
               style={{marginLeft: "60px"}}
