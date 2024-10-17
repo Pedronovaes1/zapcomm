@@ -233,9 +233,18 @@ const Quickemessages = () => {
           <Grid xs={12} sm={8} item>
             <Title>{i18n.t("quickMessages.title")}</Title>
           </Grid>
-          <Grid xs={12} sm={4} item>
-            <Grid spacing={2} container>
-              <Grid xs={6} sm={6} item>
+
+        </Grid>
+      </MainHeader>
+      <Paper
+        className={classes.mainPaper}
+        variant="outlined"
+        onScroll={handleScroll}
+        style={{display: "flex", alignItems: "center", flexDirection: "column"}}
+      >
+      <Grid xs={12} sm={4} >
+            <Grid spacing={2} container alignItems="center" justifyContent="center" > 
+              <Grid xs={6} sm={6} item >
                 <TextField
                   fullWidth
                   placeholder={i18n.t("quickMessages.searchPlaceholder")}
@@ -248,7 +257,9 @@ const Quickemessages = () => {
                         <SearchIcon style={{ color: "gray" }} />
                       </InputAdornment>
                     ),
+                    disableUnderline: true, // Remove a linha inferior
                   }}
+                  style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "10px"}}
                 />
               </Grid>
               <Grid xs={6} sm={6} item>
@@ -256,20 +267,13 @@ const Quickemessages = () => {
                   fullWidth
                   variant="contained"
                   onClick={handleOpenQuickMessageDialog}
-                  color="primary"
+                  color="secondary"
                 >
                   {i18n.t("quickMessages.buttons.add")}
                 </Button>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </MainHeader>
-      <Paper
-        className={classes.mainPaper}
-        variant="outlined"
-        onScroll={handleScroll}
-      >
         <Table size="small">
           <TableHead>
             <TableRow>
