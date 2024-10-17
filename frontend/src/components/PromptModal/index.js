@@ -13,354 +13,334 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { i18n } from "../../translate/i18n";
-import { MenuItem, FormControl, InputLabel, Select } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { InputAdornment, IconButton } from "@material-ui/core";
-import QueueSelectSingle from "../../components/QueueSelectSingle";
+
+import QueueSelectSingle from "../../components/QueueSelectSingle"; 
 
 import api from "../../services/api";
 import toastError from "../../errors/toastError";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        display: "flex",
-        flexWrap: "wrap",
-    },
-    multFieldLine: {
-        display: "flex",
-        "& > *:not(:last-child)": {
-            marginRight: theme.spacing(1),
-        },
-    },
-
-    btnWrapper: {
-        position: "relative",
-    },
-
-    buttonProgress: {
-        color: green[500],
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        marginTop: -12,
-        marginLeft: -12,
-    },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-    },
-    colorAdorment: {
-        width: 20,
-        height: 20,
-    },
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  btnWrapper: {
+    position: "relative",
+  },
+  buttonProgress: {
+    color: green[500],
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    marginTop: -12,
+    marginLeft: -12,
+  },
+  fieldSpacing: {
+    marginBottom: theme.spacing(2), 
+  },
 }));
 
 const PromptSchema = Yup.object().shape({
-    name: Yup.string().min(5, "Muito curto!").max(100, "Muito longo!").required("Obrigatório"),
-    prompt: Yup.string().min(50, "Muito curto!").required("Descreva o treinamento para Inteligência Artificial"),
-    voice: Yup.string().required("Informe o modo para Voz"),
-    max_tokens: Yup.number().required("Informe o número máximo de tokens"),
-    temperature: Yup.number().required("Informe a temperatura"),
-    apikey: Yup.string().required("Informe a API Key"),
-    queueId: Yup.number().required("Informe a fila"),
-    max_messages: Yup.number().required("Informe o número máximo de mensagens")
+  modelName: Yup.string().min(5, "Muito curto!").max(100, "Muito longo!").required("Obrigatório"),
+  trainingPrompt: Yup.string().min(50, "Muito curto!").required("Descreva o prompt para Inteligência Artificial"),
+  maxTokensLimit: Yup.number().required("Informe o número máximo de tokens").min(1, "O número máximo de tokens deve ser maior que zero"),
+  responseTokenLimit: Yup.number().required("Informe o número máximo de tokens na resposta").min(1, "O número máximo de tokens deve ser maior que zero"),
+  temperatureValue: Yup.number().required("Informe a temperatura").min(0, "A temperatura deve ser maior ou igual a zero"),
+  apiKeyValue: Yup.string().required("Informe a API Key"),
+  queueId: Yup.number().required("Informe a fila").nullable(), 
+  maxMsgCount: Yup.number().required("Informe o número máximo de mensagens").min(1, "O número máximo de mensagens deve ser maior que zero"),
+  stopSeq: Yup.string().required("Informe a sequência de parada"), 
+  freqPenalty: Yup.number().required("Informe a penalidade de frequência").min(0, "Deve ser maior ou igual a zero"), 
+  presencePenaltyValue: Yup.number().required("Informe a penalidade de presença").min(0, "Deve ser maior ou igual a zero"), 
+
+  
+  voiceName: Yup.string().required("Informe a voz"),
+  voiceApiKey: Yup.string().required("Informe a Chave da API de voz"),
+  voiceRegion: Yup.string().required("Informe a região de voz"),
+  maxMessageHistory: Yup.number().required("Informe o número máximo de mensagens no histórico").min(1, "Deve ser maior que zero"),
+  maxResponseTokens: Yup.number().required("Informe o número máximo de tokens na resposta").min(1, "Deve ser maior que zero"),
 });
 
 const PromptModal = ({ open, onClose, promptId }) => {
-    const classes = useStyles();
-    const [selectedVoice, setSelectedVoice] = useState("texto");
-    const [showApiKey, setShowApiKey] = useState(false);
+  const classes = useStyles();
+  const [showApiKey, setShowApiKey] = useState(false);
 
-    const handleToggleApiKey = () => {
-        setShowApiKey(!showApiKey);
-    };
+  const handleToggleApiKey = () => {
+    setShowApiKey(!showApiKey);
+  };
 
-    const initialState = {
-        name: "",
-        prompt: "",
-        voice: "texto",
-        voiceKey: "",
-        voiceRegion: "",
-        maxTokens: 100,
-        temperature: 1,
-        apiKey: "",
-        queueId: null,
-        maxMessages: 10
-    };
+  const initialState = {
+    modelName: "",
+    trainingPrompt: "",
+    maxTokensLimit: 100,
+    responseTokenLimit: 50, 
+    temperatureValue: 1,
+    apiKeyValue: "",
+    queueId: null, 
+    maxMsgCount: 10,
+    stopSeq: "", 
+    freqPenalty: 0, 
+    presencePenaltyValue: 0, 
 
-    const [prompt, setPrompt] = useState(initialState);
+    
+    voiceName: "", 
+    voiceApiKey: "", 
+    voiceRegion: "", 
+    maxMessageHistory: 10, 
+    maxResponseTokens: 50, 
+  };
 
-    useEffect(() => {
-        const fetchPrompt = async () => {
-            if (!promptId) {
-                setPrompt(initialState);
-                return;
-            }
-            try {
-                const { data } = await api.get(`/prompt/${promptId}`);
-                setPrompt(prevState => {
-                    return { ...prevState, ...data };
-                });
-                setSelectedVoice(data.voice);
-            } catch (err) {
-                toastError(err);
-            }
-        };
+  const [prompt, setPrompt] = useState(initialState);
 
-        fetchPrompt();
-    }, [promptId, open]);
-
-    const handleClose = () => {
+  useEffect(() => {
+    const fetchPrompt = async () => {
+      if (!promptId) {
         setPrompt(initialState);
-        setSelectedVoice("texto");
-        onClose();
+        return;
+      }
+      try {
+        const { data } = await api.get(`/prompt/${promptId}`);
+        setPrompt((prevState) => ({
+          ...prevState,
+          ...data,
+        }));
+      } catch (err) {
+        toastError(err);
+      }
     };
 
-    const handleChangeVoice = (e) => {
-        setSelectedVoice(e.target.value);
-    };
+    fetchPrompt();
+  }, [promptId, open]);
 
-    const handleSavePrompt = async values => {
-        const promptData = { ...values, voice: selectedVoice };
-        if (!values.queueId) {
-            toastError("Informe o setor");
-            return;
-        }
-        try {
-            if (promptId) {
-                await api.put(`/prompt/${promptId}`, promptData);
-            } else {
-                await api.post("/prompt", promptData);
-            }
-            toast.success(i18n.t("promptModal.success"));
-        } catch (err) {
-            toastError(err);
-        }
-        handleClose();
-    };
+  const handleClose = () => {
+    setPrompt(initialState);
+    onClose();
+  };
 
-    return (
-        <div className={classes.root}>
-            <Dialog
-                open={open}
-                onClose={handleClose}
-                maxWidth="md"
-                scroll="paper"
-                fullWidth
+  const handleSavePrompt = async (values) => {
+    try {
+      if (promptId) {
+        await api.put(`/prompt/${promptId}`, values);
+      } else {
+        await api.post("/prompt", values);
+      }
+      toast.success("Prompt salvo com sucesso!");
+    } catch (err) {
+      toastError(err);
+    }
+    handleClose();
+  };
+
+  return (
+    <div className={classes.root}>
+      <Dialog open={open} onClose={handleClose} maxWidth="md" scroll="paper" fullWidth>
+        <DialogTitle id="form-dialog-title">
+          {promptId ? "Editar Prompt" : "Adicionar Prompt"}
+        </DialogTitle>
+        <Formik
+          initialValues={prompt}
+          enableReinitialize={true}
+          validationSchema={PromptSchema}
+          onSubmit={(values, actions) => {
+            setTimeout(() => {
+              handleSavePrompt(values);
+              actions.setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({ touched, errors, isSubmitting, values, setFieldValue }) => (
+            <Form style={{ width: "100%" }}>
+              <DialogContent dividers>
+                  <Grid item xs={12}>
+                    <Field
+                      as={TextField}
+                      label="Nome do Modelo"
+                      name="modelName"
+                      error={touched.modelName && Boolean(errors.modelName)}
+                      helperText={touched.modelName && errors.modelName}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      as={TextField}
+                      label="API Key"
+                      name="apiKeyValue"
+                      type={showApiKey ? "text" : "password"}
+                      error={touched.apiKeyValue && Boolean(errors.apiKeyValue)}
+                      helperText={touched.apiKeyValue && errors.apiKeyValue}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton onClick={handleToggleApiKey}>
+                              {showApiKey ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      as={TextField}
+                      label="Prompt"
+                      name="trainingPrompt" 
+                      error={touched.trainingPrompt && Boolean(errors.trainingPrompt)}
+                      helperText={touched.trainingPrompt && errors.trainingPrompt}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      multiline
+                      rows={4}
+                      className={classes.fieldSpacing}
+                      style={{ marginBottom: 0 }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      as={TextField}
+                      label="Fila"
+                      name="queueId" 
+                      error={touched.queueId && Boolean(errors.queueId)}
+                      helperText={touched.queueId && errors.queueId}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                {}
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <Field
+                      as={TextField}
+                      label="Voz"
+                      name="voiceName"
+                      error={touched.voiceName && Boolean(errors.voiceName)}
+                      helperText={touched.voiceName && errors.voiceName}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Field
+                      as={TextField}
+                      label="Chave da API de Voz"
+                      name="voiceApiKey"
+                      error={touched.voiceApiKey && Boolean(errors.voiceApiKey)}
+                      helperText={touched.voiceApiKey && errors.voiceApiKey}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Field
+                      as={TextField}
+                      label="Região de Voz"
+                      name="voiceRegion"
+                      error={touched.voiceRegion && Boolean(errors.voiceRegion)}
+                      helperText={touched.voiceRegion && errors.voiceRegion}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Field
+                      as={TextField}
+                      label="Máximo de Mensagens no Histórico"
+                      name="maxMessageHistory"
+                      type="number"
+                      error={touched.maxMessageHistory && Boolean(errors.maxMessageHistory)}
+                      helperText={touched.maxMessageHistory && errors.maxMessageHistory}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Field
+                      as={TextField}
+                      label="Máximo de Tokens na Resposta"
+                      name="maxResponseTokens"
+                      type="number"
+                      error={touched.maxResponseTokens && Boolean(errors.maxResponseTokens)}
+                      helperText={touched.maxResponseTokens && errors.maxResponseTokens}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Field
+                      as={TextField}
+                      label="Temperatura"
+                      name="temperatureValue"
+                      type="number"
+                      error={touched.temperatureValue && Boolean(errors.temperatureValue)}
+                      helperText={touched.temperatureValue && errors.temperatureValue}
+                      variant="outlined"
+                      margin="dense"
+                      fullWidth
+                      className={classes.fieldSpacing}
+                    />
+                  </Grid>
+                </Grid>
+              </DialogContent>
+              <DialogActions style={{ justifyContent: "center" }}>
+            <Button 
+                onClick={handleClose} 
+                style={{ 
+                backgroundColor: '#ffffff', 
+                color: 'black', 
+                borderRadius: '16px', 
+                padding: '12px 24px', 
+                fontSize: '16px', 
+                border: '2px solid rgba(0, 0, 0, 0.2)', 
+                }} 
             >
-                <DialogTitle id="form-dialog-title">
-                    {promptId
-                        ? `${i18n.t("promptModal.title.edit")}`
-                        : `${i18n.t("promptModal.title.add")}`}
-                </DialogTitle>
-                <Formik
-                    initialValues={prompt}
-                    enableReinitialize={true}
-                    onSubmit={(values, actions) => {
-                        setTimeout(() => {
-                            handleSavePrompt(values);
-                            actions.setSubmitting(false);
-                        }, 400);
-                    }}
+                Cancelar
+            </Button>
+            <div className={classes.btnWrapper}>
+                <Button 
+                type="submit" 
+                style={{ 
+                    backgroundColor: '#34D3A3', 
+                    color: 'black', 
+                    borderRadius: '16px', 
+                    padding: '12px 24px', 
+                    fontSize: '16px', 
+                }} 
+                disabled={isSubmitting}
                 >
-                    {({ touched, errors, isSubmitting, values }) => (
-                        <Form style={{ width: "100%" }}>
-                            <DialogContent dividers>
-                                <Field
-                                    as={TextField}
-                                    label={i18n.t("promptModal.form.name")}
-                                    name="name"
-                                    error={touched.name && Boolean(errors.name)}
-                                    helperText={touched.name && errors.name}
-                                    variant="outlined"
-                                    margin="dense"
-                                    fullWidth
-                                />
-                                <FormControl fullWidth margin="dense" variant="outlined">
-                                    <Field
-                                        as={TextField}
-                                        label={i18n.t("promptModal.form.apikey")}
-                                        name="apiKey"
-                                        type={showApiKey ? 'text' : 'password'}
-                                        error={touched.apiKey && Boolean(errors.apiKey)}
-                                        helperText={touched.apiKey && errors.apiKey}
-                                        variant="outlined"
-                                        margin="dense"
-                                        fullWidth
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton onClick={handleToggleApiKey}>
-                                                        {showApiKey ? <VisibilityOff /> : <Visibility />}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-                                </FormControl>
-                                <Field
-                                    as={TextField}
-                                    label={i18n.t("promptModal.form.prompt")}
-                                    name="prompt"
-                                    error={touched.prompt && Boolean(errors.prompt)}
-                                    helperText={touched.prompt && errors.prompt}
-                                    variant="outlined"
-                                    margin="dense"
-                                    fullWidth
-                                    rows={10}
-                                    multiline={true}
-                                />
-                                <QueueSelectSingle />
-                                <div className={classes.multFieldLine}>
-                                    <FormControl fullWidth margin="dense" variant="outlined">
-                                    <InputLabel>{i18n.t("promptModal.form.voice")}</InputLabel>
-                                        <Select
-                                            id="type-select"
-                                            labelWidth={60}
-                                            name="voice"
-                                            value={selectedVoice}
-                                            onChange={handleChangeVoice}
-                                            multiple={false}
-                                        >
-                                            <MenuItem key={"texto"} value={"texto"}>
-                                                Texto
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-FranciscaNeural"} value={"pt-BR-FranciscaNeural"}>
-                                                Francisa
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-AntonioNeural"} value={"pt-BR-AntonioNeural"}>
-                                                Antônio
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-BrendaNeural"} value={"pt-BR-BrendaNeural"}>
-                                                Brenda
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-DonatoNeural"} value={"pt-BR-DonatoNeural"}>
-                                                Donato
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-ElzaNeural"} value={"pt-BR-ElzaNeural"}>
-                                                Elza
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-FabioNeural"} value={"pt-BR-FabioNeural"}>
-                                                Fábio
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-GiovannaNeural"} value={"pt-BR-GiovannaNeural"}>
-                                                Giovanna
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-HumbertoNeural"} value={"pt-BR-HumbertoNeural"}>
-                                                Humberto
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-JulioNeural"} value={"pt-BR-JulioNeural"}>
-                                                Julio
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-LeilaNeural"} value={"pt-BR-LeilaNeural"}>
-                                                Leila
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-LeticiaNeural"} value={"pt-BR-LeticiaNeural"}>
-                                                Letícia
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-ManuelaNeural"} value={"pt-BR-ManuelaNeural"}>
-                                                Manuela
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-NicolauNeural"} value={"pt-BR-NicolauNeural"}>
-                                                Nicolau
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-ValerioNeural"} value={"pt-BR-ValerioNeural"}>
-                                                Valério
-                                            </MenuItem>
-                                            <MenuItem key={"pt-BR-YaraNeural"} value={"pt-BR-YaraNeural"}>
-                                                Yara
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                    <Field
-                                        as={TextField}
-                                        label={i18n.t("promptModal.form.voiceKey")}
-                                        name="voiceKey"
-                                        error={touched.voiceKey && Boolean(errors.voiceKey)}
-                                        helperText={touched.voiceKey && errors.voiceKey}
-                                        variant="outlined"
-                                        margin="dense"
-                                        fullWidth
-                                    />
-                                    <Field
-                                        as={TextField}
-                                        label={i18n.t("promptModal.form.voiceRegion")}
-                                        name="voiceRegion"
-                                        error={touched.voiceRegion && Boolean(errors.voiceRegion)}
-                                        helperText={touched.voiceRegion && errors.voiceRegion}
-                                        variant="outlined"
-                                        margin="dense"
-                                        fullWidth
-                                    />
-                                </div>
-                                
-                                <div className={classes.multFieldLine}>
-                                    <Field
-                                        as={TextField}
-                                        label={i18n.t("promptModal.form.temperature")}
-                                        name="temperature"
-                                        error={touched.temperature && Boolean(errors.temperature)}
-                                        helperText={touched.temperature && errors.temperature}
-                                        variant="outlined"
-                                        margin="dense"
-                                        fullWidth
-                                    />
-                                    <Field
-                                        as={TextField}
-                                        label={i18n.t("promptModal.form.max_tokens")}
-                                        name="maxTokens"
-                                        error={touched.maxTokens && Boolean(errors.maxTokens)}
-                                        helperText={touched.maxTokens && errors.maxTokens}
-                                        variant="outlined"
-                                        margin="dense"
-                                        fullWidth
-                                    />
-                                    <Field
-                                        as={TextField}
-                                        label={i18n.t("promptModal.form.max_messages")}
-                                        name="maxMessages"
-                                        error={touched.maxMessages && Boolean(errors.maxMessages)}
-                                        helperText={touched.maxMessages && errors.maxMessages}
-                                        variant="outlined"
-                                        margin="dense"
-                                        fullWidth
-                                    />
-                                </div>
-                            </DialogContent>
-                            <DialogActions>
-                                <Button
-                                    onClick={handleClose}
-                                    color="secondary"
-                                    disabled={isSubmitting}
-                                    variant="outlined"
-                                >
-                                    {i18n.t("promptModal.buttons.cancel")}
-                                </Button>
-                                <Button
-                                    type="submit"
-                                    color="primary"
-                                    disabled={isSubmitting}
-                                    variant="contained"
-                                    className={classes.btnWrapper}
-                                >
-                                    {promptId
-                                        ? `${i18n.t("promptModal.buttons.okEdit")}`
-                                        : `${i18n.t("promptModal.buttons.okAdd")}`}
-                                    {isSubmitting && (
-                                        <CircularProgress
-                                            size={24}
-                                            className={classes.buttonProgress}
-                                        />
-                                    )}
-                                </Button>
-                            </DialogActions>
-                        </Form>
-                    )}
-                </Formik>
-            </Dialog>
-        </div>
-    );
+                Salvar
+                </Button>
+                {isSubmitting && <CircularProgress size={24} className={classes.buttonProgress} />}
+            </div>
+            </DialogActions>
+            </Form>
+          )}
+        </Formik>
+      </Dialog>
+    </div>
+  );
 };
 
 export default PromptModal;
