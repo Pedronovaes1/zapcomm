@@ -216,40 +216,44 @@ return (
         aria-labelledby="form-dialog-title"
         tagId={selectedTag && selectedTag.id}
       />
-      <MainHeader>
-        <Title>{i18n.t("tags.title")}</Title>
-        <MainHeaderButtonsWrapper>
-          <TextField
-            placeholder={i18n.t("contacts.searchPlaceholder")}
-            type="search"
-            value={searchParam}
-            onChange={handleSearch}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon style={{ color: "gray" }} />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleOpenTagModal}
-          >
-            {i18n.t("tags.buttons.add")}
-          </Button>		  
-        </MainHeaderButtonsWrapper>
-      </MainHeader>
+      <Title>{i18n.t("tags.title")}</Title>
+
       <Paper
         className={classes.mainPaper}
         variant="outlined"
         onScroll={handleScroll}
-      >
+      >     
+        <MainHeader>
+          
+          <MainHeaderButtonsWrapper>
+            <TextField
+              placeholder={i18n.t("contacts.searchPlaceholder")}
+              type="search"
+              value={searchParam}
+              onChange={handleSearch}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon style={{ color: "gray" }} />
+                  </InputAdornment>
+                ),
+                disableUnderline: true, // Remove a linha inferior
+              }}
+              style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "10px"}}
+            />
+            <Button
+              variant="contained"
+              style={{ backgroundColor: "#34d3a3", fontWeight: "400"}}
+              onClick={handleOpenTagModal}
+            >
+              {i18n.t("Adicionar")}
+            </Button>		  
+          </MainHeaderButtonsWrapper>
+        </MainHeader>
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell align="center">{i18n.t("tags.table.name")}</TableCell>
+              <TableCell align="center" >{i18n.t("tags.table.name")}</TableCell>
               <TableCell align="center">
                 {i18n.t("tags.table.tickets")}
               </TableCell>
