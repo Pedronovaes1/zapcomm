@@ -8,6 +8,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install @mui/icons-material 
+
 COPY . .
 
 EXPOSE 3000

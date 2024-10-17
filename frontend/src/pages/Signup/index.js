@@ -90,15 +90,14 @@ const SignUp = () => {
   const [user] = useState(initialState);
   const [plans, setPlans] = useState([]);
 
-  const { list: fetchPlans } = usePlans();  // Chame usePlans no topo
-
+  const { list: fetchPlans } = usePlans(); 
   useEffect(() => {
     async function fetchData() {
-      const list = await fetchPlans(); // Use fetchPlans diretamente
+      const list = await fetchPlans(); 
       setPlans(list);
     }
     fetchData();
-  }, [fetchPlans]); // Adicione fetchPlans como dependência
+  }, [fetchPlans]); 
 
   const handleSignUp = async (values) => {
     try {
