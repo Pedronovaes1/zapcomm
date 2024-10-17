@@ -216,7 +216,7 @@ return (
         aria-labelledby="form-dialog-title"
         tagId={selectedTag && selectedTag.id}
       />
-      <Title style={{marginTop:"120px"}}>{i18n.t("tags.title")}</Title>
+      <Title>{i18n.t("tags.title")}</Title>
 
       <Paper
         className={classes.mainPaper}
@@ -239,11 +239,11 @@ return (
                 ),
                 disableUnderline: true, // Remove a linha inferior
               }}
-              style={{padding: '1px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "10px"}}
+              style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "10px"}}
             />
             <Button
               variant="contained"
-              style={{ backgroundColor: "#34d3a3", fontWeight: "bold"}}
+              style={{ backgroundColor: "#34d3a3", fontWeight: "400"}}
               onClick={handleOpenTagModal}
             >
               {i18n.t("Adicionar")}
@@ -253,7 +253,7 @@ return (
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell align="center">{i18n.t("tags.table.name")}</TableCell>
+              <TableCell align="center" >{i18n.t("tags.table.name")}</TableCell>
               <TableCell align="center">
                 {i18n.t("tags.table.tickets")}
               </TableCell>
