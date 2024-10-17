@@ -239,11 +239,11 @@ return (
                 ),
                 disableUnderline: true, // Remove a linha inferior
               }}
-              style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "10px"}}
+              style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "20px"}}
             />
             <Button
               variant="contained"
-              style={{ backgroundColor: "#34d3a3", fontWeight: "400"}}
+              style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px"}}
               onClick={handleOpenTagModal}
             >
               {i18n.t("Adicionar")}
@@ -253,11 +253,11 @@ return (
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell align="center" >{i18n.t("tags.table.name")}</TableCell>
-              <TableCell align="center">
+              <TableCell align="center" style={{fontWeight: "bold"}}>{i18n.t("tags.table.name")}</TableCell>
+              <TableCell align="center" style={{fontWeight: "bold"}}>
                 {i18n.t("tags.table.tickets")}
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="center" style={{fontWeight: "bold"}}>
                 {i18n.t("tags.table.actions")}
               </TableCell>
             </TableRow>
