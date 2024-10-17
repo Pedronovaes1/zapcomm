@@ -109,7 +109,6 @@ export const ChatsUser = () => {
         <>
 
             <Stack direction={'row'} spacing={2} alignItems={'center'} sx={{ my: 2, }} >
-
                 <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={brLocale}>
                     <DatePicker
                         value={initialDate}
@@ -129,7 +128,7 @@ export const ChatsUser = () => {
                     />
                 </LocalizationProvider>
 
-                <Button className="buttonHover" onClick={handleGetTicketsInformation} variant='contained' >Filtrar</Button>
+            <Button style={{backgroundColor: "#0C2454"}} onClick={handleGetTicketsInformation} variant='contained' >Filtrar</Button>
 
             </Stack>
             <Bar options={options} data={dataCharts} style={{ maxWidth: '80%', maxHeight: '280px', }} />
