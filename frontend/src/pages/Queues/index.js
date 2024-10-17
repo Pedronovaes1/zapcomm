@@ -181,7 +181,7 @@ const Queues = () => {
         queueId={selectedQueue?.id}
       />
       <MainHeader>
-        <Title>{i18n.t("queues.title")}</Title>
+        <Title>{i18n.t("Filas & ChatBot")}</Title>
       </MainHeader>
       <Paper className={classes.mainPaper} variant="outlined">
         <div style={{display: "flex", justifyContent: "flex-end", marginTop: "20px", marginRight:"20px"}}>
