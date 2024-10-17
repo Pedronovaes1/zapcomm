@@ -233,9 +233,18 @@ const Quickemessages = () => {
           <Grid xs={12} sm={8} item>
             <Title>{i18n.t("quickMessages.title")}</Title>
           </Grid>
-          <Grid xs={12} sm={4} item>
-            <Grid spacing={2} container>
-              <Grid xs={6} sm={6} item>
+
+        </Grid>
+      </MainHeader>
+      <Paper
+        className={classes.mainPaper}
+        variant="outlined"
+        onScroll={handleScroll}
+        style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "30px"}}
+      >
+      <Grid>
+            <Grid spacing={2} container alignItems="center" justifyContent="center" style={{marginTop: "20px"}}> 
+              <Grid xs={6} sm={8} item style={{ marginBottom: 0}}>
                 <TextField
                   fullWidth
                   placeholder={i18n.t("quickMessages.searchPlaceholder")}
@@ -248,39 +257,35 @@ const Quickemessages = () => {
                         <SearchIcon style={{ color: "gray" }} />
                       </InputAdornment>
                     ),
+                    disableUnderline: true, // Remove a linha inferior
                   }}
+                  style={{padding: '0px 30px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "10px"}}
                 />
               </Grid>
-              <Grid xs={6} sm={6} item>
+              <Grid xs={4} sm={4} item >
                 <Button
                   fullWidth
                   variant="contained"
                   onClick={handleOpenQuickMessageDialog}
-                  color="primary"
+                  color="secondary"
+                  
                 >
-                  {i18n.t("quickMessages.buttons.add")}
+                  {i18n.t("Adicionar")}
                 </Button>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </MainHeader>
-      <Paper
-        className={classes.mainPaper}
-        variant="outlined"
-        onScroll={handleScroll}
-      >
-        <Table size="small">
+        <Table size="small" >
           <TableHead>
             <TableRow>
-              <TableCell align="center">
+              <TableCell align="center" style={{fontWeight: "bold"}}>
                 {i18n.t("quickMessages.table.shortcode")}
               </TableCell>
 
-              <TableCell align="center">
+              <TableCell align="center" style={{fontWeight: "bold"}}>
                 {i18n.t("quickMessages.table.mediaName")}
               </TableCell>        
-              <TableCell align="center">
+              <TableCell align="center" style={{fontWeight: "bold"}}>
                 {i18n.t("quickMessages.table.actions")}
               </TableCell>
             </TableRow>
