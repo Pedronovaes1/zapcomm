@@ -181,37 +181,38 @@ const Queues = () => {
         queueId={selectedQueue?.id}
       />
       <MainHeader>
-        <Title>{i18n.t("queues.title")}</Title>
-        <MainHeaderButtonsWrapper>
+        <Title>{i18n.t("Filas & Chatbot")}</Title>
+      
+      </MainHeader>
+      <Paper className={classes.mainPaper} variant="outlined">  
+        <div style={{display: "flex", justifyContent: "flex-end", marginTop: "20px", marginRight:"20px"}}>
           <Button
             variant="contained"
-            color="primary"
+            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px"}}
             onClick={handleOpenQueueModal}
           >
-            {i18n.t("queues.buttons.add")}
+            {i18n.t("Adicionar")}
           </Button>
-        </MainHeaderButtonsWrapper>
-      </MainHeader>
-      <Paper className={classes.mainPaper} variant="outlined">
+        </div>
         <Table size="small">
           <TableHead>
             <TableRow>
 			   <TableCell align="center">
                 {i18n.t("queues.table.id")}
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="center"  style={{fontWeight: "bold"}}>
                 {i18n.t("queues.table.name")}
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="center"  style={{fontWeight: "bold"}}>
                 {i18n.t("queues.table.color")}
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="center"  style={{fontWeight: "bold"}}>
                 {i18n.t("queues.table.orderQueue")}
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="center"  style={{fontWeight: "bold"}}>
                 {i18n.t("queues.table.greeting")}
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="center"  style={{fontWeight: "bold"}}>
                 {i18n.t("queues.table.actions")}
               </TableCell>
             </TableRow>
@@ -221,7 +222,7 @@ const Queues = () => {
               {queues.map((queue) => (
                 <TableRow key={queue.id}>
 				<TableCell align="center">{queue.id}</TableCell>
-                  <TableCell align="center">{queue.name}</TableCell>
+                  <TableCell align="center" >{queue.name}</TableCell>
                   <TableCell align="center">
                     <div className={classes.customTableCell}>
                       <span
@@ -234,7 +235,7 @@ const Queues = () => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="center"  >
                     <div className={classes.customTableCell}>
                       <Typography
                         style={{ width: 300, align: "center" }}
@@ -245,7 +246,7 @@ const Queues = () => {
                       </Typography>
                     </div>
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="center" >
                     <div className={classes.customTableCell}>
                       <Typography
                         style={{ width: 300, align: "center" }}
@@ -256,7 +257,7 @@ const Queues = () => {
                       </Typography>
                     </div>
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="center" >
                     <IconButton
                       size="small"
                       onClick={() => handleEditQueue(queue)}
