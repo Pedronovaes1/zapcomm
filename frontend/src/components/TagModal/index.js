@@ -231,10 +231,10 @@ const TagModal = ({ open, onClose, tagId, reload }) => {
 									</div>
 								)}
 							</DialogContent>
-							<DialogActions>
+							<DialogActions style={{display: "flex", alignItems: "center", justifyContent: "center" }}>
 								<Button
 									onClick={handleClose}
-									color="secondary"
+									style={{border: "1px solid #333", borderRadius: "20px"}}
 									disabled={isSubmitting}
 									variant="outlined"
 								>
@@ -242,7 +242,7 @@ const TagModal = ({ open, onClose, tagId, reload }) => {
 								</Button>
 								<Button
 									type="submit"
-									color="primary"
+									style={{backgroundColor: "#34d3a3", borderRadius: "20px"}}
 									disabled={isSubmitting}
 									variant="contained"
 									className={classes.btnWrapper}
