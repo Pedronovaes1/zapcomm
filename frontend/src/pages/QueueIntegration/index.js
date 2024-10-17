@@ -246,7 +246,13 @@ const QueueIntegration = () => {
       />
       <MainHeader>
         <Title>{i18n.t("queueIntegration.title")} ({queueIntegration.length})</Title>
-        <MainHeaderButtonsWrapper>
+      </MainHeader>
+      <Paper
+        className={classes.mainPaper}
+        variant="outlined"
+        onScroll={handleScroll}
+      >
+          <MainHeaderButtonsWrapper>
           <TextField
             placeholder={i18n.t("queueIntegration.searchPlaceholder")}
             type="search"
@@ -255,31 +261,27 @@ const QueueIntegration = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon color="secondary" />
+                  <SearchIcon color="gray" />
                 </InputAdornment>
               ),
+              disableUnderline: true, // Remove a linha inferior
             }}
+            style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "20px"}}
           />
           <Button
             variant="contained"
-            color="primary"
+            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px"}}
             onClick={handleOpenUserModal}
           >
             {i18n.t("queueIntegration.buttons.add")}
           </Button>
         </MainHeaderButtonsWrapper>
-      </MainHeader>
-      <Paper
-        className={classes.mainPaper}
-        variant="outlined"
-        onScroll={handleScroll}
-      >
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell padding="checkbox"></TableCell>
-              <TableCell align="center">{i18n.t("queueIntegration.table.id")}</TableCell>
-              <TableCell align="center">{i18n.t("queueIntegration.table.name")}</TableCell>
+              <TableCell padding="checkbox" style={{fontWeight: "bold"}}></TableCell>
+              <TableCell align="center" style={{fontWeight: "bold"}}>{i18n.t("queueIntegration.table.id")}</TableCell>
+              <TableCell align="center" style={{fontWeight: "bold"}}>{i18n.t("queueIntegration.table.name")}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
