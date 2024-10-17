@@ -247,11 +247,11 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeightPaper2: {
     padding: theme.spacing(2),
-    marginTop: "30px",
     display: "flex",
     overflow: "auto",
     alignItems: "center",
     flexDirection: "column",
+    marginTop: "20px",
   },
 }));
 
@@ -462,7 +462,7 @@ const Dashboard = () => {
       <Container maxWidth="lg" className={classes.container}>
         <Grid container spacing={3} justifyContent="end">
          
-          <div style={{display: "flex", flexDirection: "column", paddingLeft: "30px",paddingRight: "20px",gap: "20px",width: "65%"}}>  
+          <div style={{display: "flex", flexDirection: "column", paddingLeft: "20px",paddingRight: "20px",gap: "20px",width: "65%"}}>  
             {/* CARDS */}  
             <div className={classes.GeralCard}>
               {/* EM ATENDIMENTO */}
@@ -475,7 +475,7 @@ const Dashboard = () => {
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
                       <Typography
-                        component="h3"
+                        component="h4"
                         variant="arial"
                         paragraph
                         style={{fontWeight: "bold"}}
@@ -505,7 +505,7 @@ const Dashboard = () => {
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
                       <Typography
-                        component="h3"
+                        component="h4"
                         variant="arial"
                         paragraph
                         style={{fontWeight: "bold"}}
@@ -528,7 +528,13 @@ const Dashboard = () => {
             </div>        
 
             {/*Cards e gráficos*/}
-            <div className={classes.GeralCard}>
+            <div style={{  display: "flex", 
+              flexDirection: "row",
+              width: "100%",
+              gap: "20px", 
+              alignItems:"center",
+              justifyContent: "center",
+              marginBottom: "30px"}}>
               {/* FINALIZADOS */}
               <Grid item xs={12} sm={6} md={4}>
                 <Paper
@@ -539,7 +545,7 @@ const Dashboard = () => {
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
                       <Typography
-                        component="h3"
+                        component="h4"
                         variant="arial"
                         paragraph
                         style={{fontWeight: "bold"}}
@@ -569,7 +575,7 @@ const Dashboard = () => {
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
                       <Typography
-                        component="h3"
+                        component="h4"
                         variant="arial"
                         paragraph
                         style={{fontWeight: "bold"}}
@@ -588,7 +594,7 @@ const Dashboard = () => {
                   </Grid>
                 </Paper>  
               </Grid>
-              </div>
+            </div>
               {/*Gráficos */}
               {/* TOTAL DE ATENDIMENTOS POR USUARIO */}
               <Grid item xs={12} style={{marginTop: "30px"}}>
@@ -603,9 +609,8 @@ const Dashboard = () => {
               {/* TOTAL DE ATENDIMENTOS */}
                 <Grid item xs={12}>
                 <Typography component="h2" variant="h6" color="primary" gutterBottom>
-                  Total de Conversas
+                Total de Conversas
                 </Typography>
-
                 <Paper className={classes.fixedHeightPaper2}>
                   <ChartsDate />
                 </Paper>
