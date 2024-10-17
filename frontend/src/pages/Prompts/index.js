@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
   mainPaper: {
     margin: "40px auto",
     padding: theme.spacing(2),
-    width: "80%",
+    width: "95%",
+    height: "100%",
     borderRadius: "12px",
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
   },
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   title: { 
     fontSize: "24px",    
     marginBottom: theme.spacing(3),
-    width: "80%",   
+    width: "50%",   
     margin: "40px auto",
 
   },
@@ -48,15 +49,15 @@ const useStyles = makeStyles((theme) => ({
     gap: theme.spacing(-2)
   },
   inputField: {
-    flex: 0.9,
+    flex: 0.5,
     marginRight: theme.spacing(2),
-    width: "100px",
+    width: "50px",
     
 
   },
   addButton: {
-    backgroundColor: "#00b894",
-    color: "#fff",
+    backgroundColor: "#34D3A3",
+    color: "",
     "&:hover": {
       backgroundColor: "#00a084",
       gap: theme.spacing(10)  
