@@ -438,7 +438,7 @@ const QueueModal = ({ open, onClose, queueId }) => {
                     >
                       {queueId
                         ? `${i18n.t("queueModal.buttons.okEdit")}`
-                        : `${i18n.t("Acionar")}`}
+                        : `${i18n.t("Adicionar")}`}
                       {isSubmitting && (
                         <CircularProgress
                           size={24}
