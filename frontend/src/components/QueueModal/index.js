@@ -219,7 +219,7 @@ const QueueModal = ({ open, onClose, queueId }) => {
         </DialogTitle>
         <Tabs
           value={tab}
-          indicatorColor="primary"
+          indicatorColor="secondary"
           textColor="primary"
           onChange={(_, v) => setTab(v)}
           aria-label="disabled tabs example"
@@ -423,7 +423,7 @@ const QueueModal = ({ open, onClose, queueId }) => {
                   <DialogActions>
                     <Button
                       onClick={handleClose}
-                      color="secondary"
+                      style={{border: "1px solid #333", borderRadius: "20px"}}
                       disabled={isSubmitting}
                       variant="outlined"
                     >
@@ -431,14 +431,14 @@ const QueueModal = ({ open, onClose, queueId }) => {
                     </Button>
                     <Button
                       type="submit"
-                      color="primary"
+                      style={{backgroundColor: "#34d3a3", borderRadius: "20px"}}
                       disabled={isSubmitting}
                       variant="contained"
                       className={classes.btnWrapper}
                     >
                       {queueId
                         ? `${i18n.t("queueModal.buttons.okEdit")}`
-                        : `${i18n.t("queueModal.buttons.okAdd")}`}
+                        : `${i18n.t("Adicionar")}`}
                       {isSubmitting && (
                         <CircularProgress
                           size={24}
