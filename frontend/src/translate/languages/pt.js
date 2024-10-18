@@ -477,9 +477,9 @@ const messages = {
           actions: "Ações",
         },
         buttons: {
-          add: "Adicionar Projeto",
+          add: "Adicionar",
         },
-        searchPlaceholder: "Pesquisar...",
+        searchPlaceholder: "Novo Informativo",
         confirmationModal: {
           deleteTitle: "Excluir",
           deleteMessage:

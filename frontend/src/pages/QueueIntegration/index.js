@@ -97,10 +97,35 @@ const useStyles = makeStyles((theme) => ({
     overflowY: "scroll",
     ...theme.scrollbarStyles,
   },
+  mainHeaderButtonsWrapper: {
+    display: "flex",
+    justifyContent: "center",  // Centraliza horizontalmente
+    alignItems: "center",  // Centraliza verticalmente
+    gap: theme.spacing(4),  // Espaço entre a barra de pesquisa e o botão
+    marginBottom: theme.spacing(8), 
+    marginTop: theme.spacing(4)
+  },
+
   avatar: {
     width: "140px",
     height: "40px",
     borderRadius: 4
+  },
+
+  customButton: { 
+    backgroundColor: '#34D3A3;', 
+    width: '184.85px' ,
+    padding: '7px 14px', 
+    color:"black",
+    borderRadius: '10px', 
+  },
+
+  customTextField: {
+    border: '2px solid #E7E7E7', 
+    width: '315.79px' ,
+    borderRadius: '5px', 
+    padding: theme.spacing(0.6),
+
   },
 }));
 
@@ -181,6 +206,8 @@ const QueueIntegration = () => {
     };
   }, [socketManager]);
 
+  //Código abaixo referente ao modal que abre na tecla adicionar
+
   const handleOpenUserModal = () => {
     setSelectedIntegration(null);
     setUserModalOpen(true);
@@ -224,6 +251,8 @@ const QueueIntegration = () => {
     }
   };
 
+ //
+
   return (
     <MainContainer>
       <ConfirmationModal
@@ -245,41 +274,42 @@ const QueueIntegration = () => {
         integrationId={selectedIntegration && selectedIntegration.id}
       />
       <MainHeader>
-        <Title>{i18n.t("queueIntegration.title")} ({queueIntegration.length})</Title>
-        <MainHeaderButtonsWrapper>
-          <TextField
-            placeholder={i18n.t("queueIntegration.searchPlaceholder")}
-            type="search"
-            value={searchParam}
-            onChange={handleSearch}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon color="secondary" />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleOpenUserModal}
-          >
-            {i18n.t("queueIntegration.buttons.add")}
-          </Button>
-        </MainHeaderButtonsWrapper>
+        
+        <Title>{i18n.t("queueIntegration.title")}</Title> 
+
       </MainHeader>
       <Paper
         className={classes.mainPaper}
         variant="outlined"
         onScroll={handleScroll}
       >
+        <div className={classes.mainHeaderButtonsWrapper}>
+          <TextField
+            placeholder={i18n.t("queueIntegration.searchPlaceholder")}
+            type="search"
+            value={searchParam}
+            onChange={handleSearch}
+            className={classes.customTextField}
+            InputProps={{
+              disableUnderline: true
+            }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.customButton}
+            onClick={handleOpenUserModal}
+          >
+            {i18n.t("queueIntegration.buttons.add")}
+          </Button>
+        </div>
         <Table size="small">
           <TableHead>
             <TableRow>
               <TableCell padding="checkbox"></TableCell>
               <TableCell align="center">{i18n.t("queueIntegration.table.id")}</TableCell>
               <TableCell align="center">{i18n.t("queueIntegration.table.name")}</TableCell>
+              <TableCell align="center">{i18n.t("queueIntegration.table.actions")}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
