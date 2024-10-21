@@ -217,9 +217,16 @@ const FileLists = () => {
             />
             <MainHeader>
                 <Title>{i18n.t("files.title")} ({files.length})</Title>
+                
+            </MainHeader>
+            <Paper
+                className={classes.mainPaper}
+                variant="outlined"
+                onScroll={handleScroll}
+            >
                 <MainHeaderButtonsWrapper>
                     <TextField
-                        placeholder={i18n.t("contacts.searchPlaceholder")}
+                        placeholder={i18n.t("Busca de Arquivos")}
                         type="search"
                         value={searchParam}
                         onChange={handleSearch}
@@ -228,23 +235,19 @@ const FileLists = () => {
                                 <InputAdornment position="start">
                                     <SearchIcon style={{ color: "gray" }} />
                                 </InputAdornment>
-                            ),
+                            ), 
+                            disableUnderline: true, // Remove a linha inferior
                         }}
+                        style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "20px"}}
                     />
                     <Button
                         variant="contained"
-                        color="primary"
+                        color="secondary"
                         onClick={handleOpenFileListModal}
                     >
                         {i18n.t("files.buttons.add")}
                     </Button>
                 </MainHeaderButtonsWrapper>
-            </MainHeader>
-            <Paper
-                className={classes.mainPaper}
-                variant="outlined"
-                onScroll={handleScroll}
-            >
                 <Table size="small">
                     <TableHead>
                         <TableRow>
