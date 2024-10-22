@@ -288,14 +288,15 @@ const Campaigns = () => {
                   }}
                 />
               </Grid>
-              <Grid xs={6} sm={6} item>
+              <Grid xs={6} sm={6} item style={{ display: "flex", justifyContent: "flex-end" }}>
                 <Button
-                  fullWidth
+                  
                   variant="contained"
                   onClick={handleOpenCampaignModal}
-                  color="primary"
+                  style={{ backgroundColor: "#34D3A3", color: "#fff", marginLeft: "10px" }}
                 >
-                  {i18n.t("campaigns.buttons.add")}
+            
+                  {i18n.t("Adicionar")}
                 </Button>
               </Grid>
             </Grid>
