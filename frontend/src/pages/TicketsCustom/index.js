@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
 		flex: 1,
 		// backgroundColor: "#eee",
 		padding: theme.spacing(1), //Aqui ele ajusta espaço na tela de ticket
+		marginTop: theme.spacing(8),
 		height: `calc(100% - 48px)`,
 		overflowY: "hidden",
 	},

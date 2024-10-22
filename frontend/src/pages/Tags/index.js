@@ -239,11 +239,11 @@ return (
                 ),
                 disableUnderline: true, // Remove a linha inferior
               }}
-              style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "20px"}}
+              style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
             />
             <Button
               variant="contained"
-              style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px"}}
+              style={{ backgroundColor: "#34d3a3", fontWeight: "400"}}
               onClick={handleOpenTagModal}
             >
               {i18n.t("Adicionar")}

@@ -238,7 +238,7 @@ const FileLists = () => {
                             ), 
                             disableUnderline: true, // Remove a linha inferior
                         }}
-                        style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "20px"}}
+                        style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
                     />
                     <Button
                         variant="contained"
