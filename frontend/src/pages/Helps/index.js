@@ -12,19 +12,19 @@ import { i18n } from "../../translate/i18n";
 
 const useStyles = makeStyles(theme => ({
   mainPaperContainer: {
-    overflow: 'auto', // Permite rolagem
+    overflow: 'auto', 
     maxHeight: 'calc(100vh - 200px)',
     padding: theme.spacing(2),
     backgroundColor: '#F8F8FF',
-    position: 'relative', // Necessário para o scrollbar
+    position: 'relative', 
     '&::-webkit-scrollbar': {
-      display: 'none', // Oculta a barra de rolagem no Chrome e Safari
+      display: 'none', 
     },
-    scrollbarWidth: 'none', // Oculta a barra de rolagem no Firefox
+    scrollbarWidth: 'none', 
   },
   mainPaper: {
     width: '100%',
-    padding: theme.spacing(4),
+    padding: theme.spacing(2),
     backgroundColor: '#fff',
     borderRadius: theme.spacing(2),
     boxShadow: theme.shadows[3],
