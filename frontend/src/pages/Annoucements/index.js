@@ -18,7 +18,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
 
-
 import Title from "../../components/Title";
 
 import api from "../../services/api";
@@ -29,8 +28,8 @@ import ConfirmationModal from "../../components/ConfirmationModal";
 import toastError from "../../errors/toastError";
 import { SocketContext } from "../../context/Socket/SocketContext";
 import { AuthContext } from "../../context/Auth/AuthContext";
+
 const useStyles = makeStyles((theme) => ({
-  
   mainPaper: {
     margin: "40px auto",
     padding: theme.spacing(2),
@@ -40,26 +39,24 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
   },
   headerText: {
+    overflowX: "auto",
     fontWeight: "bold",
     color: "#333",
-    alignItems:  'left',
-    gap: '10px'
-
-
+    alignItems: 'left',
   },
-  title: { 
-    fontSize: "24px",    
+  title: {
+    fontSize: "24px",
     marginBottom: theme.spacing(3),
-    width: "50%",   
+    width: "50%",
     margin: "40px auto",
   },
   inputContainer: {
     display: "flex",
     justifyContent: "space-between",
-    justifyContent: "center", 
+    justifyContent: "center",
     alignItems: "center",
-    marginBottom: theme.spacing(3), 
-    gap: theme.spacing(-2)
+    marginBottom: theme.spacing(3),
+    gap: theme.spacing(-2),
   },
   inputField: {
     flex: 0.5,
@@ -76,22 +73,23 @@ const useStyles = makeStyles((theme) => ({
   actionButtons: {
     display: "flex",
     justifyContent: "center",
-    gap: theme.spacing(10),
+    gap: theme.spacing(9),
   },
   table: {
     marginTop: theme.spacing(2),
   },
   titulo: {
+    width: "20%", /* Ajustado para manter a mesma distância */
     fontWeight: "bold",
     color: "#333",
-    margin: '10px auto',
-    paddingRight: "200px"  
+    textAlign: "left",
   },
   topolinha: {
-    paddingRight: "600px",
-    width: '200px' 
-  }
-
+    width: "10%", /* Ajustado para manter a mesma distância */
+  },
+  headerText: {
+    textAlign: "center", /* Centraliza o texto das ações */
+  },
 }));
 
 const reducer = (state, action) => {
@@ -229,17 +227,12 @@ const InformativoTable = () => {
         <Table size="small" className={classes.table}>
           <TableHead>
             <TableRow>
-            <TableHead>
               <TableCell className={classes.titulo}>TÍTULO</TableCell>
               <TableCell className={classes.titulo}>PRIORIDADE</TableCell>
               <TableCell className={classes.titulo}>ARQUIVO</TableCell>
               <TableCell className={classes.titulo}>STATUS</TableCell>
-              <TableCell className={classes.topolinha}>       </TableCell>
-
-            </TableHead>
-              <TableCell className={classes.headerText}>
-                AÇÕES
-              </TableCell>
+              <TableCell className={classes.topolinha}>  </TableCell>
+              <TableCell className={classes.topolinha}>AÇÕES</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -291,3 +284,4 @@ const InformativoTable = () => {
 };
 
 export default InformativoTable;
+
