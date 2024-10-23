@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 		flex: "none",
 		alignSelf: "center",
 		marginLeft: "auto",
+		backgoundColor: "#fff",
 		"& > *": {
 			margin: theme.spacing(0.5),
 		},
@@ -136,10 +137,10 @@ const TicketActionButtonsCustom = ({ ticket }) => {
 					loading={loading}
 					size="small"
 					variant="contained"
-					color="primary"
+					color="secondary"
 					onClick={e => handleUpdateTicketStatus(e, "open", user?.id)}
 				>
-					{i18n.t("messagesList.header.buttons.accept")}
+					{i18n.t("Aceite")}
 				</ButtonWithSpinner>
 			)}
 		</div>
