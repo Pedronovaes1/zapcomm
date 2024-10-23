@@ -36,15 +36,34 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
   },
+  dialogPaper: {
+    width: '600px', 
+    maxWidth: '600px', 
+  },
   multFieldLine: {
     display: "flex",
     "& > *:not(:last-child)": {
       marginRight: theme.spacing(1),
     },
   },
-
+  buttons: {
+    justifyContent: 'center',
+    marginRight: '25px'
+  },
   btnWrapper: {
     position: "relative",
+    backgroundColor: '#34D3A3',
+    color: 'black',
+    borderRadius: '20px',
+    marginRight: '15px'
+  },
+  butao: {
+    borderRadius: '20px',
+    borderColor: '#ccc',
+    borderWidth: '1px',
+    color: '#000',
+    borderStyle: 'solid',
+    marginRight: '15px'
   },
 
   buttonProgress: {
@@ -54,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
     left: "50%",
     marginTop: -12,
     marginLeft: -12,
+
   },
   formControl: {
     margin: theme.spacing(1),
@@ -62,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
   colorAdorment: {
     width: 20,
     height: 20,
+  },
+  input: {
+    width: '200px'
   },
 }));
 
@@ -174,9 +197,10 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
         {i18n.t("announcements.confirmationModal.deleteMessage")}
       </ConfirmationModal>
       <Dialog
+        classes={classes.dialogPaper }
         open={open}
         onClose={handleClose}
-        maxWidth="xs"
+        maxWidth="sm"        
         fullWidth
         scroll="paper"
       >
@@ -235,7 +259,7 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                     />
                   </Grid>
                   <Grid xs={12} item>
-                    <FormControl variant="outlined" margin="dense" fullWidth>
+                    <FormControl variant="outlined" margin="dense" className={classes.input}>
                       <InputLabel id="status-selection-label">
                         {i18n.t("announcements.dialog.form.status")}
                       </InputLabel>
@@ -254,7 +278,7 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                     </FormControl>
                   </Grid>
                   <Grid xs={12} item>
-                    <FormControl variant="outlined" margin="dense" fullWidth>
+                    <FormControl variant="outlined" margin="dense" className={classes.input}>
                       <InputLabel id="priority-selection-label">
                         {i18n.t("announcements.dialog.form.priority")}
                       </InputLabel>
@@ -290,9 +314,9 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                   )}
                 </Grid>
               </DialogContent>
-              <DialogActions>
+              <DialogActions className={classes.buttons}> 
                 {!attachment && !announcement.mediaPath && (
-                  <Button
+                  <Button className={classes.butao}
                     color="primary"
                     onClick={() => attachmentFile.current.click()}
                     disabled={isSubmitting}
@@ -301,7 +325,7 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                     {i18n.t("announcements.dialog.buttons.attach")}
                   </Button>
                 )}
-                <Button
+                <Button className={classes.butao}
                   onClick={handleClose}
                   color="secondary"
                   disabled={isSubmitting}
@@ -309,7 +333,7 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                 >
                   {i18n.t("announcements.dialog.buttons.cancel")}
                 </Button>
-                <Button
+                <Button 
                   type="submit"
                   color="primary"
                   disabled={isSubmitting}
