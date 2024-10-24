@@ -40,10 +40,13 @@ import ContactTag from "../ContactTag";
 const useStyles = makeStyles((theme) => ({
   ticket: {
     position: "relative",
+    borderRadius: "20px",
+    marginTop: "10px",
   },
 
   pendingTicket: {
     cursor: "unset",
+    borderRadius: "20px",
   },
   queueTag: {
     background: "#FCFCFC",
@@ -153,16 +156,17 @@ const useStyles = makeStyles((theme) => ({
 
   ticketInfo: {
     position: "relative",
-    top: -13
+    top: -15
   },
   secondaryContentSecond: {
     display: 'flex',
     // marginTop: 5,
-    //marginLeft: "5px",
+    // marginLeft: "5px",
     alignItems: "flex-start",
     flexWrap: "wrap",
     flexDirection: "row",
     alignContent: "flex-start",
+    marginTop: "5px",
   },
   ticketInfo1: {
     position: "relative",
@@ -376,9 +380,7 @@ const useStyles = makeStyles((theme) => ({
           [classes.pendingTicket]: ticket.status === "pending",
         })}
       >
-        <Tooltip arrow placement="right" title={ticket.queue?.name?.toUpperCase() || "SEM FILA"} >
-          <span style={{ backgroundColor: ticket.queue?.color || "#7C7C7C" }} className={classes.ticketQueueColor}></span>
-        </Tooltip>
+
         <ListItemAvatar>
           {ticket.status !== "pending" ?
             <Avatar
@@ -387,7 +389,7 @@ const useStyles = makeStyles((theme) => ({
                 marginLeft: "-3px",
                 width: "55px",
                 height: "55px",
-                borderRadius: "10%",
+                borderRadius: "20%",
               }}
               src={ticket?.contact?.profilePicUrl}
             />
@@ -398,7 +400,7 @@ const useStyles = makeStyles((theme) => ({
                 marginLeft: "0px",
                 width: "50px",
                 height: "50px",
-                borderRadius: "10%",
+                borderRadius: "20%",
               }}
               src={ticket?.contact?.profilePicUrl}
             />
@@ -499,8 +501,8 @@ const useStyles = makeStyles((theme) => ({
         <span className={classes.secondaryContentSecond} >
           {ticket.status === "pending" && (
             <ButtonWithSpinner
-              //color="primary"
-              style={{ backgroundColor: 'green', color: 'white', padding: '0px', bottom: '17px', borderRadius: '0px', left: '8px', fontSize: '0.6rem' }}
+              color="primary"
+              style={{  backgroundColor: 'green',color: 'white', padding: '0px', bottom: '22px', borderRadius: '10px', left: '10px', fontSize: '0.6rem' }}
               variant="contained"
               className={classes.acceptButton}
               size="small"
@@ -515,7 +517,7 @@ const useStyles = makeStyles((theme) => ({
           {(ticket.status !== "closed") && (
             <ButtonWithSpinner
               //color="primary"
-              style={{ backgroundColor: 'red', color: 'white', padding: '0px', bottom: '0px', borderRadius: '0px', left: '8px', fontSize: '0.6rem' }}
+              style={{ backgroundColor: 'red', color: 'white', padding: '0px', bottom: '0px', borderRadius: '10px', left: '10px', fontSize: '0.6rem' }}
               variant="contained"
               className={classes.acceptButton}
               size="small"
@@ -529,7 +531,7 @@ const useStyles = makeStyles((theme) => ({
           {(ticket.status === "closed") && (
             <ButtonWithSpinner
               //color="primary"
-              style={{ backgroundColor: 'red', color: 'white', padding: '0px', bottom: '0px', borderRadius: '0px', left: '8px', fontSize: '0.6rem' }}
+              style={{ backgroundColor: 'red', color: 'white', padding: '0px', bottom: '0px', borderRadius: '10px', left: '8px', fontSize: '0.6rem'}}
               variant="contained"
               className={classes.acceptButton}
               size="small"
@@ -543,7 +545,7 @@ const useStyles = makeStyles((theme) => ({
         </span>
       </ListItem>
 
-      <Divider variant="inset" component="li" />
+      {/*<Divider variant="inset" component="li" />*/}
     </React.Fragment>
   );
 };

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 		flex: 1,
 		// backgroundColor: "#eee",
 		padding: theme.spacing(1), //Aqui ele ajusta espaço na tela de ticket
-		marginTop: theme.spacing(8),
+		marginTop: theme.spacing(10),
 		height: `calc(100% - 48px)`,
 		overflowY: "hidden",
 	},
@@ -42,7 +42,6 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: "space-evenly",
 		alignItems: "center",
 		height: "100%",
-		textAlign: "center",
 	},
 }));
 
@@ -53,7 +52,7 @@ const TicketsCustom = () => {
 	return (
 		<div className={classes.chatContainer}>
 			<div className={classes.chatPapper}>
-				<Grid container spacing={0}>
+				<Grid container spacing={1}>
 					<Grid item xs={4} className={classes.contactsWrapper}>
 						<TicketsManager />
 					</Grid>
@@ -63,7 +62,7 @@ const TicketsCustom = () => {
 								<Ticket />
 							</>
 						) : (
-							<Paper square variant="outlined" className={classes.welcomeMsg}>
+							<Paper square className={classes.welcomeMsg}>
 							{/* PLW DESIGN LOGO */}
 							<div>
 							<center><img style={{ margin: "0 auto", width: "70%" }} src={logo} alt="logologin" /></center>

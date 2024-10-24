@@ -35,7 +35,7 @@ const TicketsQueueSelect = ({
 						},
 						getContentAnchorEl: null,
 					}}
-					renderValue={() => i18n.t("ticketsQueueSelect.placeholder")}
+					renderValue={() => i18n.t("Filas")}
 				>
 					{userQueues?.length > 0 &&
 						userQueues.map(queue => (
