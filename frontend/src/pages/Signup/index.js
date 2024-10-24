@@ -1,177 +1,285 @@
 import React, { useState, useEffect } from "react";
-import qs from 'query-string';
+import qs from 'query-string'
+
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Formik, Form, Field } from "formik";
 import usePlans from "../../hooks/usePlans";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
 import InputMask from 'react-input-mask';
+import {
+	FormControl,
+	InputLabel,
+	MenuItem,
+	Select,
+} from "@material-ui/core";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 import logo from "../../assets/logo.png";
+import Moneyverse from "../../assets/Moneyverse.png"; // Certifique-se de que o caminho está correto
+
+import { i18n } from "../../translate/i18n";
+
 import { openApi } from "../../services/api";
 import toastError from "../../errors/toastError";
 import moment from "moment";
-import { i18n } from "../../translate/i18n";
-
+const Copyright = () => {
+	return (
+		<Typography variant="body2" color="textSecondary" align="center">
+			{"Copyright © "}
+			<Link color="inherit" href="#">
+				PLW
+			</Link>{" "}
+		   {new Date().getFullYear()}
+			{"."}
+		</Typography>
+	);
+};
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    height: "100vh",
-    backgroundColor: "#f5f5f5",
-  },
-  sidebar: {
-    backgroundColor: "#002D62",
-    color: "#fff",
-    width: "40%",
-    padding: "2rem",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  sidebarText: {
-    fontSize: "1.5rem",
-    marginBottom: "2rem",
-    lineHeight: "2.5rem",
-  },
-  formContainer: {
-    width: "60%",
-    padding: "2rem",
-    backgroundColor: "#fff",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-  form: {
-    width: "100%",
-    maxWidth: "400px",
-  },
-  submitButton: {
-    backgroundColor: "#1dbf73",
-    color: "#000",
-    padding: "0.5rem",
-    fontSize: "1rem",
-    border: "none",
-    cursor: "pointer",
-    width: "100%",
-    borderRadius: "25px",
-    marginTop: "1rem",
-  },
-  logo: {
-    width: "150px",
-    marginBottom: "2rem",
-  },
-  inputField: {
-    width: "100%",
-    padding: "1rem",
-    marginBottom: "1rem",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-  },
-  errorMessage: {
-    color: 'red',
-    marginBottom: '1rem',
-  }
+	paper: {
+		marginTop: theme.spacing(8),
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+	},
+	avatar: {
+		margin: theme.spacing(1),
+		backgroundColor: theme.palette.secondary.main,
+	},
+	form: {
+		width: "100%",
+		marginTop: theme.spacing(3),
+	},
+	submit: {
+		margin: theme.spacing(3, 0, 2),
+	},
 }));
 
 const UserSchema = Yup.object().shape({
-  name: Yup.string().required("Nome da empresa é obrigatório."),
-  email: Yup.string().email("Email inválido").required("Email é obrigatório."),
-  phone: Yup.string().required("Telefone é obrigatório."),
-  password: Yup.string().min(5, "Senha muito curta.").required("Senha é obrigatória."),
+	name: Yup.string()
+		.min(2, "Too Short!")
+		.max(50, "Too Long!")
+		.required("Required"),
+	password: Yup.string().min(5, "Too Short!").max(50, "Too Long!"),
+	email: Yup.string().email("Invalid email").required("Required"),
 });
 
 const SignUp = () => {
-  const classes = useStyles();
-  const history = useHistory();
-  const dueDate = moment().add(3, "days").format();
+	const classes = useStyles();
+	const history = useHistory();
+	let companyId = null
 
-  const initialState = {
-    name: "",
-    email: "",
-    phone: "",
-    password: "",
-    planId: "",
-  };
-  
-  const [user] = useState(initialState);
-  const [plans, setPlans] = useState([]);
-  const { list: fetchPlans } = usePlans();
+	const params = qs.parse(window.location.search)
+	if (params.companyId !== undefined) {
+		companyId = params.companyId
+	}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const list = await fetchPlans();
-      setPlans(list);
-    };
-    fetchData();
-  }, [fetchPlans]);
+	const initialState = { name: "", email: "", phone: "", password: "", planId: "", };
 
-  const handleSignUp = async (values) => {
-    try {
-      // Cadastrando a empresa
-      await openApi.post("/companies/cadastro", {
-        ...values,
-        recurrence: "MENSAL",
-        dueDate,
-        status: "t",
-        campaignsEnabled: true,
-      });
+	const [user] = useState(initialState);
+	const dueDate = moment().add(3, "day").format();
+	const handleSignUp = async values => {
+		Object.assign(values, { recurrence: "MENSAL" });
+		Object.assign(values, { dueDate: dueDate });
+		Object.assign(values, { status: "t" });
+		Object.assign(values, { campaignsEnabled: true });
+		try {
+			await openApi.post("/companies/cadastro", values);
+			toast.success(i18n.t("signup.toasts.success"));
+			history.push("/login");
+		} catch (err) {
+			console.log(err);
+			toastError(err);
+		}
+	};
 
-      // Após o cadastro, faça o login do usuário
-      const loginResponse = await openApi.post("/auth/login", {
-        email: values.email,
-        password: values.password,
-      });
+	const [plans, setPlans] = useState([]);
+	const { list: listPlans } = usePlans();
 
-      // Armazenar o token de autenticação
-      localStorage.setItem('token', loginResponse.data.token);
+	useEffect(() => {
+		async function fetchData() {
+			const list = await listPlans();
+			setPlans(list);
+		}
+		fetchData();
+	}, []);
 
-      // Redireciona para a página principal
-      history.push("/dashboard");
-    } catch (err) {
-      toastError(err);
-    }
-  };
 
-  return (
-    <div className={classes.root}>
-      <div className={classes.sidebar}>
-        <h2>Seja Bem Vindo!</h2>
-        <ul className={classes.sidebarText}>
-          <li>Projetos ilimitados e recursos</li>
-          <li>Templates ilimitados</li>
-          <li>Armazenamento ilimitado</li>
-          <li>Visão em lista, quadro e calendário</li>
-        </ul>
-      </div>
-      <div className={classes.formContainer}>
-        <img src={logo} alt="Logo" className={classes.logo} />
-        <Formik
-          initialValues={user}
-          validationSchema={UserSchema}
-          onSubmit={(values) => handleSignUp(values)}
-        >
-          {({ touched, errors }) => (
-            <Form className={classes.form}>
-              {touched.name && errors.name && <div className={classes.errorMessage}>{errors.name}</div>}
-              <Field as="input" name="name" placeholder="Nome da Empresa" className={classes.inputField} />
-              
-              {touched.email && errors.email && <div className={classes.errorMessage}>{errors.email}</div>}
-              <Field as="input" name="email" type="email" placeholder="Email" className={classes.inputField} />
-              
-              {touched.phone && errors.phone && <div className={classes.errorMessage}>{errors.phone}</div>}
-              <Field as={InputMask} mask="(99) 99999-9999" name="phone" placeholder="Telefone com DDD" className={classes.inputField} />
-              
-              {touched.password && errors.password && <div className={classes.errorMessage}>{errors.password}</div>}
-              <Field as="input" name="password" type="password" placeholder="Senha" className={classes.inputField} />
-              
-              <button type="submit" className={classes.submitButton}>Cadastrar</button>
-            </Form>
-          )}
-        </Formik>
-      </div>
-    </div>
-  );
+	return (
+		<Container component="main" maxWidth="xs" style={{ margin: "0 auto", paddingRight: "10px" }}>
+			<CssBaseline />
+
+			<div
+  style={{
+    background: "#0C2454",
+    width: "416px",
+    height: "1024px",
+    padding: "196px 34.17px 278px 34px",
+    gap: "0px",
+    opacity: "1px",
+    position: "absolute", 
+    top: "0", 
+    left: "0", 
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "flex-start",
+	flexDirection: "column",
+	 
+  }}
+>
+
+<img src={Moneyverse} alt="Moneyverse" 
+
+style={{ maxWidth: "80%", position: "relative", top: "-240px"  }} /> {/* Nova Imagem */}
+
+</div>
+
+
+
+
+
+
+			<div className={classes.paper} 
+			style={{ 
+				borderRadius: "35px",
+				backgroundColor: "#fff", 
+				overflow: "hidden",
+				border: "1px solid #66666659",
+				 padding: "30px",
+				}}>
+					
+
+
+				<div>
+					<center><img style={{ margin: "0 auto", width: "70%" }} src={logo} alt="Whats" /></center>
+				</div>
+				{/*<Typography component="h1" variant="h5">
+					{i18n.t("signup.title")}
+				</Typography>*/}
+				{/* <form className={classes.form} noValidate onSubmit={handleSignUp}> */}
+				<Formik
+					initialValues={user}
+					enableReinitialize={true}
+					validationSchema={UserSchema}
+					onSubmit={(values, actions) => {
+						setTimeout(() => {
+							handleSignUp(values);
+							actions.setSubmitting(false);
+						}, 400);
+					}}
+				>
+					{({ touched, errors, isSubmitting }) => (
+						<Form className={classes.form}>
+							<Grid container spacing={2}>
+								<Grid item xs={12}>
+									<Field
+										as={TextField}
+										autoComplete="name"
+										name="name"
+										error={touched.name && Boolean(errors.name)}
+										helperText={touched.name && errors.name}
+										variant="outlined"
+										fullWidth
+										id="name"
+										label="Nome da Empresa"
+									/>
+								</Grid>
+
+								<Grid item xs={12}>
+									<Field
+										as={TextField}
+										variant="outlined"
+										fullWidth
+										id="email"
+										label={i18n.t("signup.form.email")}
+										name="email"
+										error={touched.email && Boolean(errors.email)}
+										helperText={touched.email && errors.email}
+										autoComplete="email"
+										required
+									/>
+								</Grid>
+								
+							<Grid item xs={12}>
+								<Field
+									as={InputMask}
+									mask="(99) 99999-9999"
+									variant="outlined"
+									fullWidth
+									id="phone"
+									name="phone"
+									error={touched.phone && Boolean(errors.phone)}
+									helperText={touched.phone && errors.phone}
+									autoComplete="phone"
+									required
+								>
+									{({ field }) => (
+										<TextField
+											{...field}
+											variant="outlined"
+											fullWidth
+											label="Telefone com (DDD)"
+											inputProps={{ maxLength: 11 }} // Definindo o limite de caracteres
+										/>
+									)}
+								</Field>
+							</Grid>
+								<Grid item xs={12}>
+									<Field
+										as={TextField}
+										variant="outlined"
+										fullWidth
+										name="password"
+										error={touched.password && Boolean(errors.password)}
+										helperText={touched.password && errors.password}
+										label={i18n.t("signup.form.password")}
+										type="password"
+										id="password"
+										autoComplete="current-password"
+										required
+									/>
+								</Grid>
+
+							</Grid>
+							<Button
+								type="submit"
+								fullWidth
+								variant="contained"
+								style={{ backgroundColor: "#34D3A3", padding: "3px 15px", width: "80%", borderRadius: "20px", }}
+								className={classes.submit}
+							>
+								{i18n.t("signup.buttons.submit")}
+							</Button>
+							<Grid container justify="flex-end">
+								<Grid item>
+									<Link
+										href="#"
+										variant="body2"
+										component={RouterLink}
+										to="/login"
+									>
+										{i18n.t("signup.buttons.login")}
+									</Link>
+								</Grid>
+							</Grid>
+						</Form>
+					)}
+				</Formik>
+			</div>
+			<Box mt={5}>{/* <Copyright /> */}</Box>
+		</Container>
+	);
 };
 
 export default SignUp;
