@@ -53,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: -12,
     marginLeft: -12,
   },
+
+  alignButton: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
 }));
 
 const SessionSchema = Yup.object().shape({
@@ -417,10 +422,10 @@ const whatsappData = {
                   </div>
                 </div>
               </DialogContent>
-              <DialogActions>
+              <DialogActions className={classes.alignButton}>
                 <Button
                   onClick={handleClose}
-                  color="secondary"
+                  style={{ backgroundColor: "white", fontWeight: "400", marginBottom: "10px", marginTop: '10px', borderRadius: '20px'}}                  
                   disabled={isSubmitting}
                   variant="outlined"
                 >
@@ -428,7 +433,7 @@ const whatsappData = {
                 </Button>
                 <Button
                   type="submit"
-                  color="primary"
+                  style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "10px", marginTop: '10px', borderRadius: '20px'}}                  
                   disabled={isSubmitting}
                   variant="contained"
                   className={classes.btnWrapper}
