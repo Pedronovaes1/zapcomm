@@ -273,6 +273,7 @@ const Campaigns = () => {
           <Grid xs={12} sm={4} item>
             <Grid spacing={2} container>
               <Grid xs={6} sm={6} item>
+                
                 <TextField
                   fullWidth
                   placeholder={i18n.t("campaigns.searchPlaceholder")}
@@ -284,16 +285,27 @@ const Campaigns = () => {
                       <InputAdornment position="start">
                         <SearchIcon style={{ color: "gray" }} />
                       </InputAdornment>
+                      
                     ),
                   }}
+                    className={"campaigns.searchPlaceholder"}
+                    style={{                                         //botão de pesquisa
+                      border:"2px solid #E7E7E7",
+                      borderradius: "20px", 
+                      width:"300px",
+
+
+                    }}
+                    
+                    
                 />
               </Grid>
-              <Grid xs={6} sm={6} item style={{ display: "flex", justifyContent: "flex-end" }}>
+              <Grid xs={12} sm={9} item style={{ display: "flex", justifyContent: "flex-end" }}>
                 <Button
                   
                   variant="contained"
                   onClick={handleOpenCampaignModal}
-                  style={{ backgroundColor: "#34D3A3", color: "#fff", marginLeft: "10px" }}
+                  style={{ backgroundColor: "#34D3A3", color: "black", marginLeft: "10px" }}
                 >
             
                   {i18n.t("Adicionar")}
@@ -399,7 +411,8 @@ const Campaigns = () => {
                       size="small"
                       onClick={() => handleEditCampaign(campaign)}
                     >
-                      <EditIcon />
+                      <EditIcon />git checkout lista-campanhas
+
                     </IconButton>
 
                     <IconButton

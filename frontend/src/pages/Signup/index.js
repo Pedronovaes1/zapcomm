@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import qs from 'query-string'
+import qs from 'query-string';
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
@@ -7,17 +7,17 @@ import usePlans from "../../hooks/usePlans";
 import InputMask from 'react-input-mask';
 import { makeStyles } from "@material-ui/core/styles";
 import logo from "../../assets/logo.png";
-import { i18n } from "../../translate/i18n";
-
 import { openApi } from "../../services/api";
 import toastError from "../../errors/toastError";
 import moment from "moment";
+import { i18n } from "../../translate/i18n";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     height: "100vh",
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "#f5f5f5",
   },
   sidebar: {
     backgroundColor: "#002D62",
@@ -26,12 +26,12 @@ const useStyles = makeStyles(theme => ({
     padding: "2rem",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   sidebarText: {
     fontSize: "1.5rem",
     marginBottom: "2rem",
-    lineHeight: "2.5rem"
+    lineHeight: "2.5rem",
   },
   formContainer: {
     width: "60%",
@@ -40,33 +40,37 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   form: {
     width: "100%",
-    maxWidth: "400px"
+    maxWidth: "400px",
   },
   submitButton: {
     backgroundColor: "#1dbf73",
-    color: "#fff",
-    padding: "1rem",
+    color: "#000",
+    padding: "0.5rem",
     fontSize: "1rem",
     border: "none",
     cursor: "pointer",
     width: "100%",
-    borderRadius: "5px",
-    marginTop: "1rem"
+    borderRadius: "25px",
+    marginTop: "1rem",
   },
   logo: {
     width: "150px",
-    marginBottom: "2rem"
+    marginBottom: "2rem",
   },
   inputField: {
     width: "100%",
     padding: "1rem",
     marginBottom: "1rem",
     border: "1px solid #ccc",
-    borderRadius: "5px"
+    borderRadius: "5px",
+  },
+  errorMessage: {
+    color: 'red',
+    marginBottom: '1rem',
   }
 }));
 
@@ -74,38 +78,56 @@ const UserSchema = Yup.object().shape({
   name: Yup.string().required("Nome da empresa é obrigatório."),
   email: Yup.string().email("Email inválido").required("Email é obrigatório."),
   phone: Yup.string().required("Telefone é obrigatório."),
-  password: Yup.string().min(5, "Senha muito curta.").required("Senha é obrigatória.")
+  password: Yup.string().min(5, "Senha muito curta.").required("Senha é obrigatória."),
 });
 
 const SignUp = () => {
   const classes = useStyles();
   const history = useHistory();
-  const dueDate = moment().add(3, "day").format();
+  const dueDate = moment().add(3, "days").format();
 
-  const initialState = { name: "", email: "", phone: "", password: "", planId: "" };
+  const initialState = {
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    planId: "",
+  };
+  
   const [user] = useState(initialState);
   const [plans, setPlans] = useState([]);
-
-  const { list: fetchPlans } = usePlans();  // Chame usePlans no topo
+  const { list: fetchPlans } = usePlans();
 
   useEffect(() => {
-    async function fetchData() {
-      const list = await fetchPlans(); // Use fetchPlans diretamente
+    const fetchData = async () => {
+      const list = await fetchPlans();
       setPlans(list);
-    }
+    };
     fetchData();
-  }, [fetchPlans]); // Adicione fetchPlans como dependência
+  }, [fetchPlans]);
 
   const handleSignUp = async (values) => {
     try {
+      // Cadastrando a empresa
       await openApi.post("/companies/cadastro", {
         ...values,
         recurrence: "MENSAL",
         dueDate,
         status: "t",
-        campaignsEnabled: true
+        campaignsEnabled: true,
       });
-      history.push("/login");
+
+      // Após o cadastro, faça o login do usuário
+      const loginResponse = await openApi.post("/auth/login", {
+        email: values.email,
+        password: values.password,
+      });
+
+      // Armazenar o token de autenticação
+      localStorage.setItem('token', loginResponse.data.token);
+
+      // Redireciona para a página principal
+      history.push("/dashboard");
     } catch (err) {
       toastError(err);
     }
@@ -131,44 +153,19 @@ const SignUp = () => {
         >
           {({ touched, errors }) => (
             <Form className={classes.form}>
-				{touched.name && errors.name && <div>{errors.name}</div>}
-              <Field
-                as="input"
-                name="name"
-                placeholder="Nome da Empresa"
-                className={classes.inputField}
-              />
+              {touched.name && errors.name && <div className={classes.errorMessage}>{errors.name}</div>}
+              <Field as="input" name="name" placeholder="Nome da Empresa" className={classes.inputField} />
               
-			  {touched.email && errors.email && <div>{errors.email}</div>}
-              <Field
-                as="input"
-                name="email"
-                type="email"
-                placeholder="Email"
-                className={classes.inputField}
-              />
-             
-			  {touched.phone && errors.phone && <div>{errors.phone}</div>}
-              <Field
-                
-                mask="(99) 99999-9999"
-                name="phone"
-                placeholder="Telefone com DDD"
-                className={classes.inputField}
-              />
+              {touched.email && errors.email && <div className={classes.errorMessage}>{errors.email}</div>}
+              <Field as="input" name="email" type="email" placeholder="Email" className={classes.inputField} />
               
-			  {touched.password && errors.password && <div>{errors.password}</div>}
-              <Field
-                as="input"
-                name="password"
-                type="password"
-                placeholder="Senha"
-                className={classes.inputField}
-              />
+              {touched.phone && errors.phone && <div className={classes.errorMessage}>{errors.phone}</div>}
+              <Field as={InputMask} mask="(99) 99999-9999" name="phone" placeholder="Telefone com DDD" className={classes.inputField} />
               
-              <button type="submit" className={classes.submitButton}>
-                Cadastrar
-              </button>
+              {touched.password && errors.password && <div className={classes.errorMessage}>{errors.password}</div>}
+              <Field as="input" name="password" type="password" placeholder="Senha" className={classes.inputField} />
+              
+              <button type="submit" className={classes.submitButton}>Cadastrar</button>
             </Form>
           )}
         </Formik>
