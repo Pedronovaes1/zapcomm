@@ -222,9 +222,17 @@ const ContactLists = () => {
           <Grid xs={12} sm={8} item>
             <Title>{i18n.t("contactLists.title")}</Title>
           </Grid>
-          <Grid xs={12} sm={4} item>
-            <Grid spacing={2} container>
-              <Grid xs={7} sm={6} item>
+        </Grid>
+      </MainHeader>
+      <Paper
+        className={classes.mainPaper}
+        variant="outlined"
+        onScroll={handleScroll}
+        style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "30px"}}
+      >
+          <Grid>
+            <Grid spacing={2}  container alignItems="center" justifyContent="center" style={{marginTop: "20px"}}>
+              <Grid  xs={6} sm={8} item style={{ marginBottom: 0}}>
                 <TextField
                   fullWidth
                   placeholder={i18n.t("contacts.searchPlaceholder")}
@@ -237,14 +245,16 @@ const ContactLists = () => {
                         <SearchIcon style={{ color: "gray" }} />
                       </InputAdornment>
                     ),
+                    disableUnderline: true, // Remove a linha inferior
                   }}
+                  style={{padding: '0px 30px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
                 />
               </Grid>
-              <Grid xs={5} sm={6} item>
+              <Grid xs={4} sm={4} item >
                 <Button
                   fullWidth
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   onClick={handleOpenContactListModal}
                 >
                   {i18n.t("contactLists.buttons.add")}
@@ -252,14 +262,8 @@ const ContactLists = () => {
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </MainHeader>
-      <Paper
-        className={classes.mainPaper}
-        variant="outlined"
-        onScroll={handleScroll}
-      >
         <Table size="small">
+
           <TableHead>
             <TableRow>
               <TableCell align="center">

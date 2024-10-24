@@ -33,7 +33,7 @@ const TicketInfo = ({ contact, ticket, onClick }) => {
 	return (
 		<CardHeader
 			onClick={onClick}
-			style={{ cursor: "pointer" }}
+			style={{ cursor: "pointer", backgroundColor: "#fff" }}
 			titleTypographyProps={{ noWrap: true }}
 			subheaderTypographyProps={{ noWrap: true }}
 			avatar={<Avatar src={contact.profilePicUrl} alt="contact_image" />}

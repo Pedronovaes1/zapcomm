@@ -102,8 +102,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",  // Centraliza horizontalmente
     alignItems: "center",  // Centraliza verticalmente
     gap: theme.spacing(4),  // Espaço entre a barra de pesquisa e o botão
-    marginBottom: theme.spacing(8), 
-    marginTop: theme.spacing(4)
+    marginBottom: theme.spacing(2), 
+    marginTop: theme.spacing(2)
   },
 
   avatar: {
@@ -122,10 +122,8 @@ const useStyles = makeStyles((theme) => ({
 
   customTextField: {
     border: '2px solid #E7E7E7', 
-    width: '315.79px' ,
+    padding: "0px 15px",
     borderRadius: '5px', 
-    padding: theme.spacing(0.6),
-
   },
 }));
 

@@ -78,7 +78,7 @@ export function TagsContainer({ ticket }) {
     }
 
     return (
-        <Paper style={{ padding: 12 }}>
+        <Paper style={{ padding: 6}}>
             <Autocomplete
                 multiple
                 size="small"
@@ -90,13 +90,11 @@ export function TagsContainer({ ticket }) {
                 renderTags={(value, getTagProps) =>
                     value.map((option, index) => (
                         <Chip
-                            variant="outlined"
                             style={{
                                 background: option.color || '#eee',
                                 color: "#FFF",
                                 marginRight: 1,
                                 fontWeight: 600,
-                                borderRadius: 3,
                                 fontSize: "0.8em",
                                 whiteSpace: "nowrap"
                             }}
