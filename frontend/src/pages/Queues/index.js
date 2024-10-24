@@ -184,10 +184,10 @@ const Queues = () => {
         <Title>{i18n.t("Filas & ChatBot")}</Title>
       </MainHeader>
       <Paper className={classes.mainPaper} variant="outlined">
-        <div style={{display: "flex", justifyContent: "flex-end", marginTop: "20px", marginRight:"20px"}}>
+        <div style={{display: "flex", justifyContent: "flex-end", marginTop: "20px", marginRight:"20px",}}>
           <Button
             variant="contained"
-            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px"}}
+            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px", }}
             onClick={handleOpenQueueModal}
           >
             {i18n.t("Adicionar")}
