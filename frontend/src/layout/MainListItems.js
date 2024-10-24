@@ -45,6 +45,7 @@ import { AllInclusive, AttachFile, BlurCircular, DeviceHubOutlined, Schedule } f
 import usePlans from "../hooks/usePlans";
 import Typography from "@material-ui/core/Typography";
 import useVersion from "../hooks/useVersion";
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   ListSubheader: {
@@ -57,6 +58,8 @@ const useStyles = makeStyles((theme) => ({
 
 function ListItemLink(props) {
   const { icon, primary, to, className } = props;
+  const location = useLocation();
+  const isActive = location.pathname === to;
 
   const renderLink = React.useMemo(
     () =>
@@ -66,11 +69,51 @@ function ListItemLink(props) {
     [to]
   );
 
+  const activeStyle = {
+    color: '#369FFF',
+  };
+
+  const listItemStyle = {
+    height: '29px', 
+    marginTop: "10px",
+    textAlign: 'left',
+    gap: '31px',
+  };
+
+  const listItemIconStyle = {
+    minWidth: '30px', 
+    fontSize: '8px', 
+    color: "#555",
+  };
+
+  const listItemTextStyle = {
+    fontSize: '8px',
+    color: "#555",
+    '&:hover': {
+      backgroundColor: 'inherit', 
+      color: 'black', 
+    },
+  };
+
+  
+
   return (
     <li>
-      <ListItem button dense component={renderLink} className={className}>
-        {icon ? <ListItemIcon style={{marginTop:"20px"}}>{icon}</ListItemIcon> : null}
-        <ListItemText primary={primary} style={{marginTop: "20px"}}/>
+      <ListItem
+        dense
+        component={renderLink}
+        className={className}
+        style={{ ...listItemStyle, ...(isActive ? activeStyle : {}) }}
+      >
+        {icon ? (
+          <ListItemIcon style={{ ...listItemIconStyle, ...(isActive ? activeStyle : {}) }}>
+            {icon}
+          </ListItemIcon>
+        ) : null}
+        <ListItemText
+          primary={primary}
+          style={{ ...listItemTextStyle, ...(isActive ? activeStyle : {}) }}
+        />
       </ListItem>
     </li>
   );
@@ -382,6 +425,7 @@ const MainListItems = (props) => {
                 <ListItem
                   button
                   onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
+                  style={{  color: "#555", fontSize: "8px" }}
                 >
                   <ListItemIcon>
                     <EventAvailableIcon />
@@ -501,7 +545,7 @@ const MainListItems = (props) => {
                 <img style={{ width: "100%", padding: "10px" }} src={logo} alt="image" />            
               </Hidden> 
               */}
-              <Typography style={{ fontSize: "12px", padding: "10px", textAlign: "right", fontWeight: "bold" }}>
+              <Typography style={{ fontSize: "10px", padding: "10px", textAlign: "right", fontWeight: "bold" }}>
                 {`6.0.0`}
 
               </Typography>
