@@ -227,12 +227,12 @@ const InformativoTable = () => {
         <Table size="small" className={classes.table}>
           <TableHead>
             <TableRow>
-              <TableCell className={classes.titulo}>TÍTULO</TableCell>
-              <TableCell className={classes.titulo}>PRIORIDADE</TableCell>
-              <TableCell className={classes.titulo}>ARQUIVO</TableCell>
-              <TableCell className={classes.titulo}>STATUS</TableCell>
-              <TableCell className={classes.topolinha}>  </TableCell>
-              <TableCell className={classes.topolinha}>AÇÕES</TableCell>
+              <TableCell >TÍTULO</TableCell>
+              <TableCell >PRIORIDADE</TableCell>
+              <TableCell >ARQUIVO</TableCell>
+              <TableCell >STATUS</TableCell>
+              <TableCell >  </TableCell>
+              <TableCell>AÇÕES</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
