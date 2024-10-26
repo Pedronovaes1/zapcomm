@@ -288,9 +288,9 @@ const Campaigns = () => {
 
 
       >
-          <Grid xs={12} sm={4} item> 
-            <Grid spacing={2} container justifyContent="flex-end"> 
-              <Grid item xs={6}>
+          <Grid xs={12} sm={6} item> 
+            <Grid spacing={3} container justifyContent="flex-end"> 
+              <Grid item xs={11}>
                 
                 <TextField
                   fullWidth
@@ -311,6 +311,7 @@ const Campaigns = () => {
                       border:"2px solid #E7E7E7",
                       borderradius: "20px", 
                       width:"300px",
+                      marginLeft: "650px",
 
 
                     }}
@@ -318,12 +319,13 @@ const Campaigns = () => {
                     
                 />
               </Grid>
-              <Grid xs={12} sm={9} item justifyContent="flex-end">
+              <Grid xs={10} sm={5} item justifyContent="flex-end">
+                <Grid container spacing={8}></Grid>
                 <Button
                   
                   variant="contained"
                   onClick={handleOpenCampaignModal}
-                  style={{ backgroundColor: "#34D3A3", color: "black", marginLeft: "10px" }}
+                  style={{ backgroundColor: "#34D3A3", color: "black", marginLeft: "650px" }}
                 >
             
                   {i18n.t("Adicionar")}
