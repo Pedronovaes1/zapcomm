@@ -91,7 +91,7 @@ const Kanban = () => {
       {
         id: "lane0",
         title: i18n.t("Em aberto"),
-        label: "0",
+        label: "1",
         cards: filteredTickets.map(ticket => ({
           id: ticket.id.toString(),
           label: "Ticket nº " + ticket.id.toString(),
@@ -115,6 +115,34 @@ const Kanban = () => {
           draggable: true,
           href: "/tickets/" + ticket.uuid,
         })),
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane1",
+        title: "Em atendimento",
+        label: "2",
+        cards: [],
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane2",
+        title: "Aguardando",
+        label: "3",
+        cards: [],
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane3",
+        title: "Impedido",
+        label: "4",
+        cards: [],
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane4",
+        title: "Finalizados",
+        label: "5",
+        cards: [],
         style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
       },
       ...tags.map(tag => {
