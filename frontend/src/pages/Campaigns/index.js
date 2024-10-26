@@ -90,6 +90,8 @@ const useStyles = makeStyles((theme) => ({
   mainPaper: {
     flex: 1,
     padding: theme.spacing(1),
+    boxShadow:"-2px 1px 3px -2px rgba(51, 51, 51, 0.3) inset, 0px 1.3px 2px -1px rgba(51, 51, 51, 0.3) inset", // Sombra mais suave
+    borderRadius: "15px",
     overflowY: "scroll",
     ...theme.scrollbarStyles,
   },
@@ -266,13 +268,30 @@ const Campaigns = () => {
         campaignId={selectedCampaign && selectedCampaign.id}
       />
       <MainHeader>
-        <Grid style={{ width: "99.6%" }} container>
+        <Grid style={{ width: "99.6%" }} container >
           <Grid xs={12} sm={8} item>
-            <Title>{i18n.t("campaigns.title")}</Title>
+          <Title style={{ color: 'black' }}>{i18n.t("Listagem")}</Title>
+            
           </Grid>
-          <Grid xs={12} sm={4} item>
-            <Grid spacing={2} container>
-              <Grid xs={6} sm={6} item>
+
+        </Grid>
+      </MainHeader>
+      <Paper
+
+
+
+        className={classes.mainPaper}
+        variant="outlined"
+        onScroll={handleScroll}
+
+
+
+
+      >
+          <Grid xs={12} sm={4} item> 
+            <Grid spacing={2} container justifyContent="flex-end"> 
+              <Grid item xs={6}>
+                
                 <TextField
                   fullWidth
                   placeholder={i18n.t("campaigns.searchPlaceholder")}
@@ -284,29 +303,35 @@ const Campaigns = () => {
                       <InputAdornment position="start">
                         <SearchIcon style={{ color: "gray" }} />
                       </InputAdornment>
+                      
                     ),
                   }}
+                    className={"campaigns.searchPlaceholder"}
+                    style={{                                         
+                      border:"2px solid #E7E7E7",
+                      borderradius: "20px", 
+                      width:"300px",
+
+
+                    }}
+                    
+                    
                 />
               </Grid>
-              <Grid xs={6} sm={6} item>
+              <Grid xs={12} sm={9} item justifyContent="flex-end">
                 <Button
-                  fullWidth
+                  
                   variant="contained"
                   onClick={handleOpenCampaignModal}
-                  color="primary"
+                  style={{ backgroundColor: "#34D3A3", color: "black", marginLeft: "10px" }}
                 >
-                  {i18n.t("campaigns.buttons.add")}
+            
+                  {i18n.t("Adicionar")}
                 </Button>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </MainHeader>
-      <Paper
-        className={classes.mainPaper}
-        variant="outlined"
-        onScroll={handleScroll}
-      >
+
         <Table size="small">
           <TableHead>
             <TableRow>
@@ -336,7 +361,23 @@ const Campaigns = () => {
               </TableCell>
             </TableRow>
           </TableHead>
+
+          {/* Adicione a nova borda aqui */}
+          <TableRow>
+          <TableCell colSpan={8} style={{ position: "relative" }}/>
+          
+          
+          </TableRow>
+
+
+
+
           <TableBody>
+            
+
+
+
+
             <>
               {campaigns.map((campaign) => (
                 <TableRow key={campaign.id}>
@@ -398,7 +439,8 @@ const Campaigns = () => {
                       size="small"
                       onClick={() => handleEditCampaign(campaign)}
                     >
-                      <EditIcon />
+                      <EditIcon />git checkout lista-campanhas
+
                     </IconButton>
 
                     <IconButton
@@ -422,4 +464,4 @@ const Campaigns = () => {
   );
 };
 
-export default Campaigns;
+export default Campaigns
