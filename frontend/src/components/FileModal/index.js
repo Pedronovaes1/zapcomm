@@ -298,9 +298,9 @@ const FilesModal = ({ open, onClose, fileListId, reload }) => {
                                                 ))}
                                             <div className={classes.extraAttr}>
                                                 <Button
-                                                    style={{ flex: 1, marginTop: 8 }}
+                                                    style={{ flex: 1, marginTop: 8}}
                                                     variant="outlined"
-                                                    color="primary"
+                                                    color="black"
                                                     onClick={() => {push({ name: "", path: ""});
                                                     setSelectedFileNames([...selectedFileNames, ""]);
                                                 }}
@@ -312,10 +312,10 @@ const FilesModal = ({ open, onClose, fileListId, reload }) => {
                                     )}
                                 </FieldArray>
                             </DialogContent>
-                            <DialogActions>
+                            <DialogActions style={{ display: "flex",justifyContent:"center", algignItems:"center"}}>
                                 <Button
                                     onClick={handleClose}
-                                    color="secondary"
+                                    color="black"
                                     disabled={isSubmitting}
                                     variant="outlined"
                                 >
@@ -323,7 +323,7 @@ const FilesModal = ({ open, onClose, fileListId, reload }) => {
                                 </Button>
                                 <Button
                                     type="submit"
-                                    color="primary"
+                                    color="secondary"
                                     disabled={isSubmitting}
                                     variant="contained"
                                     className={classes.btnWrapper}

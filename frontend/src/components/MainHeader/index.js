@@ -7,6 +7,8 @@ const useStyles = makeStyles(theme => ({
 		display: "flex",
 		alignItems: "center",
 		padding: "0px 6px 6px 6px",
+		marginTop: "30px",
+		marginRight: theme.spacing(55),
 	},
 }));
 
