@@ -208,10 +208,10 @@ const PromptTable = () => {
         <Table size="small" className={classes.table}>
           <TableHead>
             <TableRow>
-              <TableCell className={classes.headerText}>TÍTULO</TableCell>
-              <TableCell className={classes.headerText}>SETOR/FILA</TableCell>
-              <TableCell className={classes.headerText}>MÁXIMO DE TOKEN RESPOSTA</TableCell>
-              <TableCell className={classes.headerText} align="center">
+              <TableCell>TÍTULO</TableCell>
+              <TableCell >SETOR/FILA</TableCell>
+              <TableCell >MÁXIMO DE TOKEN RESPOSTA</TableCell>
+              <TableCell  align="center">
                 AÇÕES
               </TableCell>
             </TableRow>
