@@ -12,88 +12,36 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles({
   root: {
-    marginTop: '100px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginTop: '100px',
     margin: '2rem',
-    position: 'relative',
-  },
-  title: {
-    position: 'relative',
-    bottom: '1.2rem',
-    right: '43rem',
-    fontSize: '30px',
-    fontWeight: 'bold',
+    borderRadius: '10px',
+    border: "20px",
   },
   inputContainer: {
-    borderRadius: '20px',
     display: 'flex',
-    justifyContent: 'center',
-    width: '55%',
-    borderWidth: '5%',
-    padding: '5%',
-    margin: '0 auto 1rem',
+    width: '100%',
+    marginBottom: '1rem'
   },
   input: {
     flexGrow: 1,
-    marginRight: '1rem',
-  },
-  createButton: {
-    fontSize: '14px',
-    textTransform: 'capitalize',
-    fontWeight: 'bold',
-    width: '184.851px',
-    height: '41px',
-    marginTop: '5px',
-    marginLeft: '12px',
-    borderRadius: '10px',
-    backgroundColor: '#00c88c',
-    color: 'black',
-    '&:hover': {
-      backgroundColor: '#00b07b',
-    },
+    marginRight: '1rem'
   },
   listContainer: {
     width: '100%',
-    backgroundColor: 'white',
-    borderRadius: '15px',
-    boxShadow: '0px 15px 30px rgba(0, 0, 0, 0.1)',
-    padding: '1rem',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '0.5rem 1rem',
-    fontWeight: 'bold',
-    backgroundColor: 'white',
-  },
-  listItem: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    height: '100%',
+    marginTop: '1rem',
+    backgroundColor: '#fff',
+    color: "black",
     borderRadius: '10px',
-    border: '1px solid #D3D3D3',
-    marginBottom: '10px',
-    padding: '10px',
-    backgroundColor: 'white',
+    border: '1px solid #ccc'
   },
-  taskText: {
-    flex: 1,
-    textAlign: 'center'
-  },
-  taskDate: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  taskActions: {
-    flex: 1,
-    textAlign: 'center'
-  },
-  iconButton: {
-    color: '#333',
-  },
-});
+  list: {
+    marginBottom: '5px'
+  }
+});  
 
 const ToDoList = () => {
   const classes = useStyles();
@@ -148,52 +96,31 @@ const ToDoList = () => {
 
   return (
     <div className={classes.root}>
-      <h1 className={classes.title}>Tarefas</h1>
+      <div className={classes.inputContainer}>
+        <TextField
+          className={classes.input}
+          label="Nova tarefa"
+          value={task}
+          onChange={handleTaskChange}
+          variant="outlined"
+        />
+        <Button variant="contained" color="secondary" onClick={handleAddTask}>
+          {editIndex >= 0 ? 'Salvar' : 'Adicionar'}
+        </Button>
+      </div>
       <div className={classes.listContainer}>
-        <div className={classes.inputContainer}>
-          <TextField
-            className={classes.input}
-            label="Nova tarefa"
-            value={task}
-            onChange={handleTaskChange}
-            variant="outlined"
-          />
-          <Button
-            className={classes.createButton}
-            variant="contained"
-            onClick={handleAddTask}
-          >
-            {editIndex >= 0 ? 'Salvar' : 'Criar Tarefa'}
-          </Button>
-        </div>
-        <div className={classes.header}>
-          <span className={classes.taskDate}>Data</span>
-          <span className={classes.taskText}>Nome da Tarefa</span>
-          <span className={classes.taskActions}>Ações</span>
-        </div>
         <List>
           {tasks.map((task, index) => (
-            <ListItem key={index} className={classes.listItem}>
-              <div className={classes.taskDate}>
-                {task.updatedAt.toLocaleDateString()}
-              </div>
-              <div className={classes.taskText}>
-                {task.text}
-              </div>
-              <div className={classes.taskActions}>
-                <IconButton
-                  className={classes.iconButton}
-                  onClick={() => handleEditTask(index)}
-                >
+            <ListItem key={index} className={classes.list}>
+              <ListItemText primary={task.text} secondary={task.updatedAt.toLocaleString()} />
+              <ListItemSecondaryAction>
+                <IconButton onClick={() => handleEditTask(index)}>
                   <EditIcon />
                 </IconButton>
-                <IconButton
-                  className={classes.iconButton}
-                  onClick={() => handleDeleteTask(index)}
-                >
+                <IconButton onClick={() => handleDeleteTask(index)}>
                   <DeleteIcon />
                 </IconButton>
-              </div>
+              </ListItemSecondaryAction>
             </ListItem>
           ))}
         </List>

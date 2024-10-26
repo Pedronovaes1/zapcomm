@@ -11,15 +11,21 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     alignItems: "center",
-    padding: theme.spacing(1),
+    padding: theme.spacing(4),
+    marginTop: theme.spacing(10),
+    marginRight: theme.spacing(4),
+    marginLeft: theme.spacing(4),
+    boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.15)",
+    borderRadius: "20px",
+    backgroundColor: "rgba(252, 252, 252, 0.03)",
   },
   button: {
-    background: "#10a110",
+    background: "#34D3A3",
     border: "none",
-    padding: "10px",
-    color: "white",
-    fontWeight: "bold",
-    borderRadius: "5px",
+    padding: "10px 12px",
+    color: "black",
+    fontWeight: "normal",
+    borderRadius: "13px",
   },
   
 }));
@@ -85,7 +91,7 @@ const Kanban = () => {
       {
         id: "lane0",
         title: i18n.t("Em aberto"),
-        label: "0",
+        label: "1",
         cards: filteredTickets.map(ticket => ({
           id: ticket.id.toString(),
           label: "Ticket nº " + ticket.id.toString(),
@@ -109,6 +115,35 @@ const Kanban = () => {
           draggable: true,
           href: "/tickets/" + ticket.uuid,
         })),
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane1",
+        title: "Em atendimento",
+        label: "2",
+        cards: [],
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane2",
+        title: "Aguardando",
+        label: "3",
+        cards: [],
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane3",
+        title: "Impedido",
+        label: "4",
+        cards: [],
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
+      },
+      {
+        id: "lane4",
+        title: "Finalizados",
+        label: "5",
+        cards: [],
+        style: {backgroundColor: "rgba(252, 252, 252, 0.03)"},
       },
       ...tags.map(tag => {
         const filteredTickets = tickets.filter(ticket => {
@@ -144,7 +179,7 @@ const Kanban = () => {
             draggable: true,
             href: "/tickets/" + ticket.uuid,          
           })),
-          style: { backgroundColor: tag.color, color: "white" }
+          style: { color: tag.color, backgroundColor: "rgba(252, 252, 252, 0.03)"},
         };
       }),
     ];
@@ -174,12 +209,20 @@ const Kanban = () => {
     }
   };
 
+  const cardStyle = {
+    backgroundColor: '#fff',
+    borderRadius: '8px',
+    margin: '10px 0',
+    boxShadow: '0px 4px 16px #eae2fd',
+  };
+
   return (
     <div className={classes.root}>
       <Board 
 		data={file} 
 		onCardMoveAcrossLanes={handleCardMove}
 		style={{backgroundColor: 'rgba(252, 252, 252, 0.03)'}}
+    cardStyle={cardStyle}
     />
     </div>
   );
