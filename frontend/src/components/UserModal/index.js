@@ -291,10 +291,10 @@ const UserModal = ({ open, onClose, userId }) => {
 								/>
 								
 							</DialogContent>
-							<DialogActions>
+							<DialogActions style={{display: "flex", alignItems: "center", justifyContent: "center" }}>
 								<Button
 									onClick={handleClose}
-									color="secondary"
+									style={{border: "1px solid #333", borderRadius: "20px"}}
 									disabled={isSubmitting}
 									variant="outlined"
 								>
@@ -302,14 +302,15 @@ const UserModal = ({ open, onClose, userId }) => {
 								</Button>
 								<Button
 									type="submit"
-									color="primary"
+									color="secondary"
+									style={{ borderRadius: "20px"}}
 									disabled={isSubmitting}
 									variant="contained"
 									className={classes.btnWrapper}
 								>
 									{userId
-										? `${i18n.t("userModal.buttons.okEdit")}`
-										: `${i18n.t("userModal.buttons.okAdd")}`}
+										? `${i18n.t("Editar")}`
+										: `${i18n.t("Adicionar")}`}
 									{isSubmitting && (
 										<CircularProgress
 											size={24}

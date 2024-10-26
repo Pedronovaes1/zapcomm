@@ -208,6 +208,12 @@ const Users = () => {
       />
       <MainHeader>
         <Title>{i18n.t("users.title")}</Title>
+      </MainHeader>
+      <Paper
+        className={classes.mainPaper}
+        variant="outlined"
+        onScroll={handleScroll}
+      >
         <MainHeaderButtonsWrapper>
           <TextField
             placeholder={i18n.t("contacts.searchPlaceholder")}
@@ -220,22 +226,18 @@ const Users = () => {
                   <SearchIcon style={{ color: "gray" }} />
                 </InputAdornment>
               ),
+              disableUnderline: true, // Remove a linha inferior
             }}
+            style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
           />
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={handleOpenUserModal}
           >
-            {i18n.t("users.buttons.add")}
+            {i18n.t("Adicionar")}
           </Button>
         </MainHeaderButtonsWrapper>
-      </MainHeader>
-      <Paper
-        className={classes.mainPaper}
-        variant="outlined"
-        onScroll={handleScroll}
-      >
         <Table size="small">
           <TableHead>
             <TableRow>
