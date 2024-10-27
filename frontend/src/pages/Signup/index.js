@@ -31,6 +31,7 @@ import { i18n } from "../../translate/i18n";
 import { openApi } from "../../services/api";
 import toastError from "../../errors/toastError";
 import moment from "moment";
+import Moneyverse from "../../assets/Moneyverse.png";
 const Copyright = () => {
 	return (
 		<Typography variant="body2" color="textSecondary" align="center">
@@ -45,19 +46,75 @@ const Copyright = () => {
 };
 
 const useStyles = makeStyles(theme => ({
-	paper: {
-		marginTop: theme.spacing(8),
+	root: {
+		width: "100%",
+		//background: "linear-gradient(to right, #682EE3 , #682EE3 , #682EE3)",
+		//backgroundImage: "url(https://i.imgur.com/CGby9tN.png)",
+		backgroundColor: "#FFFFFF",
+		backgroundRepeat: "no-repeat",
+		backgroundSize: "100% 100%",
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
+		justifyContent: "center",
+		textAlign: "center",
+		margin: "0",
+		padding: "0",
+		boxSizing: "border-box",
+	},
+	container: {
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-around",
+		height: "100vh",
+		boxSizing: "border-box",
+		paddingLeft: "0",
+		paddingRight: "0",
+	},
+	paper: {
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+		width: "65%",
+		[theme.breakpoints.down('sm')]: {
+			width: "100%",
+			height: "100%",
+			justifyContent: "center",
+			alignItems: "center",
+		},
+	},
+	formGrid:{
+		backgroundColor: "#fff", 
+		width: "50%",
+		height: "50%",
+		alignItems: "center",
+		justifyContent: "center",
+		width: "60%",
+		[theme.breakpoints.down('sm')]: {
+			width: "50%",
+			height: "50%",
+		},
 	},
 	avatar: {
-		margin: theme.spacing(1),
 		backgroundColor: theme.palette.secondary.main,
 	},
+	infoContainer: {
+		backgroundColor: "#0C2454",
+		color: "#FFFFFF",
+		padding: theme.spacing(4),
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+		width: "35%",
+		height: "100%",
+		[theme.breakpoints.down('sm')]: {
+			display: 'none',
+		},
+    },
 	form: {
 		width: "100%",
-		marginTop: theme.spacing(3),
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
@@ -115,12 +172,36 @@ const SignUp = () => {
 
 
 	return (
-		<Container component="main" maxWidth="xs">
+		<Box className={classes.root}> 
+		<Container component="main" maxWidth="false" className={classes.container}>
 			<CssBaseline />
+			<div className={classes.infoContainer}>
+
+				<img src={Moneyverse} alt="Moneyverse" style={{ filter: "brightness(1.1) contrast(1.2) saturate(1.0)"}} /> {/* Nova Imagem */}
+
+				<Typography variant="h5" style={{textAlign:"justify", marginTop: "40px"}}>Seja Bem vindo!</Typography>
+				<ul style={{ lineHeight: "30px", fontSize:"14px", textAlign: "justify", fontWeight: "200"}}>
+					<li>Unlimited projects and resources</li>
+					<li>Unlimited templates</li>
+					<li>Unlimited storage</li>
+					<li>List, Board, and Calendar views...</li>
+				</ul>
+			</div>
 			<div className={classes.paper}>
+				<Grid className={classes.formGrid}>
 				<div>
 					<center><img style={{ margin: "0 auto", width: "70%" }} src={logo} alt="Whats" /></center>
 				</div>
+				<Typography
+				 variant="h6"
+				 style={{
+					textAlign: "center",
+					color: "#0C2454",
+					marginTop: "10px",
+				 }}
+				 >
+					Crie uma conta
+				 </Typography>
 				{/*<Typography component="h1" variant="h5">
 					{i18n.t("signup.title")}
 				</Typography>*/}
@@ -207,33 +288,16 @@ const SignUp = () => {
 										required
 									/>
 								</Grid>
-								<Grid item xs={12}>
-									<InputLabel htmlFor="plan-selection">Plano</InputLabel>
-									<Field
-										as={Select}
-										variant="outlined"
-										fullWidth
-										id="plan-selection"
-										label="Plano"
-										name="planId"
-										required
-									>
-										{plans.map((plan, key) => (
-											<MenuItem key={key} value={plan.id}>
-												{plan.name} - Atendentes: {plan.users} - WhatsApp: {plan.connections} - Filas: {plan.queues} - R$ {plan.value}
-											</MenuItem>
-										))}
-									</Field>
-								</Grid>
 							</Grid>
 							<Button
 								type="submit"
 								fullWidth
 								variant="contained"
-								color="primary"
+								color="secondary"
 								className={classes.submit}
+
 							>
-								{i18n.t("signup.buttons.submit")}
+								{i18n.t("Cadastre-se")}
 							</Button>
 							<Grid container justify="flex-end">
 								<Grid item>
@@ -243,16 +307,18 @@ const SignUp = () => {
 										component={RouterLink}
 										to="/login"
 									>
-										{i18n.t("signup.buttons.login")}
+										{i18n.t("Já tem uma conta? Entre!")}
 									</Link>
 								</Grid>
 							</Grid>
 						</Form>
 					)}
 				</Formik>
+				</Grid>
 			</div>
 			<Box mt={5}>{/* <Copyright /> */}</Box>
 		</Container>
+		</Box>
 	);
 };
 

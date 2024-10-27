@@ -107,6 +107,9 @@ body {
   .container-img-signup {
     display: none;
   }
+  .paper{
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1024px) {
