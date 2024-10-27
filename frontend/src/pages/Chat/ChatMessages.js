@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     flex: 1,
     overflow: "hidden",
-    borderRadius: 0,
+    borderRadius: "0 20px 20px 0",
     height: "100%",
     borderLeft: "1px solid rgba(0, 0, 0, 0.12)",
   },
@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     padding: "20px",
+    borderTop: "1px solid rgba(0, 0, 0, 0.12)",
   },
   buttonSend: {
     margin: theme.spacing(1),
@@ -48,7 +49,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px 10px 5px",
     margin: "10px",
     position: "relative",
-    backgroundColor: "blue",
+    backgroundColor: "#F1F1F1",
+    color: "black",
     maxWidth: 300,
     borderRadius: 10,
     borderBottomLeftRadius: 0,
@@ -58,7 +60,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px 10px 5px",
     margin: "10px 10px 10px auto",
     position: "relative",
-    backgroundColor: "green", //DARK MODE PLW DESIGN//
+    color: "white",
+    backgroundColor: "#20587C", //DARK MODE PLW DESIGN//
     textAlign: "right",
     maxWidth: 300,
     borderRadius: 10,

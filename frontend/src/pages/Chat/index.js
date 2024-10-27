@@ -14,6 +14,7 @@ import {
   Tab,
   Tabs,
   TextField,
+  Typography,
 } from "@material-ui/core";
 import ChatList from "./ChatList";
 import ChatMessages from "./ChatMessages";
@@ -36,23 +37,30 @@ const useStyles = makeStyles((theme) => ({
     height: `calc(100% - 48px)`,
     overflowY: "hidden",
     border: "1px solid rgba(0, 0, 0, 0.12)",
+    marginTop: theme.spacing(10),
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    borderRadius: "20px",
   },
   gridContainer: {
     flex: 1,
     height: "100%",
-    border: "1px solid rgba(0, 0, 0, 0.12)",
+    border: 0,
     backgroundColor: theme.palette.dark,
   },
   gridItem: {
-    height: "100%",
+    height: "100%",       
   },
   gridItemTab: {
-    height: "92%",
-    width: "100%",
+    height: "20%",
+    width: "100%",   
+
   },
   btnContainer: {
     textAlign: "right",
     padding: 10,
+    color: "white",
   },
 }));
 
@@ -136,11 +144,11 @@ export function ChatModal({
           </Grid>
         </Grid>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose} color="primary">
+      <DialogActions style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <Button onClick={handleClose} color="#000">
           Fechar
         </Button>
-        <Button onClick={handleSave} color="primary" variant="contained">
+        <Button onClick={handleSave} color="secondary" variant="contained">
           Salvar
         </Button>
       </DialogActions>
@@ -334,17 +342,17 @@ function Chat(props) {
     return (
       <Grid className={classes.gridContainer} container>
         <Grid className={classes.gridItem} md={3} item>
-          
             <div className={classes.btnContainer}>
               <Button
                 onClick={() => {
                   setDialogType("new");
                   setShowDialog(true);
                 }}
-                color="primary"
+                color="secondary"
                 variant="contained"
+                className={classes.roundButton}
               >
-                Nova
+                Novo
               </Button>
             </div>
           
