@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100vw",
     height: "100vh",
-    background: "black", //Cor de fundo
+    background: theme.palette.primary, //Cor de fundo
     backgroundRepeat: "no-repeat",
     backgroundSize: "100% 100%",
     backgroundPosition: "center",
@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: "55px 30px",
     borderRadius: "12.5px",
+    boxShadow: "0 0 10px 0 rgba(100, 100, 100, 0.5)",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -169,7 +170,7 @@ const handleSendEmail = async (values) => {
         <div className={classes.paper}>
           <div>
             <img
-              style={{ margin: "0 100px 0 0", height: "80px", width: "100%" }}
+              style={{ margin: "10px 10px", width: "100%" }}
               src={logo}
               alt="Whats"
             />
@@ -310,7 +311,7 @@ const handleSendEmail = async (values) => {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     className={classes.submit}
                   >
                     Redefinir Senha

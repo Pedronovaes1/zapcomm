@@ -219,4 +219,7 @@ a:hover{
 	.login-content{
 		justify-content: center;
 	}
+	.infoContainer{
+		display: none;
+	}
 }
