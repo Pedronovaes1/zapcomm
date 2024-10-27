@@ -169,12 +169,12 @@ const handleSendEmail = async (values) => {
         <div className={classes.paper}>
           <div>
             <img
-              style={{ margin: "0 auto", height: "80px", width: "100%" }}
+              style={{ margin: "0 100px 0 0", height: "80px", width: "100%" }}
               src={logo}
               alt="Whats"
             />
           </div>
-          <Typography component="h1" variant="h5">
+          <Typography component="h5" variant="h6">
             {i18n.t("Redefinir senha")}
           </Typography>
           <Formik
@@ -320,7 +320,7 @@ const handleSendEmail = async (values) => {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     className={classes.submit}
                   >
                     Enviar Email
