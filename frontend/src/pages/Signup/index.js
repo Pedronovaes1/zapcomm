@@ -26,7 +26,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import logo from "../../assets/logo.png";
-import Moneyverse from "../../assets/Moneyverse.png"; // Certifique-se de que o caminho está correto
+import Moneyverse from "../../assets/Moneyverse.png"; //imagem adicionada
 
 import { i18n } from "../../translate/i18n";
 
@@ -117,7 +117,7 @@ const SignUp = () => {
 
 
 	return (
-		<Container component="main" maxWidth="xs" style={{ margin: "0 auto", paddingRight: "10px" }}>
+		<Container component="main" maxWidth="xs" style={{ margin: "0 auto", paddingRight: "20px",  }}>
 			<CssBaseline />
 
 			<div
@@ -135,14 +135,25 @@ const SignUp = () => {
 	justifyContent: "center",
 	alignItems: "flex-start",
 	flexDirection: "column",
-	 
+	paddingLeft: "100px",
   }}
 >
 
 <img src={Moneyverse} alt="Moneyverse" 
 
-style={{ maxWidth: "80%", position: "relative", top: "-240px"  }} /> {/* Nova Imagem */}
 
+style={{ maxWidth: "80%", position: "relative", top: "-240px"  }} /> {/* Nova Imagem */}
+<div style={{ color: "#FFFFFF !important", fontSize: "px", lineHeight: "1.4", marginTop: "-200px" }}></div>
+<Typography variant="h6" style={{ fontWeight: "bold", marginBottom: "8px", color: "#FFFFFF"}}></Typography>
+Seja Bem vindo!
+ <Typography/>
+ <ul style={{ paddingLeft: "20px", listStyleType: "disc", margin: 0, color: "#FFFFFF" }}></ul>
+
+ <li>Unlimited projects and resources</li>
+ <li>Unlimited templates</li>
+ <li>Unlimited storage</li>
+ <li>List, Board, and Calendar views...</li>
+ <ul/>
 </div>
 
 
@@ -164,6 +175,16 @@ style={{ maxWidth: "80%", position: "relative", top: "-240px"  }} /> {/* Nova Im
 				<div>
 					<center><img style={{ margin: "0 auto", width: "70%" }} src={logo} alt="Whats" /></center>
 				</div>
+				<Typography
+				 variant="h6"
+				 style={{
+					textAlign: "center",
+					color: "#0C2454",
+					marginTop: "10px",
+				 }}
+				 >
+					create an account
+				 </Typography>
 				{/*<Typography component="h1" variant="h5">
 					{i18n.t("signup.title")}
 				</Typography>*/}
@@ -240,6 +261,7 @@ style={{ maxWidth: "80%", position: "relative", top: "-240px"  }} /> {/* Nova Im
 										as={TextField}
 										variant="outlined"
 										fullWidth
+										borderradius='30px'
 										name="password"
 										error={touched.password && Boolean(errors.password)}
 										helperText={touched.password && errors.password}
@@ -247,6 +269,7 @@ style={{ maxWidth: "80%", position: "relative", top: "-240px"  }} /> {/* Nova Im
 										type="password"
 										id="password"
 										autoComplete="current-password"
+										style={{ marginTop: "8px" }}
 										required
 									/>
 								</Grid>
@@ -256,7 +279,10 @@ style={{ maxWidth: "80%", position: "relative", top: "-240px"  }} /> {/* Nova Im
 								type="submit"
 								fullWidth
 								variant="contained"
-								style={{ backgroundColor: "#34D3A3", padding: "3px 15px", width: "80%", borderRadius: "20px", }}
+								style={{ backgroundColor: "#34D3A3", padding: "5px 10px", width: "80%", borderRadius: "40px",
+									margin: "0 auto",	display: "block", marginBottom: "40px",  marginTop: "20px" 
+									
+								 }}
 								className={classes.submit}
 							>
 								{i18n.t("signup.buttons.submit")}
