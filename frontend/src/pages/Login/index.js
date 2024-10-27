@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import './style.css';
 
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -63,6 +64,12 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: "column",
 		alignItems: "center",
 		width: "65%",
+		[theme.breakpoints.down('sm')]: {
+			width: "100%",
+			height: "100%",
+			justifyContent: "center",
+			alignItems: "center",
+		},
 	},
 	infoContainer: {
 		backgroundColor: "#0C2454",
@@ -74,6 +81,9 @@ const useStyles = makeStyles(theme => ({
 		alignItems: "center",
 		width: "35%",
 		height: "100%",
+		[theme.breakpoints.down('sm')]: {
+			display: 'none',
+		},
     },
 	avatar: {
 	 
@@ -85,7 +95,6 @@ const useStyles = makeStyles(theme => ({
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
-		backgroundColor: "#34D3A3",
 		color: "black",
 	},
 	powered: {
@@ -115,7 +124,7 @@ const Login = () => {
 			<CssBaseline />
 			<Container className={classes.container} component="main" maxWidth="false">
 				<CssBaseline />	
-				<div className={classes.paper}>
+				<Box className={classes.paper}>
 					
 					<img style={{ margin: "40px auto", width: "35%" }} src={logo} alt="Whats" />
 					
@@ -162,10 +171,10 @@ const Login = () => {
 							type="submit"
 							fullWidth
 							variant="contained"
-							color="primary"
+							color="secondary"
 							className={classes.submit}
 						>
-							{i18n.t("login.buttons.submit")}
+							{i18n.t("Entre")}
 						</Button>
 						{ <Grid container>
 							<Grid item>
@@ -175,13 +184,13 @@ const Login = () => {
 									component={RouterLink}
 									to="/signup"
 								>
-									{i18n.t("login.buttons.register")}
+									{i18n.t("Não tem uma conta? Registre-se!")}
 								</Link>
 							</Grid>
 						</Grid> }
 					</form>	
-				</div>
-				<div className={classes.infoContainer}>
+				</Box>
+				<Box className={classes.infoContainer}>
 					<img src={Moneyverse} style={{ filter: "brightness(1.1) contrast(1.2) saturate(1.0)"}}/>
 					<Typography variant="h5" style={{textAlign:"justify", marginTop: "40px"}}>Seja Bem-vindo!</Typography>
 					<ul style={{ lineHeight: "30px", fontSize:"14px", textAlign: "justify", fontWeight: "200"}}>
@@ -190,7 +199,7 @@ const Login = () => {
 						<li>ULorem Ipsum is simply dummy. </li>
 						<li>Lorem Ipsum is simply dummy.</li>
 					</ul>
-				</div>
+				</Box>
 				{/*<Box mt={8}><Copyright /></Box>*/}
 		</Container>
 		</Box>
