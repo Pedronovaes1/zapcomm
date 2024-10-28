@@ -22,6 +22,9 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import CachedIcon from "@material-ui/icons/Cached";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ToggleOffOutlinedIcon from '@material-ui/icons/ToggleOffOutlined';
+import ToggleOnOutlinedIcon from '@material-ui/icons/ToggleOnOutlined';
+import Brightness3OutlinedIcon from '@material-ui/icons/Brightness3Outlined';
 
 import MainListItems from "./MainListItems";
 import NotificationsPopOver from "../components/NotificationsPopOver";
@@ -117,6 +120,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     fontSize: 14,
     color: "#0C2454",
+    [theme.breakpoints.down('sm')]: {
+			display: 'none',
+		},
   },
   drawerPaper: {
     position: "relative",
@@ -189,8 +195,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 180,
     [theme.breakpoints.down("sm")]: {
       width: "auto",
-      height: "80%",
-      maxWidth: 180,
+      height: "10%",
     },
     logo: theme.logo
   },
@@ -385,7 +390,8 @@ const LoggedInLayout = ({ children, themeToggle }) => {
         position="absolute"
         className={clsx(classes.appBar, drawerOpen && classes.appBarShift)}
         color="primary"
-        style={{ border: "none", boxShadow: "none"}}
+        style={{ border: "none", boxShadow: "none", fontFamily: "manrope" }}
+
       >
         <Toolbar variant="dense" className={classes.toolbar}>
           <IconButton
@@ -405,6 +411,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
             component="h2"
             variant="h6"
             color="inherit"
+            style={{ fontFamily:'manrope' }}
             noWrap
             className={classes.title}
           >
@@ -419,7 +426,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
               </>
             )} 
           </Typography>
-          <VerticalLine/>
+          
           
         <div style={{display: "flex", flexDirection: "column", alignItems: "end"}}>
           
@@ -462,12 +469,12 @@ const LoggedInLayout = ({ children, themeToggle }) => {
           </div>
           
           </div>
-          <Button edge="start" onClick={toggleColorMode} style={{marginBottom: "4px"}}>
-            {theme.mode === 'dark' ? <Brightness7Icon style={{ color: "white" }} /> : <Brightness4Icon style={{ color: "#0c2c54", width: 20 }} />}
+          <Button edge="start" onClick={toggleColorMode}>
+            {theme.mode === 'dark' ? <ToggleOffOutlinedIcon style={{ color: "white" }} /> : <ToggleOnOutlinedIcon style={{ color: "#0c2c54", width: 20}} />}
             <Typography 
-            component="h6"
+            component="h5"
             variant="arial"
-            style={{marginLeft: "7px"}}>
+            style={{marginLeft: "7px", textTransform: "none", fontFamily: "manrope"}}>
               {theme.mode === 'dark' ? 'Modo dark' : 'Modo claro'}  
             </Typography>
           </Button> 

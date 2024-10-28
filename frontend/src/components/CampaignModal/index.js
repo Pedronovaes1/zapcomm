@@ -542,9 +542,7 @@ const CampaignModal = ({
                       margin="dense"
                       className={classes.FormControl}
                       fullWidth
-
                     >
-                      
                       <InputLabel id="fileListId-selection-label">{i18n.t("campaigns.dialog.form.fileList")}</InputLabel>
                       <Field
                         as={Select}
@@ -577,7 +575,6 @@ const CampaignModal = ({
                         borderRadius: 2,
                       }}
                     >
-                      
                       <Tab label="Msg. 1" index={0} />
                       <Tab label="Msg. 2" index={1} />
                       <Tab label="Msg. 3" index={2} />
@@ -697,7 +694,6 @@ const CampaignModal = ({
                       {campaignEditable && (
                         <IconButton
                           onClick={() => setConfirmationOpen(true)}
-                          
                           color="secondary"
                         >
                           <DeleteOutlineIcon />
@@ -732,34 +728,17 @@ const CampaignModal = ({
                     onClick={() => attachmentFile.current.click()}
                     disabled={isSubmitting}
                     variant="outlined"
-                    style={{ backgroundColor: '#20587C', color: '#ffffff' }}
                   >
                     {i18n.t("campaigns.dialog.buttons.attach")}
                   </Button>
                 )}
-
                 <Button
                   onClick={handleClose}
-                  color="primary"
-                  backgroundColor="primary"
-                  borderRadius='10px'
-                  border='2px solid #ccc'
-                  backgroundCololor='primary'
-
-
-
-                  
-
-
+                  color="secondary"
                   disabled={isSubmitting}
                   variant="outlined"
-                 
-
-
-
                 >
-                  cancelar
-                  {i18n.t("")}
+                  {i18n.t("campaigns.dialog.buttons.close")}
                 </Button>
                 {(campaignEditable || campaign.status === "CANCELADA") && (
                   <Button
@@ -768,17 +747,6 @@ const CampaignModal = ({
                     disabled={isSubmitting}
                     variant="contained"
                     className={classes.btnWrapper}
-                   
-
-                    style={{
-                      backgroundColor: '#34D3A3', // Cor de fundo
-                      color: '#000000',           // Cor do texto (preto)
-                      borderRadius: '15px',       // Para deixar o botão mais redondo
-                      marginLeft:'200px'
-
-                    }}
-
-                    
                   >
                     {campaignId
                       ? `${i18n.t("campaigns.dialog.buttons.edit")}`

@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import './style.css';
 
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";

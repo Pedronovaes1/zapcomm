@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useContext } from "react";
+import  React, { useState, useEffect, useReducer, useContext } from "react";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 
@@ -18,6 +18,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
 
+import MainContainer from "../../components/MainContainer";
+import MainHeader from "../../components/MainHeader";
 import Title from "../../components/Title";
 
 import api from "../../services/api";
@@ -26,106 +28,50 @@ import TableRowSkeleton from "../../components/TableRowSkeleton";
 import AnnouncementModal from "../../components/AnnouncementModal";
 import ConfirmationModal from "../../components/ConfirmationModal";
 import toastError from "../../errors/toastError";
+import { Grid } from "@material-ui/core";
+import { isArray } from "lodash";
 import { SocketContext } from "../../context/Socket/SocketContext";
 import { AuthContext } from "../../context/Auth/AuthContext";
 
-const useStyles = makeStyles((theme) => ({
-  mainPaper: {
-    margin: "40px auto",
-    padding: theme.spacing(2),
-    width: "95%",
-    height: "100%",
-    borderRadius: "12px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-  },
-  headerText: {
-    overflowX: "auto",
-    fontWeight: "bold",
-    color: "#333",
-    alignItems: 'left',
-  },
-  title: {
-    fontSize: "24px",
-    marginBottom: theme.spacing(3),
-    width: "50%",
-    margin: "40px auto",
-  },
-  inputContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: theme.spacing(3),
-    gap: theme.spacing(-2),
-  },
-  inputField: {
-    flex: 0.5,
-    marginRight: theme.spacing(2),
-    width: "50px",
-  },
-  addButton: {
-    backgroundColor: "#34D3A3",
-    color: "",
-    "&:hover": {
-      backgroundColor: "#00a084",
-    },
-  },
-  actionButtons: {
-    display: "flex",
-    justifyContent: "center",
-    gap: theme.spacing(9),
-  },
-  table: {
-    marginTop: theme.spacing(2),
-  },
-  titulo: {
-    width: "20%", /* Ajustado para manter a mesma distância */
-    fontWeight: "bold",
-    color: "#333",
-    textAlign: "left",
-  },
-  topolinha: {
-    width: "10%", /* Ajustado para manter a mesma distância */
-  },
-  headerText: {
-    textAlign: "center", /* Centraliza o texto das ações */
-  },
-}));
-
 const reducer = (state, action) => {
-  if (action.type === "LOAD_INFORMATIVOS") {
-    const informativos = action.payload;
-    const newInformativos = [];
+  if (action.type === "LOAD_ANNOUNCEMENTS") {
+    const announcements = action.payload;
+    const newAnnouncements = [];
 
-    informativos.forEach((informativo) => {
-      const informativoIndex = state.findIndex((i) => i.id === informativo.id);
-      if (informativoIndex !== -1) {
-        state[informativoIndex] = informativo;
-      } else {
-        newInformativos.push(informativo);
-      }
-    });
+    if (isArray(announcements)) {
+      announcements.forEach((announcement) => {
+        const announcementIndex = state.findIndex(
+          (u) => u.id === announcement.id
+        );
+        if (announcementIndex !== -1) {
+          state[announcementIndex] = announcement;
+        } else {
+          newAnnouncements.push(announcement);
+        }
+      });
+    }
 
-    return [...state, ...newInformativos];
+    return [...state, ...newAnnouncements];
   }
 
-  if (action.type === "UPDATE_INFORMATIVOS") {
-    const informativo = action.payload;
-    const informativoIndex = state.findIndex((i) => i.id === informativo.id);
+  if (action.type === "UPDATE_ANNOUNCEMENTS") {
+    const announcement = action.payload;
+    const announcementIndex = state.findIndex((u) => u.id === announcement.id);
 
-    if (informativoIndex !== -1) {
-      state[informativoIndex] = informativo;
+    if (announcementIndex !== -1) {
+      state[announcementIndex] = announcement;
       return [...state];
     } else {
-      return [informativo, ...state];
+      return [announcement, ...state];
     }
   }
 
-  if (action.type === "DELETE_INFORMATIVO") {
-    const informativoId = action.payload;
-    const informativoIndex = state.findIndex((i) => i.id === informativoId);
-    if (informativoIndex !== -1) {
-      state.splice(informativoIndex, 1);
+  if (action.type === "DELETE_ANNOUNCEMENT") {
+    const announcementId = action.payload;
+
+    const announcementIndex = state.findIndex((u) => u.id === announcementId);
+    if (announcementIndex !== -1) {
+      state.splice(announcementIndex, 1);
     }
     return [...state];
   }
@@ -135,153 +81,282 @@ const reducer = (state, action) => {
   }
 };
 
-const InformativoTable = () => {
+const useStyles = makeStyles((theme) => ({
+  mainPaper: {
+    flex: 1,
+    // padding: theme.spacing(1),
+    padding: theme.padding,
+    overflowY: "scroll",
+    ...theme.scrollbarStyles,
+  },
+}));
+
+const Announcements = () => {
   const classes = useStyles();
-  const [informativos, dispatch] = useReducer(reducer, []);
-  const [loading, setLoading] = useState(false);
-  const [informativoModalOpen, setInformativoModalOpen] = useState(false);
-  const [selectedInformativo, setSelectedInformativo] = useState(null);
-  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+  const history = useHistory();
+
   const { user } = useContext(AuthContext);
-  const companyId = user.companyId;
+
+  const [loading, setLoading] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+  const [deletingAnnouncement, setDeletingAnnouncement] = useState(null);
+  const [announcementModalOpen, setAnnouncementModalOpen] = useState(false);
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+  const [searchParam, setSearchParam] = useState("");
+  const [announcements, dispatch] = useReducer(reducer, []);
+
   const socketManager = useContext(SocketContext);
 
+  // trava para nao acessar pagina que não pode  
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
-      try {
-        const { data } = await api.get("/informativo");
-        dispatch({ type: "LOAD_INFORMATIVOS", payload: data.informativos });
-      } catch (err) {
-        toastError(err);
-      } finally {
-        setLoading(false);
+      if (!user.super) {
+        toast.error("Esta empresa não possui permissão para acessar essa página! Estamos lhe redirecionando.");
+        setTimeout(() => {
+          history.push(`/`)
+        }, 1000);
       }
     }
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    dispatch({ type: "RESET" });
+    setPageNumber(1);
+  }, [searchParam]);
+
+  useEffect(() => {
+    setLoading(true);
+    const delayDebounceFn = setTimeout(() => {
+      fetchAnnouncements();
+    }, 500);
+    return () => clearTimeout(delayDebounceFn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParam, pageNumber]);
+
+  useEffect(() => {
+    const companyId = user.companyId;
     const socket = socketManager.getSocket(companyId);
 
-    socket.on(`company-${companyId}-informativo`, (data) => {
+    socket.on(`company-announcement`, (data) => {
       if (data.action === "update" || data.action === "create") {
-        dispatch({ type: "UPDATE_INFORMATIVOS", payload: data.informativo });
+        dispatch({ type: "UPDATE_ANNOUNCEMENTS", payload: data.record });
       }
-
       if (data.action === "delete") {
-        dispatch({ type: "DELETE_INFORMATIVO", payload: data.informativoId });
+        dispatch({ type: "DELETE_ANNOUNCEMENT", payload: +data.id });
       }
     });
-
     return () => {
       socket.disconnect();
     };
-  }, [companyId, socketManager]);
+  }, [socketManager, user.companyId]);
 
-  const handleOpenInformativoModal = () => {
-    setInformativoModalOpen(true);
-    setSelectedInformativo(null);
-  };
-
-  const handleCloseInformativoModal = () => {
-    setInformativoModalOpen(false);
-    setSelectedInformativo(null);
-  };
-
-  const handleCloseConfirmationModal = () => {
-    setConfirmModalOpen(false);
-    setSelectedInformativo(null);
-  };
-
-  const handleDeleteInformativo = async (informativoId) => {
+  const fetchAnnouncements = async () => {
     try {
-      const { data } = await api.delete(`/informativo/${informativoId}`);
-      toast.info(i18n.t(data.message));
+      const { data } = await api.get("/announcements/", {
+        params: { searchParam, pageNumber },
+      });
+      dispatch({ type: "LOAD_ANNOUNCEMENTS", payload: data.records });
+      setHasMore(data.hasMore);
+      setLoading(false);
     } catch (err) {
       toastError(err);
     }
-    setSelectedInformativo(null);
+  };
+
+  const handleOpenAnnouncementModal = () => {
+    setSelectedAnnouncement(null);
+    setAnnouncementModalOpen(true);
+  };
+
+  const handleCloseAnnouncementModal = () => {
+    setSelectedAnnouncement(null);
+    setAnnouncementModalOpen(false);
+  };
+
+  const handleSearch = (event) => {
+    setSearchParam(event.target.value.toLowerCase());
+  };
+
+  const handleEditAnnouncement = (announcement) => {
+    setSelectedAnnouncement(announcement);
+    setAnnouncementModalOpen(true);
+  };
+
+  const handleDeleteAnnouncement = async (announcement) => {
+    try {
+      if (announcement.mediaName)
+      await api.delete(`/announcements/${announcement.id}/media-upload`);
+
+      await api.delete(`/announcements/${announcement.id}`);
+      
+      toast.success(i18n.t("announcements.toasts.deleted"));
+    } catch (err) {
+      toastError(err);
+    }
+    setDeletingAnnouncement(null);
+    setSearchParam("");
+    setPageNumber(1);
+  };
+
+  const loadMore = () => {
+    setPageNumber((prevState) => prevState + 1);
+  };
+
+  const handleScroll = (e) => {
+    if (!hasMore || loading) return;
+    const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
+    if (scrollHeight - (scrollTop + 100) < clientHeight) {
+      loadMore();
+    }
+  };
+
+  const translatePriority = (val) => {
+    if (val === 1) {
+      return "Alta";
+    }
+    if (val === 2) {
+      return "Média";
+    }
+    if (val === 3) {
+      return "Baixa";
+    }
   };
 
   return (
-    <>
-      <Title><h1 className={classes.title}>{i18n.t("Informativo")} ({informativos.length})</h1></Title>
-      <Paper className={classes.mainPaper}>
-        <div className={classes.inputContainer}>
-          <TextField
-            className={classes.inputField}
-            label="Novo Informativo"
-            variant="outlined"
-            size="small"
-          />
-          <Button
-            variant="contained"
-            className={classes.addButton}
-            onClick={handleOpenInformativoModal}
-          >
-            Adicionar Informativo
-          </Button>
-        </div>
+    <MainContainer >
+      <ConfirmationModal
+        title={
+          deletingAnnouncement &&
+          `${i18n.t("announcements.confirmationModal.deleteTitle")} ${deletingAnnouncement.name
+          }?`
+        }
+        open={confirmModalOpen}
+        onClose={setConfirmModalOpen}
+        onConfirm={() => handleDeleteAnnouncement(deletingAnnouncement)}
+      >
+        {i18n.t("announcements.confirmationModal.deleteMessage")}
+      </ConfirmationModal>
+      <AnnouncementModal
+        resetPagination={() => {
+          setPageNumber(1);
+          fetchAnnouncements();
+        }}
+        open={announcementModalOpen}
+        onClose={handleCloseAnnouncementModal}
+        aria-labelledby="form-dialog-title"
+        announcementId={selectedAnnouncement && selectedAnnouncement.id}
+      />
+      <MainHeader>
+        <Grid style={{ width: "99.6%" }} container>
+          <Grid xs={12} sm={8} item>
+            <Title>{i18n.t("announcements.title")} ({announcements.length})</Title>
+          </Grid>
+        </Grid>
+      </MainHeader>
+      <Paper
+        className={classes.mainPaper}
+        variant="outlined"
+        onScroll={handleScroll}
+        style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "30px"}}
+      >
 
-        <Table size="small" className={classes.table}>
+      <Grid>
+            <Grid spacing={2} container alignItems="center" justifyContent="center" style={{marginTop: "10px"}}>
+              <Grid xs={6} sm={6} item style={{ marginBottom: 0}}>
+                <TextField
+                  fullWidth
+                  placeholder={i18n.t("announcements.searchPlaceholder")}
+                  type="search"
+                  value={searchParam}
+                  onChange={handleSearch}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon style={{ color: "gray" }} />
+                      </InputAdornment>
+                    ),
+                    disableUnderline: true, // Remove a linha inferior
+                  }}
+                  style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
+                />
+              </Grid>
+              <Grid xs={6} sm={6} item>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  onClick={handleOpenAnnouncementModal}
+                  color="secondary"
+                >
+                  {i18n.t("announcements.buttons.add")}
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell >TÍTULO</TableCell>
-              <TableCell >PRIORIDADE</TableCell>
-              <TableCell >ARQUIVO</TableCell>
-              <TableCell >STATUS</TableCell>
-              <TableCell >  </TableCell>
-              <TableCell>AÇÕES</TableCell>
+              <TableCell align="center">
+                {i18n.t("announcements.table.title")}
+              </TableCell>
+              <TableCell align="center">
+                {i18n.t("announcements.table.priority")}
+              </TableCell>
+              <TableCell align="center">
+                {i18n.t("announcements.table.mediaName")}
+              </TableCell>
+              <TableCell align="center">
+                {i18n.t("announcements.table.status")}
+              </TableCell>
+              <TableCell align="center">
+                {i18n.t("announcements.table.actions")}
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {informativos.map((informativo) => (
-              <TableRow key={informativo.id}>
-                <TableCell align="left">{informativo.name}</TableCell>
-                <TableCell align="left">{informativo.queue.name}</TableCell>
-                <TableCell align="left">{informativo.maxTokens}</TableCell>
-                <TableCell align="center" className={classes.actionButtons}>
-                  <Button
-                    onClick={() => {
-                      setSelectedInformativo(informativo);
-                      handleOpenInformativoModal();
-                    }}
-                    color="primary"
-                  >
-                    Editar
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      setSelectedInformativo(informativo);
-                      setConfirmModalOpen(true);
-                    }}
-                    color="secondary"
-                  >
-                    Excluir
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
+            <>
+              {announcements.map((announcement) => (
+                <TableRow key={announcement.id}>
+                  <TableCell align="center">{announcement.title}</TableCell>
+                  <TableCell align="center">
+                    {translatePriority(announcement.priority)}
+                  </TableCell>
+                  <TableCell align="center">
+                    {announcement.mediaName ?? i18n.t("quickMessages.noAttachment")}
+                  </TableCell>
+                  <TableCell align="center">
+                    {announcement.status ? i18n.t("announcements.active") : i18n.t("announcements.inactive")}
+                  </TableCell>
+                  <TableCell align="center">
+                    <IconButton
+                      size="small"
+                      onClick={() => handleEditAnnouncement(announcement)}
+                    >
+                      <EditIcon />
+                    </IconButton>
+
+                    <IconButton
+                      size="small"
+                      onClick={(e) => {
+                        setConfirmModalOpen(true);
+                        setDeletingAnnouncement(announcement);
+                      }}
+                    >
+                      <DeleteOutlineIcon />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              ))}
+              {loading && <TableRowSkeleton columns={5} />}
+            </>
           </TableBody>
         </Table>
-
-        <AnnouncementModal
-          open={informativoModalOpen}
-          onClose={handleCloseInformativoModal}
-          promptId={selectedInformativo?.id}
-        />
-        <ConfirmationModal
-          open={confirmModalOpen}
-          onClose={handleCloseConfirmationModal}
-          onConfirm={() => handleDeleteInformativo(selectedInformativo.id)}
-          title={i18n.t("informativos.confirmation.title")}
-          message={i18n.t("informativos.confirmation.message")}
-        />
       </Paper>
-    </>
-  );
+    </MainContainer >
+  )
 };
 
-export default InformativoTable;
-
+export default Announcements;
