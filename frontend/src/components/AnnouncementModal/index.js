@@ -290,10 +290,11 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                   )}
                 </Grid>
               </DialogContent>
-              <DialogActions>
+              <DialogActions style={{alignItems: "center", justifyContent: "center"}}>
                 {!attachment && !announcement.mediaPath && (
                   <Button
-                    color="primary"
+                    color="#333"
+                    style={{border: "1px solid #333", borderRadius: "20px"}}
                     onClick={() => attachmentFile.current.click()}
                     disabled={isSubmitting}
                     variant="outlined"
@@ -303,7 +304,8 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                 )}
                 <Button
                   onClick={handleClose}
-                  color="secondary"
+                  style={{border: "1px solid #333", borderRadius: "20px"}}
+                  color="#333"
                   disabled={isSubmitting}
                   variant="outlined"
                 >
@@ -311,7 +313,8 @@ const AnnouncementModal = ({ open, onClose, announcementId, reload }) => {
                 </Button>
                 <Button
                   type="submit"
-                  color="primary"
+                  color="secondary"
+                  style={{ borderRadius: "20px"}}
                   disabled={isSubmitting}
                   variant="contained"
                   className={classes.btnWrapper}

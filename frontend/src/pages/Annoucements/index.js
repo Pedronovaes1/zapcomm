@@ -266,7 +266,7 @@ const Announcements = () => {
 
       <Grid>
             <Grid spacing={2} container alignItems="center" justifyContent="center" style={{marginTop: "10px"}}>
-              <Grid xs={6} sm={6} item style={{ marginBottom: 0}}>
+              <Grid xs={8} sm={8} item style={{ marginBottom: 0}}>
                 <TextField
                   fullWidth
                   placeholder={i18n.t("announcements.searchPlaceholder")}
@@ -284,14 +284,14 @@ const Announcements = () => {
                   style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
                 />
               </Grid>
-              <Grid xs={6} sm={6} item>
+              <Grid xs={4} sm={4} item>
                 <Button
                   fullWidth
                   variant="contained"
                   onClick={handleOpenAnnouncementModal}
                   color="secondary"
                 >
-                  {i18n.t("announcements.buttons.add")}
+                  {i18n.t("Adicionar")}
                 </Button>
               </Grid>
             </Grid>
