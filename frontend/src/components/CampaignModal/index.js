@@ -703,10 +703,11 @@ const CampaignModal = ({
                   )}
                 </Grid>
               </DialogContent>
-              <DialogActions>
+              <DialogActions style={{display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {campaign.status === "CANCELADA" && (
                   <Button
-                    color="primary"
+                    color="#333"
+                    style={{border: "1px solid #333", borderRadius: "20px"}}
                     onClick={() => restartCampaign()}
                     variant="outlined"
                   >
@@ -715,7 +716,8 @@ const CampaignModal = ({
                 )}
                 {campaign.status === "EM_ANDAMENTO" && (
                   <Button
-                    color="primary"
+                    color="#333"
+                    style={{border: "1px solid #333", borderRadius: "20px"}}
                     onClick={() => cancelCampaign()}
                     variant="outlined"
                   >
@@ -724,7 +726,8 @@ const CampaignModal = ({
                 )}
                 {!attachment && !campaign.mediaPath && campaignEditable && (
                   <Button
-                    color="primary"
+                    color="#333"
+                    style={{borderRadius: "20px"}}
                     onClick={() => attachmentFile.current.click()}
                     disabled={isSubmitting}
                     variant="outlined"
@@ -734,7 +737,8 @@ const CampaignModal = ({
                 )}
                 <Button
                   onClick={handleClose}
-                  color="secondary"
+                  color="#333"
+                  style={{borderRadius: "20px"}}
                   disabled={isSubmitting}
                   variant="outlined"
                 >
@@ -743,7 +747,8 @@ const CampaignModal = ({
                 {(campaignEditable || campaign.status === "CANCELADA") && (
                   <Button
                     type="submit"
-                    color="primary"
+                    color="secondary"
+                    style={{ borderRadius: "20px"}}
                     disabled={isSubmitting}
                     variant="contained"
                     className={classes.btnWrapper}

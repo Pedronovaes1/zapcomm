@@ -281,7 +281,7 @@ const Campaigns = () => {
       >
         
           <Grid > 
-            <Grid spacing={2} container alignItems="center" justifyContent="center" style={{marginTop: "20px"}}> 
+            <Grid spacing={2} container alignItems="center" justifyContent="center" style={{marginTop: "10px"}}> 
               <Grid xs={6} sm={8} item style={{ marginBottom: 0}} justifyContent="flex-end">
                 <TextField
                   fullWidth
