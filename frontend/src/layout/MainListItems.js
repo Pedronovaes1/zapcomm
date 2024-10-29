@@ -78,17 +78,18 @@ function ListItemLink(props) {
     marginTop: "10px",
     textAlign: 'left',
     gap: '31px',
+    fontFamily: 'Manrope',
   };
 
   const listItemIconStyle = {
     minWidth: '30px', 
     fontSize: '8px', 
-    color: "#555",
+    color: "#1F1F20",
   };
 
   const listItemTextStyle = {
     fontSize: '8px',
-    color: "#555",
+    color: "#1F1F20",
     '&:hover': {
       backgroundColor: 'inherit', 
       color: 'black', 
@@ -407,8 +408,8 @@ const MainListItems = (props) => {
         perform="drawer-admin-items:view"
         yes={() => (
           <>
-            <ListItem button onClick={() => setOpenAdminSubmenu((prev) => !prev)}>
-              <ListItemIcon>
+            <ListItem button onClick={() => setOpenAdminSubmenu((prev) => !prev)} style={{  color: "#1F1F20", fontSize: "8px" }}>
+              <ListItemIcon style={{  color: "#1F1F20", fontSize: "8px" }}>
                 <EventAvailableIcon />
               </ListItemIcon>
               <ListItemText primary="Administração" />
@@ -422,9 +423,9 @@ const MainListItems = (props) => {
               <>
                 <ListItem
                   onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
-                  style={{  color: "#555", fontSize: "8px" }}
+                  style={{  color: "#1F1F20", fontSize: "8px" }}
                 >
-                  <ListItemIcon>
+                  <ListItemIcon style={{  color: "#1F1F20", fontSize: "8px" }}>
                     <EventAvailableIcon />
                   </ListItemIcon>
                   <ListItemText
