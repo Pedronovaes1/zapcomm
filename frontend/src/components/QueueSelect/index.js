@@ -38,75 +38,72 @@ const QueueSelect = ({ selectedQueueIds, onChange, multiple = true, title = i18n
 		}
 	}
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		onChange(e.target.value);
-	};
-
-	return (
-		<div >
-			<FormControl fullWidth margin="dense" variant="outlined">
-				<InputLabel shrink={selectedQueueIds ? true : false} >{title}</InputLabel>
-				<Select
-					label={title}
-					multiple={multiple}
-					labelWidth={60}
-					value={selectedQueueIds}
-					onChange={handleChange}
-					MenuProps={{
-						anchorOrigin: {
-							vertical: "bottom",
-							horizontal: "left",
-						},
-						transformOrigin: {
-							vertical: "top",
-							horizontal: "left",
-						},
-						getContentAnchorEl: null,
-					}}
-
-					renderValue={selected => {
-						return (
-							<div className={classes.chips}>
-								{selected?.length > 0 && multiple ? (
-									selected.map(id => {
-										const queue = queues.find(q => q.id === id);
-										return queue ? (
-											<Chip
-												key={id}
-												style={{ backgroundColor: queue.color }}
-												variant="outlined"
-												label={queue.name}
-												className={classes.chip}
-											/>
-										) : null;
-									})
-
-								) :
-									(
-										<Chip
-											key={selected}
-											variant="outlined"
-											style={{ backgroundColor: queues.find(q => q.id === selected)?.color }}
-											label={queues.find(q => q.id === selected)?.name}
-											className={classes.chip}
-										/>
-									)
-								}
-
-							</div>
-						)
-					}}
-				>
-					{!multiple && <MenuItem value={null}>Nenhum</MenuItem>}
-					{queues.map(queue => (
-						<MenuItem key={queue.id} value={queue.id}>
-							{queue.name}
-						</MenuItem>
-					))}
-				</Select>
-			</FormControl>
+	  };
+	  
+	  return (
+		<div>
+		  <FormControl fullWidth margin="dense" variant="outlined">
+			<InputLabel>{title}</InputLabel>
+			<Select
+			  label={title}
+			  multiple={multiple}
+			  value={selectedQueueIds}
+			  onChange={handleChange}
+			  MenuProps={{
+				anchorOrigin: {
+				  vertical: "bottom",
+				  horizontal: "left",
+				},
+				transformOrigin: {
+				  vertical: "top",
+				  horizontal: "left",
+				},
+				getContentAnchorEl: null,
+			  }}
+			  renderValue={(selected) => {
+				return (
+				  <div className={classes.chips}>
+					{selected?.length > 0 && multiple ? (
+					  selected.map((id) => {
+						const queue = queues.find((q) => q.id === id);
+						return queue ? (
+						  <Chip
+							key={id}
+							style={{ backgroundColor: queue.color }}
+							variant="outlined"
+							label={queue.name}
+							className={classes.chip}
+						  />
+						) : null;
+					  })
+					) : (
+					  <Chip
+						key={selected}
+						variant="outlined"
+						style={{
+						  backgroundColor: queues.find((q) => q.id === selected)?.color,
+						}}
+						label={queues.find((q) => q.id === selected)?.name}
+						className={classes.chip}
+					  />
+					)}
+				  </div>
+				);
+			  }}
+			>
+			  {!multiple && <MenuItem value={null}>Nenhum</MenuItem>}
+			  {queues.map((queue) => (
+				<MenuItem key={queue.id} value={queue.id}>
+				  {queue.name}
+				</MenuItem>
+			  ))}
+			</Select>
+		  </FormControl>
 		</div>
-	);
-};
+	  );
+	  };
+	  
 
 export default QueueSelect;

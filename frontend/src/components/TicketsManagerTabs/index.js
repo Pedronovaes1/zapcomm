@@ -33,14 +33,12 @@ const useStyles = makeStyles(theme => ({
 		height: "100%",
 		flexDirection: "column",
 		overflow: "hidden",
-		borderTopRightRadius: 0,
-		borderBottomRightRadius: 0,
-		borderRadius:0,
+		borderRadius:"20px",
 	},
 
 	tabsHeader: {
 		flex: "none",
-		backgroundColor: theme.palette.tabHeaderBackground,
+		backgroundColor: "#fff",
 	},
 
 	tabsInternal: {
@@ -57,6 +55,8 @@ const useStyles = makeStyles(theme => ({
 	tab: {
 		minWidth: 120,
 		width: 120,
+    color: "#000000",
+    fontWeight: "normal",
 	},
 
 	internalTab: {
@@ -67,9 +67,9 @@ const useStyles = makeStyles(theme => ({
 
 	ticketOptionsBox: {
 		display: "flex",
-		justifyContent: "space-between",
+		justifyContent: "space-around",
 		alignItems: "center",
-		background: theme.palette.optionsBackground,
+		background: "#fff",
 		padding: theme.spacing(1),
 	},
 
@@ -223,7 +223,7 @@ const TicketsManagerTabs = () => {
   };
 
   return (
-    <Paper elevation={0} variant="outlined" className={classes.ticketsWrapper}>
+    <Paper elevation={0}  className={classes.ticketsWrapper}>
       <NewTicketModal
         modalOpen={newTicketModalOpen}
         onClose={(ticket) => {
@@ -236,26 +236,24 @@ const TicketsManagerTabs = () => {
           value={tab}
           onChange={handleChangeTab}
           variant="fullWidth"
-          indicatorColor="primary"
-          textColor="primary"
+          indicatorColor="withe"
+          textColor="secondary"
           aria-label="icon label tabs example"
+          style={{fontWeight: "bold"}}
         >
           <Tab
             value={"open"}
-            icon={<MoveToInboxIcon />}
-            label={i18n.t("tickets.tabs.open.title")}
+            label={i18n.t("Abertos")}
             classes={{ root: classes.tab }}
           />
           <Tab
             value={"closed"}
-            icon={<CheckBoxIcon />}
-            label={i18n.t("tickets.tabs.closed.title")}
+            label={i18n.t("Resolvidos")}
             classes={{ root: classes.tab }}
           />
           <Tab
             value={"search"}
-            icon={<SearchIcon />}
-            label={i18n.t("tickets.tabs.search.title")}
+            label={i18n.t("Buscar")}
             classes={{ root: classes.tab }}
           />
         </Tabs>
@@ -275,18 +273,25 @@ const TicketsManagerTabs = () => {
         ) : (
           <>
             <Button
-              variant="outlined"
-              color="primary"
+              variant="contained"
+              color="secondary"
+
               onClick={() => setNewTicketModalOpen(true)}
             >
-              {i18n.t("ticketsManager.buttons.newTicket")}
+              {i18n.t("Novo")}
             </Button>
+            <TicketsQueueSelect
+            style={{ marginLeft: 6 }}
+            selectedQueueIds={selectedQueueIds}
+            userQueues={user?.queues}
+            onChange={(values) => setSelectedQueueIds(values)}
+            />
             <Can
               role={user.profile}
               perform="tickets-manager:showall"
               yes={() => (
                 <FormControlLabel
-                  label={i18n.t("tickets.buttons.showAll")}
+                  label={i18n.t("Todos")}
                   labelPlacement="start"
                   control={
                     <Switch
@@ -296,7 +301,7 @@ const TicketsManagerTabs = () => {
                         setShowAllTickets((prevState) => !prevState)
                       }
                       name="showAllTickets"
-                      color="primary"
+                      color="secondary"
                     />
                   }
                 />
@@ -304,19 +309,14 @@ const TicketsManagerTabs = () => {
             />
           </>
         )}
-        <TicketsQueueSelect
-          style={{ marginLeft: 6 }}
-          selectedQueueIds={selectedQueueIds}
-          userQueues={user?.queues}
-          onChange={(values) => setSelectedQueueIds(values)}
-        />
+
       </Paper>
       <TabPanel value={tab} name="open" className={classes.ticketsWrapper}>
         <Tabs
           value={tabOpen}
           onChange={handleChangeTabOpen}
-          indicatorColor="primary"
-          textColor="primary"
+          indicatorColor="secondary"
+          textColor="#000000"
           variant="fullWidth"
         >
           <Tab
@@ -326,7 +326,7 @@ const TicketsManagerTabs = () => {
                 badgeContent={openCount}
                 color="primary"
               >
-                {i18n.t("ticketsList.assignedHeader")}
+                {i18n.t("Atendendo")}
               </Badge>
             }
             value={"open"}
@@ -338,7 +338,7 @@ const TicketsManagerTabs = () => {
                 badgeContent={pendingCount}
                 color="secondary"
               >
-                {i18n.t("ticketsList.pendingHeader")}
+                {i18n.t("Aguardando")}
               </Badge>
             }
             value={"pending"}

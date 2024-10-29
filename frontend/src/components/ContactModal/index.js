@@ -26,6 +26,10 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		display: "flex",
 		flexWrap: "wrap",
+
+	},
+	butoes: {
+		alignItems: 'center'
 	},
 	textField: {
 		marginRight: theme.spacing(1),
@@ -36,14 +40,36 @@ const useStyles = makeStyles(theme => ({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
+		
 	},
-
+	butao: {
+	borderRadius: '30px',
+	color: "black",
+	border: '2px solid E7E7E7(0, 0, 0, 0.1)',
+	},
 	btnWrapper: {
-		position: "relative",
+		backgroundColor: "#34D3A3",
+		color: "black",
+		borderRadius: '30px',
+		fontWeight: 500,
+		padding: theme.spacing(1, 4),
+		"&:hover": {
+		  backgroundColor: "#2bb590",
+		},
 	},
-
+	moreinfo: {
+		border: '1px solid #black',
+		borderRadius: '10px',
+		padding: '8px 16px', 
+		backgroundColor: 'transparent', 
+		color: 'black',
+		fontWeight: 'bold',
+		boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
+		'&:hover': {
+			boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)', 
+		  },
+	},
 	buttonProgress: {
-		color: green[500],
 		position: "absolute",
 		top: "50%",
 		left: "50%",
@@ -128,8 +154,9 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
 
 	return (
 		<div className={classes.root}>
-			<Dialog open={open} onClose={handleClose} maxWidth="lg" scroll="paper">
-				<DialogTitle id="form-dialog-title">
+					<Dialog open={open}onClose={handleClose}maxWidth="lg"scroll="paper"PaperProps={{style: {borderRadius: 20,},}}>
+				
+				<DialogTitle id="form-dialog-title" style={{fontSize: '30px', fontWeight: 'regular'}}>
 					{contactId
 						? `${i18n.t("contactModal.title.edit")}`
 						: `${i18n.t("contactModal.title.add")}`}
@@ -148,9 +175,6 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
 					{({ values, errors, touched, isSubmitting }) => (
 						<Form>
 							<DialogContent dividers>
-								<Typography variant="subtitle1" gutterBottom>
-									{i18n.t("contactModal.form.mainInfo")}
-								</Typography>
 								<Field
 									as={TextField}
 									label={i18n.t("contactModal.form.name")}
@@ -235,29 +259,28 @@ const ContactModal = ({ open, onClose, contactId, initialValues, onSave }) => {
 											<div className={classes.extraAttr}>
 												<Button
 													style={{ flex: 1, marginTop: 8 }}
+													className={classes.moreinfo}
 													variant="outlined"
-													color="primary"
 													onClick={() => push({ name: "", value: "" })}
 												>
-													{`+ ${i18n.t("contactModal.buttons.addExtraInfo")}`}
+													{`+ ${i18n.t("adicionar informações")}`}
 												</Button>
 											</div>
 										</>
 									)}
 								</FieldArray>
 							</DialogContent>
-							<DialogActions>
+							<DialogActions style={{ justifyContent: 'center' }}>
 								<Button
 									onClick={handleClose}
-									color="secondary"
 									disabled={isSubmitting}
 									variant="outlined"
+									className={classes.butao}
 								>
 									{i18n.t("contactModal.buttons.cancel")}
 								</Button>
-								<Button
+								<Button 
 									type="submit"
-									color="primary"
 									disabled={isSubmitting}
 									variant="contained"
 									className={classes.btnWrapper}

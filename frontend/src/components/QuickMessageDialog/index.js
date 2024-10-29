@@ -284,12 +284,12 @@ const QuickMessageDialog = ({ open, onClose, quickemessageId, reload }) => {
                                     )}
                                 </Grid>
                             </DialogContent>
-                            <DialogActions>
+                            <DialogActions style={{display: "flex", alignItems: "center", justifyContent: "center" }}>
                                 {!attachment && !quickemessage.mediaPath && (
                                     <Button
-                                        color="primary"
                                         onClick={() => attachmentFile.current.click()}
                                         disabled={isSubmitting}
+                                        style={{border: "1px solid #333", borderRadius: "20px"}}
                                         variant="outlined"
                                     >
                                         {i18n.t("quickMessages.buttons.attach")}
@@ -297,15 +297,15 @@ const QuickMessageDialog = ({ open, onClose, quickemessageId, reload }) => {
                                 )}
                                 <Button
                                     onClick={handleClose}
-                                    color="secondary"
                                     disabled={isSubmitting}
+                                    style={{border: "1px solid #333", borderRadius: "20px"}}
                                     variant="outlined"
                                 >
                                     {i18n.t("quickMessages.buttons.cancel")}
                                 </Button>
                                 <Button
                                     type="submit"
-                                    color="primary"
+                                    style={{backgroundColor: "#34d3a3", borderRadius: "20px"}}
                                     disabled={isSubmitting}
                                     variant="contained"
                                     className={classes.btnWrapper}

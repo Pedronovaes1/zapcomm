@@ -40,9 +40,16 @@ const useStyles = makeStyles((theme) => ({
   },
 
   btnWrapper: {
-    position: "relative",
+    position: "center",
+    backgroundColor: '#34D3A3;', 
+    width: '150px' ,
+    padding: '7px 14px', 
+    borderRadius: '20px', 
   },
-
+  dialogActions: {
+    display: "flex",
+    justifyContent: "center",  // Centraliza os botões horizontalmente
+  },
   buttonProgress: {
     color: green[500],
     position: "absolute",
@@ -52,10 +59,18 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: -12,
   },
   btnLeft: {
-    display: "flex",
-    marginRight: "auto",
-    marginLeft: 12,
+    display: "center",
+    marginLeft: 5,
+    borderRadius: '20px',
+    border: '1px #E7E7E7 solid',
   },
+
+  btnCancel: {
+    display: "center",
+    borderRadius: '20px',
+    border: '1px #E7E7E7 solid',
+  },
+
   colorAdorment: {
     width: 20,
     height: 20,
@@ -454,7 +469,7 @@ const QueueIntegration = ({ open, onClose, integrationId }) => {
                 </DialogContent>
               </Paper>
 
-              <DialogActions>
+              <DialogActions className={classes.dialogActions}>
                 {values.type === "dialogflow" && (
                   <Button
                     //type="submit"
@@ -470,15 +485,15 @@ const QueueIntegration = ({ open, onClose, integrationId }) => {
                 )}
                 <Button
                   onClick={handleClose}
-                  color="secondary"
                   disabled={isSubmitting}
                   variant="outlined"
+                  className={classes.btnCancel}
                 >
                   {i18n.t("queueIntegrationModal.buttons.cancel")}
                 </Button>
                 <Button
                   type="submit"
-                  color="primary"
+                  color="#34D3A3"
                   disabled={isSubmitting}
                   variant="contained"
                   className={classes.btnWrapper}

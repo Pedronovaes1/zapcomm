@@ -27,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     position: "relative",
     overflow: "hidden",
+    borderRadius: "20px",
+    backgroundColor: "#fff",
   },
 
   mainWrapper: {
@@ -168,7 +170,7 @@ const Ticket = () => {
   return (
     <div className={classes.root} id="drawer-container">
       <Paper
-        variant="outlined"
+
         elevation={0}
         className={clsx(classes.mainWrapper, {
           [classes.mainWrapperShift]: drawerOpen,
@@ -178,9 +180,9 @@ const Ticket = () => {
           {renderTicketInfo()}
           <TicketActionButtons ticket={ticket} />
         </TicketHeader>
-        <Paper>
+        {/*<Paper>
           <TagsContainer ticket={ticket} />
-        </Paper>
+        </Paper>*/}
         <ReplyMessageProvider>{renderMessagesList()}</ReplyMessageProvider>
       </Paper>
       <ContactDrawer

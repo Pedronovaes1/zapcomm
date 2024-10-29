@@ -16,13 +16,14 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import Grid from "@material-ui/core/Grid";
 
 import IconButton from "@material-ui/core/IconButton";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
 import api from "../../services/api";
 import TableRowSkeleton from "../../components/TableRowSkeleton";
-import ContactModal from "../../components/ContactModal";
+import ContacatModal from "../../components/ContactModal";
 import ConfirmationModal from "../../components/ConfirmationModal/";
 
 import { i18n } from "../../translate/i18n";
@@ -83,11 +84,34 @@ const reducer = (state, action) => {
 };
 
 const useStyles = makeStyles((theme) => ({
+  TableRow:{
+    backgroundColor: 'F8F9FD',
+    borderBottom: '2px solid black', 
+    borderBottom: '2px solid rgba(211, 211, 211, 0.5)',
+  },
+  MainHeaderButtonsWrapper: {
+
+  },
+  MainHeader: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  Button: {
+    backgroundColor: "#34D3A3",
+    color: "black",
+
+  },
   mainPaper: {
+    backgroundColor: '#FFFFFF',
     flex: 1,
-    padding: theme.spacing(1),
-    overflowY: "scroll",
-    ...theme.scrollbarStyles,
+    margin: "auto",
+    padding: theme.spacing(2),
+    width: "100%",
+    height: "100%",
+    borderRadius: "12px",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+    border: '2px solid rgba(248, 248, 255, 0.5)' 
   },
 }));
 
@@ -265,44 +289,60 @@ const Contacts = () => {
           ? `${i18n.t("contacts.confirmationModal.deleteMessage")}`
           : `${i18n.t("contacts.confirmationModal.importMessage")}`}
       </ConfirmationModal>
-      <MainHeader>
-        <Title>{i18n.t("contacts.title")}</Title>
-        <MainHeaderButtonsWrapper>
-          <TextField
-            placeholder={i18n.t("contacts.searchPlaceholder")}
-            type="search"
-            value={searchParam}
-            onChange={handleSearch}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon style={{ color: "gray" }} />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={(e) => setConfirmOpen(true)}
-          >
-            {i18n.t("contacts.buttons.import")}
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleOpenContactModal}
-          >
-            {i18n.t("contacts.buttons.add")}
-          </Button>
+      <MainHeader >
+            <MainHeaderButtonsWrapper className={classes.MainHeaderButtonsWrapper}>
+        <Grid container alignItems="center" spacing={2}>
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField 
+              className={classes.inputField}
+              variant="outlined"
+              size="small"
+              placeholder={i18n.t("contacts.searchPlaceholder")}
+              type="search"
+              value={searchParam}
+              onChange={handleSearch}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon style={{ color: "gray" }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
 
-         <CSVLink style={{ textDecoration:'none'}} separator=";" filename={'contatos.csv'} data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}>
-          <Button	variant="contained" color="primary"> 
-          EXPORTAR CONTATOS 
-          </Button>
-          </CSVLink>		  
+          <Grid item>
+            <Button 
+              className={classes.Button} 
+              variant="contained" 
+              onClick={(e) => setConfirmOpen(true)}
+            >
+              {i18n.t("contacts.buttons.import")}
+            </Button>
+          </Grid>
 
-        </MainHeaderButtonsWrapper>
+          <Grid item>
+            <Button 
+              className={classes.Button} 
+              variant="contained" 
+              onClick={handleOpenContactModal}
+            >
+              {i18n.t("contacts.buttons.add")}
+            </Button>
+          </Grid>
+
+          <Grid item>
+            <CSVLink 
+              style={{ textDecoration: 'none' }} 
+              separator=";" 
+              filename={'contatos.csv'} 
+              data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}
+            >
+              Exportar CSV
+            </CSVLink>
+          </Grid>
+        </Grid>
+      </MainHeaderButtonsWrapper>
       </MainHeader>
       <Paper
         className={classes.mainPaper}
@@ -311,18 +351,16 @@ const Contacts = () => {
       >
         <Table size="small">
           <TableHead>
-            <TableRow>
+            <TableRow className={classes.TableRow}>
               <TableCell padding="checkbox" />
               <TableCell>{i18n.t("contacts.table.name")}</TableCell>
               <TableCell align="center">
                 {i18n.t("contacts.table.whatsapp")}
               </TableCell>
+
               <TableCell align="center">
-                {i18n.t("contacts.table.email")}
-              </TableCell>
-              <TableCell align="center">
-                {i18n.t("contacts.table.actions")}
-              </TableCell>
+              Informações adicionais             
+               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -331,10 +369,12 @@ const Contacts = () => {
                 <TableRow key={contact.id}>
                   <TableCell style={{ paddingRight: 0 }}>
                     {<Avatar src={contact.profilePicUrl} />}
+                  </TableCell> 
+                  <TableCell>
+                  <div style={{ fontWeight: "bold" }}>{contact.name}</div>
+                  <div style={{ fontSize: "0.875rem", color: "gray" }}>{contact.email}</div>
                   </TableCell>
-                  <TableCell>{contact.name}</TableCell>
-                  <TableCell align="center">{contact.number}</TableCell>
-                  <TableCell align="center">{contact.email}</TableCell>
+                  <TableCell align="right">{contact.number}</TableCell>
                   <TableCell align="center">
                     <IconButton
                       size="small"

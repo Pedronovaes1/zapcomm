@@ -385,7 +385,7 @@ const NewTicketModal = ({ modalOpen, onClose, initialContact }) => {
         <DialogActions>
           <Button
             onClick={handleClose}
-            color="secondary"
+            color="#333"
             disabled={loading}
             variant="outlined"
           >
@@ -396,7 +396,7 @@ const NewTicketModal = ({ modalOpen, onClose, initialContact }) => {
             type="button"
             disabled={!selectedContact}
             onClick={() => handleSaveTicket(selectedContact.id)}
-            color="primary"
+            color="secondary"
             loading={loading}
           >
             {i18n.t("newTicketModal.buttons.ok")}

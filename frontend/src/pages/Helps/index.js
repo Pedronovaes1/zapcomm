@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
       display: 'none', 
     },
     scrollbarWidth: 'none', 
-  },
+
   mainPaper: {
     width: '100%',
     padding: theme.spacing(2),
