@@ -113,7 +113,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   customButton: { 
-    backgroundColor: '#34D3A3;', 
     width: '184.85px' ,
     padding: '7px 14px', 
     color:"black",
@@ -281,7 +280,7 @@ const QueueIntegration = () => {
         variant="outlined"
         onScroll={handleScroll}
       >
-        <div className={classes.mainHeaderButtonsWrapper}>
+       <MainHeaderButtonsWrapper>
           <TextField
             placeholder={i18n.t("queueIntegration.searchPlaceholder")}
             type="search"
@@ -294,13 +293,13 @@ const QueueIntegration = () => {
           />
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.customButton}
             onClick={handleOpenUserModal}
           >
             {i18n.t("queueIntegration.buttons.add")}
           </Button>
-        </div>
+        </MainHeaderButtonsWrapper>
         <Table size="small">
           <TableHead>
             <TableRow>

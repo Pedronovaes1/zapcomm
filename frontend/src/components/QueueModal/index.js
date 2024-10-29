@@ -431,7 +431,8 @@ const QueueModal = ({ open, onClose, queueId }) => {
                     </Button>
                     <Button
                       type="submit"
-                      style={{backgroundColor: "#34d3a3", borderRadius: "20px"}}
+                      color="secondary"
+                      style={{ borderRadius: "20px"}}
                       disabled={isSubmitting}
                       variant="contained"
                       className={classes.btnWrapper}
