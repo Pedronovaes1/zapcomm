@@ -210,27 +210,29 @@ const Prompts = () => {
       />
       <MainHeader>
         <Title>{i18n.t("prompts.title")}</Title>
+       
+      </MainHeader>
+      <Paper className={classes.mainPaper} variant="outlined"> 
         <MainHeaderButtonsWrapper>
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={handleOpenPromptModal}
+            style={{marginBottom: "20px"}}
           >
             {i18n.t("prompts.buttons.add")}
           </Button>
         </MainHeaderButtonsWrapper>
-      </MainHeader>
-      <Paper className={classes.mainPaper} variant="outlined">
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell align="left">
+              <TableCell align="center">
                 {i18n.t("prompts.table.name")}
               </TableCell>
-              <TableCell align="left">
+              <TableCell align="center">
                 {i18n.t("prompts.table.queue")}
               </TableCell>
-              <TableCell align="left">
+              <TableCell align="center">
                 {i18n.t("prompts.table.max_tokens")}
               </TableCell>
               <TableCell align="center">
@@ -242,9 +244,9 @@ const Prompts = () => {
             <>
               {prompts.map((prompt) => (
                 <TableRow key={prompt.id}>
-                  <TableCell align="left">{prompt.name}</TableCell>
-                  <TableCell align="left">{prompt.queue.name}</TableCell>
-                  <TableCell align="left">{prompt.maxTokens}</TableCell>
+                  <TableCell align="center">{prompt.name}</TableCell>
+                  <TableCell align="center">{prompt.queue.name}</TableCell>
+                  <TableCell align="center">{prompt.maxTokens}</TableCell>
                   <TableCell align="center">
                     <IconButton
                       size="small"
