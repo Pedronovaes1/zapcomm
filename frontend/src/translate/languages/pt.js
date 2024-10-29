@@ -81,7 +81,7 @@ const messages = {
             "Tem certeza? Você precisará ler o QR Code novamente.",
         },
         buttons: {
-          add: "Adicionar WhatsApp",
+          add: "Adicionar",
           disconnect: "desconectar",
           tryAgain: "Tentar novamente",
           qrcode: "QR CODE",
@@ -477,9 +477,9 @@ const messages = {
           actions: "Ações",
         },
         buttons: {
-          add: "Adicionar Projeto",
+          add: "Adicionar",
         },
-        searchPlaceholder: "Pesquisar...",
+        searchPlaceholder: "Novo Informativo",
         confirmationModal: {
           deleteTitle: "Excluir",
           deleteMessage:

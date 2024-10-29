@@ -117,9 +117,9 @@ export const ChartsDate = () => {
                         label="Fim"
                         renderInput={(params) => <TextField fullWidth {...params} sx={{ width: '20ch' }} />}
                     />
-                </LocalizationProvider>
+                </LocalizationProvider>                
 
-                <Button className="buttonHover" onClick={handleGetTicketsInformation} variant='contained'>Filtrar</Button>
+                <Button style={{backgroundColor: "#0C2454"}} onClick={handleGetTicketsInformation} variant='contained'>Filtrar</Button>
 
             </Stack>
             <Bar options={options} data={dataCharts} style={{ maxWidth: '100%', maxHeight: '280px', }} />

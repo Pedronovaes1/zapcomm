@@ -208,6 +208,7 @@ const CampaignsConfig = () => {
                   label="Intervalo de Disparo Maior"
                   value={settings.greaterInterval}
                   onChange={(e) => handleOnChangeSettings(e)}
+                  
                 >
                   <MenuItem value={0}>Sem Intervalo</MenuItem>
                   <MenuItem value={1}>1 segundo</MenuItem>
@@ -227,15 +228,16 @@ const CampaignsConfig = () => {
             <Grid xs={12} className={classes.textRight} item>
               <Button
                 onClick={() => setShowVariablesForm(!showVariablesForm)}
-                color="primary"
-                style={{ marginRight: 10 }}
+                color="#333"
+                style={{ padding: "12px 8px", marginRight: 10, borderRadius: '15px',border: "2px solid #e7e7e7"}}
               >
                 Adicionar Variável
               </Button>
               <Button
                 onClick={saveSettings}
-                color="primary"
+                color="secondary"
                 variant="contained"
+                style={{padding: "12px 8px", borderRadius:"15px"}}
               >
                 Salvar Configurações
               </Button>
@@ -265,15 +267,17 @@ const CampaignsConfig = () => {
                 <Grid xs={12} className={classes.textRight} item>
                   <Button
                     onClick={() => setShowVariablesForm(!showVariablesForm)}
-                    color="primary"
-                    style={{ marginRight: 10 }}
+                    color="#333"
+                    style={{padding: "12px 8px", marginRight: 10, borderRadius:"15px",border: "2px solid #e7e7e7"}}
+
                   >
                     Fechar
                   </Button>
                   <Button
                     onClick={addVariable}
-                    color="primary"
+                    color="secondary"
                     variant="contained"
+                    style={{padding: "12px 8px", borderRadius:"15px"}}
                   >
                     Adicionar
                   </Button>

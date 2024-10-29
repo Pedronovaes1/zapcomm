@@ -79,16 +79,16 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   titulo: {
-    width: "20%", /* Ajustado para manter a mesma distância */
+    width: "20%", 
     fontWeight: "bold",
     color: "#333",
     textAlign: "left",
   },
   topolinha: {
-    width: "10%", /* Ajustado para manter a mesma distância */
+    width: "10%", 
   },
   headerText: {
-    textAlign: "center", /* Centraliza o texto das ações */
+    textAlign: "center",
   },
 }));
 

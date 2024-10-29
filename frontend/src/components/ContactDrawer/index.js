@@ -152,7 +152,7 @@ const ContactDrawer = ({ open, handleDrawerClose, contact, ticket, loading }) =>
 							/>
 							<Button
 								variant="outlined"
-								color="primary"
+								color="#333"
 								onClick={() => setModalOpen(!openForm)}
 								style={{fontSize: 12}}
 							>
@@ -173,7 +173,7 @@ const ContactDrawer = ({ open, handleDrawerClose, contact, ticket, loading }) =>
 								contactId={contact.id}
 							></ContactModal>
 							<Typography variant="subtitle1">
-								{i18n.t("contactDrawer.extraInfo")}
+								{i18n.t("Detalhes do contato")}
 							</Typography>
 							{contact?.extraInfo?.map(info => (
 								<Paper

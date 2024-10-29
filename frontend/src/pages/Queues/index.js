@@ -181,18 +181,18 @@ const Queues = () => {
         queueId={selectedQueue?.id}
       />
       <MainHeader>
-        <Title>{i18n.t("queues.title")}</Title>
-        <MainHeaderButtonsWrapper>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleOpenQueueModal}
-          >
-            {i18n.t("queues.buttons.add")}
-          </Button>
-        </MainHeaderButtonsWrapper>
+        <Title>{i18n.t("Filas & ChatBot")}</Title>
       </MainHeader>
       <Paper className={classes.mainPaper} variant="outlined">
+        <div style={{display: "flex", justifyContent: "flex-end", marginTop: "20px", marginRight:"20px",}}>
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px", }}
+            onClick={handleOpenQueueModal}
+          >
+            {i18n.t("Adicionar")}
+          </Button>
+        </div>
         <Table size="small">
           <TableHead>
             <TableRow>
