@@ -16,14 +16,13 @@ import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Grid from "@material-ui/core/Grid";
 
 import IconButton from "@material-ui/core/IconButton";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
 import api from "../../services/api";
 import TableRowSkeleton from "../../components/TableRowSkeleton";
-import ContacatModal from "../../components/ContactModal";
+import ContactModal from "../../components/ContactModal";
 import ConfirmationModal from "../../components/ConfirmationModal/";
 
 import { i18n } from "../../translate/i18n";
@@ -86,8 +85,6 @@ const reducer = (state, action) => {
 const useStyles = makeStyles((theme) => ({
   TableRow:{
     backgroundColor: 'F8F9FD',
-    borderBottom: '2px solid black', 
-    borderBottom: '2px solid rgba(211, 211, 211, 0.5)',
   },
   MainHeaderButtonsWrapper: {
 
@@ -290,59 +287,41 @@ const Contacts = () => {
           : `${i18n.t("contacts.confirmationModal.importMessage")}`}
       </ConfirmationModal>
       <MainHeader >
-            <MainHeaderButtonsWrapper className={classes.MainHeaderButtonsWrapper}>
-        <Grid container alignItems="center" spacing={2}>
-          <Grid item xs={12} sm={6} md={4}>
-            <TextField 
-              className={classes.inputField}
-              variant="outlined"
-              size="small"
-              placeholder={i18n.t("contacts.searchPlaceholder")}
-              type="search"
-              value={searchParam}
-              onChange={handleSearch}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon style={{ color: "gray" }} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
+        <MainHeaderButtonsWrapper  className={classes.MainHeaderButtonsWrapper}>
+          <TextField 
+            className={classes.inputField}
+            variant="outlined"
+            size="small"
+            placeholder={i18n.t("contacts.searchPlaceholder")}
+            type="search"
+            value={searchParam}
+            onChange={handleSearch}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon style={{ color: "gray" }} />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <Button className={classes.Button}	
+            variant="contained"
+            onClick={(e) => setConfirmOpen(true)}
+          >
+            {i18n.t("contacts.buttons.import")}
+          </Button>
+          <Button className={classes.Button}	
+            variant="contained"
+            onClick={handleOpenContactModal}
+          >
+            {i18n.t("contacts.buttons.add")}
+          </Button>
 
-          <Grid item>
-            <Button 
-              className={classes.Button} 
-              variant="contained" 
-              onClick={(e) => setConfirmOpen(true)}
-            >
-              {i18n.t("contacts.buttons.import")}
-            </Button>
-          </Grid>
+         <CSVLink style={{ textDecoration:'none'}} separator=";" filename={'contatos.csv'} data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}>
+          
+          </CSVLink>		  
 
-          <Grid item>
-            <Button 
-              className={classes.Button} 
-              variant="contained" 
-              onClick={handleOpenContactModal}
-            >
-              {i18n.t("contacts.buttons.add")}
-            </Button>
-          </Grid>
-
-          <Grid item>
-            <CSVLink 
-              style={{ textDecoration: 'none' }} 
-              separator=";" 
-              filename={'contatos.csv'} 
-              data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}
-            >
-              Exportar CSV
-            </CSVLink>
-          </Grid>
-        </Grid>
-      </MainHeaderButtonsWrapper>
+        </MainHeaderButtonsWrapper>
       </MainHeader>
       <Paper
         className={classes.mainPaper}
