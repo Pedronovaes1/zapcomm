@@ -216,14 +216,17 @@ return (
         aria-labelledby="form-dialog-title"
         tagId={selectedTag && selectedTag.id}
       />
-      <Title>{i18n.t("tags.title")}</Title>
+      <MainHeader>
+        <Title>{i18n.t("tags.title")}</Title>
+      </MainHeader>
+      
 
       <Paper
         className={classes.mainPaper}
         variant="outlined"
         onScroll={handleScroll}
       >     
-        <MainHeader>
+        
           
           <MainHeaderButtonsWrapper>
             <TextField
@@ -249,7 +252,7 @@ return (
               {i18n.t("Adicionar")}
             </Button>		  
           </MainHeaderButtonsWrapper>
-        </MainHeader>
+  
         <Table size="small">
           <TableHead>
             <TableRow>
