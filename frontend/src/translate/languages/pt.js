@@ -810,7 +810,7 @@ const messages = {
           actions: "Ações",
         },
         buttons: {
-          add: "Novo Agendamento",
+          add: "Agenda",
         },
         toasts: {
           deleted: "Agendamento excluído com sucesso.",
