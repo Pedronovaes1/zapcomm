@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useReducer, useCallback, useContext } from "react";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
@@ -96,6 +97,8 @@ const useStyles = makeStyles((theme) => ({
   mainPaper: {
     flex: 1,
     padding: theme.spacing(1),
+    borderRadius: 10,
+    boxShadow: '0px 15px 30px rgba(0, 0, 0, 0.1)',
     overflowY: "scroll",
     ...theme.scrollbarStyles,
   },
@@ -259,9 +262,10 @@ const Schedules = () => {
         contactId={contactId}
         cleanContact={cleanContact}
       />
+      <Title>{i18n.t("schedules.title")} ({schedules.length})</Title>
       <MainHeader>
-        <Title>{i18n.t("schedules.title")} ({schedules.length})</Title>
         <MainHeaderButtonsWrapper>
+        <div className={classes.headerButtonsWrapper}>
           <TextField
             placeholder={i18n.t("contacts.searchPlaceholder")}
             type="search"
@@ -269,19 +273,23 @@ const Schedules = () => {
             onChange={handleSearch}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon style={{ color: "gray" }} />
+                <InputAdornment position="end">
+                  <SearchIcon style={{ color: "grey" }} />
                 </InputAdornment>
               ),
             }}
+            style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "20px"}}
           />
           <Button
+            className={classes.addButton}
             variant="contained"
             color="primary"
             onClick={handleOpenScheduleModal}
+            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px", marginTop: "10px", color:"black", marginLeft:"15px", width: "182px", height: "35px", borderRadius: "10px"}}
           >
             {i18n.t("schedules.buttons.add")}
           </Button>
+        </div>
         </MainHeaderButtonsWrapper>
       </MainHeader>
       <Paper className={classes.mainPaper} variant="outlined" onScroll={handleScroll}>
