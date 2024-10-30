@@ -83,35 +83,31 @@ const reducer = (state, action) => {
 };
 
 const useStyles = makeStyles((theme) => ({
-  TableRow:{
-    backgroundColor: 'F8F9FD',
+  TableRow: {
+    backgroundColor: '#F8F9FD',
   },
-  MainHeaderButtonsWrapper: {
-
-  },
-  MainHeader: {
+  header: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    gap: theme.spacing(3), 
+    width: "100%"
   },
   Button: {
     backgroundColor: "#34D3A3",
     color: "black",
-
   },
   mainPaper: {
     backgroundColor: '#FFFFFF',
     flex: 1,
-    margin: "auto",
     padding: theme.spacing(2),
     width: "100%",
     height: "100%",
     borderRadius: "12px",
     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
-    border: '2px solid rgba(248, 248, 255, 0.5)' 
+    border: '2px solid rgba(248, 248, 255, 0.5)',
   },
 }));
-
 const Contacts = () => {
   const classes = useStyles();
   const history = useHistory();
@@ -286,8 +282,8 @@ const Contacts = () => {
           ? `${i18n.t("contacts.confirmationModal.deleteMessage")}`
           : `${i18n.t("contacts.confirmationModal.importMessage")}`}
       </ConfirmationModal>
-      <MainHeader >
-        <MainHeaderButtonsWrapper  className={classes.MainHeaderButtonsWrapper}>
+
+      <div className={classes.header}>
           <TextField 
             className={classes.inputField}
             variant="outlined"
@@ -304,25 +300,20 @@ const Contacts = () => {
               ),
             }}
           />
-          <Button className={classes.Button}	
-            variant="contained"
-            onClick={(e) => setConfirmOpen(true)}
-          >
+          <Button className={classes.Button} variant="contained" onClick={handleOpenContactModal}>
+          {i18n.t("contacts.buttons.add")}
+          </Button>
+          <Button className={classes.Button} variant="contained" onClick={(e) => setConfirmOpen(true)}>
             {i18n.t("contacts.buttons.import")}
           </Button>
-          <Button className={classes.Button}	
-            variant="contained"
-            onClick={handleOpenContactModal}
-          >
-            {i18n.t("contacts.buttons.add")}
-          </Button>
 
-         <CSVLink style={{ textDecoration:'none'}} separator=";" filename={'contatos.csv'} data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}>
-          
-          </CSVLink>		  
-
-        </MainHeaderButtonsWrapper>
-      </MainHeader>
+          <CSVLink
+            style={{ textDecoration:'none' }}
+            separator=";"
+            filename="contatos.csv"
+            data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}
+          />
+      </div>
       <Paper
         className={classes.mainPaper}
         variant="outlined"
