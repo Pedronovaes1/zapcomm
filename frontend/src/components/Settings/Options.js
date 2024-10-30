@@ -31,9 +31,12 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
   tab: {
-    backgroundColor: theme.palette.options,  //DARK MODE PLW DESIGN//
-    borderRadius: 4,
-    width: "100%",
+    backgroundColor: 'white',  //DARK MODE PLW DESIGN//
+    borderRadius: 20,
+    border: '2px solid #E7E7E7',
+    padding: "5px",
+    height: "60px",
+    width: "500px",
     "& .MuiTab-wrapper": {
       color: theme.palette.fontecor,
     },   //DARK MODE PLW DESIGN//
@@ -372,11 +375,11 @@ export default function Options(props) {
   }
   return (
     <>
-      <Grid spacing={3} container>
+      <Grid spacing={3} container justifyContent="center" style={{ gap: "50px"}}>
         {/* <Grid xs={12} item>
                     <Title>Configurações Gerais</Title>
                 </Grid> */}
-        <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={11} sm={5} md={3} item style={{ marginTop: "10px" }}>
           <FormControl className={classes.selectContainer}>
             <InputLabel id="ratings-label">Avaliações</InputLabel>
             <Select
@@ -394,7 +397,7 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-        <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={11} sm={5} md={3}  item style={{ marginTop: "10px" }}>
           <FormControl className={classes.selectContainer}>
             <InputLabel id="schedule-type-label">
               Gerenciamento de Expediente
@@ -415,7 +418,7 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-        <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={11} sm={5} md={3}  item style={{ marginTop: "10px" }}>
           <FormControl className={classes.selectContainer}>
             <InputLabel id="group-type-label">
               Ignorar Mensagens de Grupos
@@ -435,7 +438,7 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-        <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={11} sm={5} md={3} item>
           <FormControl className={classes.selectContainer}>
             <InputLabel id="call-type-label">
               Aceitar Chamada
@@ -455,7 +458,7 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-        <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={11} sm={5} md={3} item>
           <FormControl className={classes.selectContainer}>
             <InputLabel id="chatbot-type-label">
               Tipo Chatbot
@@ -477,7 +480,7 @@ export default function Options(props) {
           </FormControl>
         </Grid>
 		{/* ENVIAR SAUDAÇÃO AO ACEITAR O TICKET */}
-        <Grid xs={12} sm={6} md={4} item>
+        <Grid xs={11} sm={5} md={3} item>
           <FormControl className={classes.selectContainer}>
             <InputLabel id="sendGreetingAccepted-label">Enviar saudação ao aceitar o ticket</InputLabel>
             <Select
@@ -538,164 +541,49 @@ export default function Options(props) {
         </Grid>
 		
       </Grid>
-      <Grid spacing={3} container>
-        <Tabs
-          indicatorColor="primary"
-          textColor="primary"
-          scrollButtons="on"
-          variant="scrollable"
-          className={classes.tab}
-          style={{
-            marginBottom: 20,
-            marginTop: 20
-          }}
-        >
-          <Tab
 
-            label="INTEGRAÇÕES" />
+      <Grid  justifyContent="center" style={{ display: "flex", gap: "50px"}}>
+        <Grid >
+          <Tabs
+            indicatorColor="primary"
+            textColor="primary"
+            scrollButtons="on"
+            variant="scrollable"
+            className={classes.tab}
+            style={{
+              marginBottom: 10,
+              marginTop: 60
+            }}
+          >
+            <Tab
 
-        </Tabs>
+              label="INTEGRAÇÕES" />
 
+          </Tabs>
+
+        </Grid>
+  
+        {/*-----------------ASAAS-----------------*/}
+        <Grid 
+          style={{ marginBottom: 10 }}>
+          <Tabs
+            indicatorColor="primary"
+            textColor="primary"
+            scrollButtons="on"
+            variant="scrollable"
+            className={classes.tab}
+            style={{
+              marginBottom: 10,
+              marginTop: 60,
+
+            }}
+          >
+            <Tab label="ASAAS" />
+
+          </Tabs>
+        </Grid>
       </Grid>
-      {/*-----------------IXC DESATIVADO 4.6.5-----------------*/}
-      {/*<Grid spacing={3} container
-        style={{ marginBottom: 10 }}>
-        <Tabs
-          indicatorColor="primary"
-          textColor="primary"
-          scrollButtons="on"
-          variant="scrollable"
-          className={classes.tab}
-        >
-          <Tab
-
-            label="IXC" />
-
-        </Tabs>
-        <Grid xs={12} sm={6} md={6} item>
-          <FormControl className={classes.selectContainer}>
-            <TextField
-              id="ipixc"
-              name="ipixc"
-              margin="dense"
-              label="IP do IXC"
-              variant="outlined"
-              value={ipixcType}
-              onChange={async (e) => {
-                handleChangeIPIxc(e.target.value);
-              }}
-            >
-            </TextField>
-            <FormHelperText>
-              {loadingIpIxcType && "Atualizando..."}
-            </FormHelperText>
-          </FormControl>
-        </Grid>
-        <Grid xs={12} sm={6} md={6} item>
-          <FormControl className={classes.selectContainer}>
-            <TextField
-              id="tokenixc"
-              name="tokenixc"
-              margin="dense"
-              label="Token do IXC"
-              variant="outlined"
-              value={tokenixcType}
-              onChange={async (e) => {
-                handleChangeTokenIxc(e.target.value);
-              }}
-            >
-            </TextField>
-            <FormHelperText>
-              {loadingTokenIxcType && "Atualizando..."}
-            </FormHelperText>
-          </FormControl>
-        </Grid>
-      </Grid>*/}
-      {/*-----------------MK-AUTH DESATIVADO 4.6.5-----------------*/}
-      {/*<Grid spacing={3} container
-        style={{ marginBottom: 10 }}>
-        <Tabs
-          indicatorColor="primary"
-          textColor="primary"
-          scrollButtons="on"
-          variant="scrollable"
-          className={classes.tab}
-        >
-          <Tab label="MK-AUTH" />
-
-        </Tabs>
-        <Grid xs={12} sm={12} md={4} item>
-          <FormControl className={classes.selectContainer}>
-            <TextField
-              id="ipmkauth"
-              name="ipmkauth"
-              margin="dense"
-              label="Ip Mk-Auth"
-              variant="outlined"
-              value={ipmkauthType}
-              onChange={async (e) => {
-                handleChangeIpMkauth(e.target.value);
-              }}
-            >
-            </TextField>
-            <FormHelperText>
-              {loadingIpMkauthType && "Atualizando..."}
-            </FormHelperText>
-          </FormControl>
-        </Grid>
-        <Grid xs={12} sm={12} md={4} item>
-          <FormControl className={classes.selectContainer}>
-            <TextField
-              id="clientidmkauth"
-              name="clientidmkauth"
-              margin="dense"
-              label="Client Id"
-              variant="outlined"
-              value={clientidmkauthType}
-              onChange={async (e) => {
-                handleChangeClientIdMkauth(e.target.value);
-              }}
-            >
-            </TextField>
-            <FormHelperText>
-              {loadingClientIdMkauthType && "Atualizando..."}
-            </FormHelperText>
-          </FormControl>
-        </Grid>
-        <Grid xs={12} sm={12} md={4} item>
-          <FormControl className={classes.selectContainer}>
-            <TextField
-              id="clientsecretmkauth"
-              name="clientsecretmkauth"
-              margin="dense"
-              label="Client Secret"
-              variant="outlined"
-              value={clientsecretmkauthType}
-              onChange={async (e) => {
-                handleChangeClientSecrectMkauth(e.target.value);
-              }}
-            >
-            </TextField>
-            <FormHelperText>
-              {loadingClientSecrectMkauthType && "Atualizando..."}
-            </FormHelperText>
-          </FormControl>
-        </Grid>
-      </Grid>*/}
-      {/*-----------------ASAAS-----------------*/}
-      <Grid spacing={3} container
-        style={{ marginBottom: 10 }}>
-        <Tabs
-          indicatorColor="primary"
-          textColor="primary"
-          scrollButtons="on"
-          variant="scrollable"
-          className={classes.tab}
-        >
-          <Tab label="ASAAS" />
-
-        </Tabs>
-        <Grid xs={12} sm={12} md={12} item>
+        <Grid xs={11} sm={11} md={11} item justifyContent="center">
           <FormControl className={classes.selectContainer}>
             <TextField
               id="asaas"
@@ -714,7 +602,7 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-      </Grid>
+
     </>
   );
 }

@@ -157,7 +157,7 @@ const SettingsCustom = () => {
       <Paper className={classes.mainPaper} elevation={1}>
         <Tabs
           value={tab}
-          indicatorColor="primary"
+          indicatorColor="secondary"
           textColor="primary"
           scrollButtons="on"
           variant="scrollable"
@@ -167,7 +167,6 @@ const SettingsCustom = () => {
           <Tab label="Opções" value={"options"} />
           {schedulesEnabled && <Tab label="Horários" value={"schedules"} />}
           {isSuper() ? <Tab label="Empresas" value={"companies"} /> : null}
-          {isSuper() ? <Tab label="Planos" value={"plans"} /> : null}
           {isSuper() ? <Tab label="Ajuda" value={"helps"} /> : null}
         </Tabs>
         <Paper className={classes.paper} elevation={0}>
@@ -191,18 +190,6 @@ const SettingsCustom = () => {
                 name={"companies"}
               >
                 <CompaniesManager />
-              </TabPanel>
-            )}
-          />
-          <OnlyForSuperUser
-            user={currentUser}
-            yes={() => (
-              <TabPanel
-                className={classes.container}
-                value={tab}
-                name={"plans"}
-              >
-                <PlansManager />
               </TabPanel>
             )}
           />

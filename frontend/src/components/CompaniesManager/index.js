@@ -43,6 +43,11 @@ const useStyles = makeStyles((theme) => ({
   fullWidth: {
     width: "100%",
   },
+  fullWidth2: {
+    width: "100%",
+    backgroundColor: 'white',  //DARK MODE PLW DESIGN//
+    border: '2px solid #E7E7E7',
+  },
   tableContainer: {
     width: "100%",
     overflowX: "scroll",
@@ -323,7 +328,7 @@ export function CompanyForm(props) {
                 <Grid justifyContent="flex-end" spacing={1} container>
                   <Grid xs={4} md={1} item>
                     <ButtonWithSpinner
-                      className={classes.fullWidth}
+                      className={classes.fullWidth2}
                       style={{ marginTop: 7 }}
                       loading={loading}
                       onClick={() => onCancel()}
@@ -353,7 +358,7 @@ export function CompanyForm(props) {
                           loading={loading}
                           onClick={() => incrementDueDate()}
                           variant="contained"
-                          color="primary"
+                          color="secondary"
                         >
                           + Vencimento
                         </ButtonWithSpinner>
@@ -365,7 +370,7 @@ export function CompanyForm(props) {
                           loading={loading}
                           onClick={() => handleOpenModalUsers()}
                           variant="contained"
-                          color="primary"
+                          color="secondary"
                         >
                           Usuário
                         </ButtonWithSpinner>
@@ -379,7 +384,7 @@ export function CompanyForm(props) {
                       loading={loading}
                       type="submit"
                       variant="contained"
-                      color="primary"
+                      color="secondary"
                     >
                       Salvar
                     </ButtonWithSpinner>
