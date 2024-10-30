@@ -253,11 +253,11 @@ return (
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell align="center" style={{fontWeight: "bold"}}>{i18n.t("tags.table.name")}</TableCell>
-              <TableCell align="center" style={{fontWeight: "bold"}}>
+              <TableCell align="center">{i18n.t("tags.table.name")}</TableCell>
+              <TableCell align="center" >
                 {i18n.t("tags.table.tickets")}
               </TableCell>
-              <TableCell align="center" style={{fontWeight: "bold"}}>
+              <TableCell align="center" >
                 {i18n.t("tags.table.actions")}
               </TableCell>
             </TableRow>

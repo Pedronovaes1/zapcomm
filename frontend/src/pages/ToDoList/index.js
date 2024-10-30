@@ -16,15 +16,10 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginTop: '100px',
     margin: '2rem',
-    position: 'relative',
-  },
-  title: {
-    position: 'relative',
-    bottom: '1.2rem',
-    right: '43rem',
-    fontSize: '30px',
-    fontWeight: 'bold',
+    borderRadius: '10px',
+    border: "20px",
   },
   inputContainer: {
     borderRadius: '20px',
@@ -56,44 +51,17 @@ const useStyles = makeStyles({
   },
   listContainer: {
     width: '100%',
-    backgroundColor: 'white',
-    borderRadius: '15px',
-    boxShadow: '0px 15px 30px rgba(0, 0, 0, 0.1)',
-    padding: '1rem',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '0.5rem 1rem',
-    fontWeight: 'bold',
-    backgroundColor: 'white',
-  },
-  listItem: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    height: '100%',
+    marginTop: '1rem',
+    backgroundColor: '#fff',
+    color: "black",
     borderRadius: '10px',
-    border: '1px solid #D3D3D3',
-    marginBottom: '10px',
-    padding: '10px',
-    backgroundColor: 'white',
+    border: '1px solid #ccc'
   },
-  taskText: {
-    flex: 1,
-    textAlign: 'center'
-  },
-  taskDate: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  taskActions: {
-    flex: 1,
-    textAlign: 'center'
-  },
-  iconButton: {
-    color: '#333',
-  },
-});
+  list: {
+    marginBottom: '5px'
+  }
+});  
 
 const ToDoList = () => {
   const classes = useStyles();
@@ -148,7 +116,18 @@ const ToDoList = () => {
 
   return (
     <div className={classes.root}>
-      <h1 className={classes.title}>Tarefas</h1>
+      <div className={classes.inputContainer}>
+        <TextField
+          className={classes.input}
+          label="Nova tarefa"
+          value={task}
+          onChange={handleTaskChange}
+          variant="outlined"
+        />
+        <Button variant="contained" color="secondary" onClick={handleAddTask}>
+          {editIndex >= 0 ? 'Salvar' : 'Adicionar'}
+        </Button>
+      </div>
       <div className={classes.listContainer}>
         <div className={classes.inputContainer}>
           <TextField
