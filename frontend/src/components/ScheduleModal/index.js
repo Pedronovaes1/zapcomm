@@ -332,10 +332,11 @@ const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, rel
 									</Grid>
 								)}
 							</DialogContent>
-							<DialogActions>
+							<DialogActions style={{display: "flex", alignItems: "center", justifyContent: "center" }}>
 								{!attachment && !schedule.mediaPath && (
 									<Button
-										color="primary"
+										color="#333"
+										style={{border: "1px solid #333", borderRadius: "20px"}}
 										onClick={() => attachmentFile.current.click()}
 										disabled={isSubmitting}
 										variant="outlined"
@@ -345,7 +346,8 @@ const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, rel
 								)}
 								<Button
 									onClick={handleClose}
-									color="secondary"
+									color="#333"
+									style={{border: "1px solid #333", borderRadius: "20px"}}
 									disabled={isSubmitting}
 									variant="outlined"
 								>
@@ -354,7 +356,8 @@ const ScheduleModal = ({ open, onClose, scheduleId, contactId, cleanContact, rel
 								{(schedule.sentAt === null || schedule.sentAt === "") && (
 									<Button
 										type="submit"
-										color="primary"
+										color="secondary"
+										style={{ borderRadius: "20px"}}
 										disabled={isSubmitting}
 										variant="contained"
 										className={classes.btnWrapper}
