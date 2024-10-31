@@ -49,13 +49,13 @@ const useStyles = makeStyles(theme => ({
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		width: "65%",
-		border: "1px solid #0C2454",
-		borderRadius: "15px",
-		padding: theme.spacing(1),
+		width: "90%",
+		  
+		borderRadius: "5px",
+		padding: "0px -10px", 
 		margin: theme.spacing(0),
 		[theme.breakpoints.down('sm')]: {
-			width: "90%",
+			width: "5%",
 			height: "auto",
 			justifyContent: "center",
 			alignItems: "center",
@@ -280,16 +280,18 @@ const SignUp = () => {
 											</Field>
 										</Grid>
 									</Grid>
+									<div style={{ display: 'flex', justifyContent: 'center' }}>
 									<Button
 										type="submit"
 										fullWidth
 										variant="contained"
 										color="secondary"
 										className={classes.submit}
-										style={{borderRadius:"100px",width:"210px", heigth:"6opx"}}
+										style={{borderRadius:"100px",width:"300px", heigth:"6opx"}}
 									>
 										{i18n.t("Cadastrar")}
 									</Button>
+									</div>
 									<Grid container justify="flex-end">
 										<Grid item>
 											<Link href="#" variant="body2" component={RouterLink} to="/login">
