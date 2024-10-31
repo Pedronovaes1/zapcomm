@@ -70,14 +70,11 @@ const useStyles = makeStyles(theme => ({
 		color: green[500],
 	},
 	customButton: { 
-		backgroundColor: '#34D3A3;', 
-		width: '184.85px' ,
-		padding: '7px 14px', 
 		color:"black",
-		borderRadius: '10px', 
-		marginBottom: theme.spacing(8), 
-		marginTop: theme.spacing(4),
-		marginLeft: theme.spacing(100),
+		[theme.breakpoints.down('sm')]: {
+			justifyContent: "center",
+			alignItems: "center",
+		},
 	},
 	customText: {
 		fontWeight: 'bold !important',
@@ -331,13 +328,14 @@ const Connections = () => {
 			</MainHeader>
 			<Paper className={classes.mainPaper} variant="outlined">
 				<MainHeaderButtonsWrapper>
+					<div style={{display: "flex", alignItems: "flex-end", justifyContent: "flex-end"}}>
 					<Can
 						role={user.profile}
 						perform="connections-page:addConnection"
 						yes={() => (
 							<Button
 								variant="contained"
-								color="primary"
+								color="secondary"
 								onClick={handleOpenWhatsAppModal}
 								className={classes.customButton}
 							>
@@ -345,36 +343,37 @@ const Connections = () => {
 							</Button>
 						)}
 					/>
+					</div>
 				</MainHeaderButtonsWrapper>
 				<Table size="small">
 					<TableHead>
 						<TableRow>
-							<TableCell align="center" className={classes.customText}>
+							<TableCell align="center">
 								{i18n.t("connections.table.name")}
 							</TableCell>
-							<TableCell align="center" className={classes.customText}>
+							<TableCell align="center">
 								{i18n.t("connections.table.status")}
 							</TableCell>
 							<Can
 								role={user.profile}
 								perform="connections-page:actionButtons"
 								yes={() => (
-									<TableCell align="center" className={classes.customText}> 
+									<TableCell align="center" > 
 										{i18n.t("connections.table.session")}
 									</TableCell>
 								)}
 							/>
-							<TableCell align="center" className={classes.customText}>
+							<TableCell align="center" >
 								{i18n.t("connections.table.lastUpdate")}
 							</TableCell>
-							<TableCell align="center" className={classes.customText}>
+							<TableCell align="center">
 								{i18n.t("connections.table.default")}
 							</TableCell>
 							<Can
 								role={user.profile}
 								perform="connections-page:editOrDeleteConnection"
 								yes={() => (
-									<TableCell align="center" className={classes.customText}>
+									<TableCell align="center" >
 										{i18n.t("connections.table.actions")}
 									</TableCell>
 								)}

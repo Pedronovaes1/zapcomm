@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",       
   },
   gridItemTab: {
-    height: "20%",
+    height: "92%",
     width: "100%",   
 
   },
@@ -405,7 +405,7 @@ function Chat(props) {
             <div className={classes.btnContainer}>
               <Button
                 onClick={() => setShowDialog(true)}
-                color="primary"
+                color="secondary"
                 variant="contained"
               >
                 Novo

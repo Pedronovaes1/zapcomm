@@ -243,7 +243,7 @@ const Quickemessages = () => {
         style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "30px"}}
       >
       <Grid>
-            <Grid spacing={2} container alignItems="center" justifyContent="center" style={{marginTop: "20px"}}> 
+            <Grid spacing={2} container alignItems="center" justifyContent="center"> 
               <Grid xs={6} sm={8} item style={{ marginBottom: 0}}>
                 <TextField
                   fullWidth
@@ -259,7 +259,7 @@ const Quickemessages = () => {
                     ),
                     disableUnderline: true, // Remove a linha inferior
                   }}
-                  style={{padding: '0px 30px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "10px"}}
+                  style={{padding: '0px 30px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
                 />
               </Grid>
               <Grid xs={4} sm={4} item >
@@ -278,14 +278,14 @@ const Quickemessages = () => {
         <Table size="small" >
           <TableHead>
             <TableRow>
-              <TableCell align="center" style={{fontWeight: "bold"}}>
+              <TableCell align="center" >
                 {i18n.t("quickMessages.table.shortcode")}
               </TableCell>
 
-              <TableCell align="center" style={{fontWeight: "bold"}}>
+              <TableCell align="center" >
                 {i18n.t("quickMessages.table.mediaName")}
               </TableCell>        
-              <TableCell align="center" style={{fontWeight: "bold"}}>
+              <TableCell align="center">
                 {i18n.t("quickMessages.table.actions")}
               </TableCell>
             </TableRow>

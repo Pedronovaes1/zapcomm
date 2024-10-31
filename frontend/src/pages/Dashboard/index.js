@@ -463,9 +463,9 @@ const Dashboard = () => {
       <Container maxWidth="lg" className={classes.container}>
         <Grid container spacing={3} justifyContent="end">
          
-          <div style={{display: "flex", flexDirection: "column", paddingLeft: "20px",paddingRight: "20px",gap: "20px",width: "65%"}}>  
+          <Grid style={{display: "flex", flexDirection: "column", paddingLeft: "20px",paddingRight: "20px",gap: "20px",width: "65%"}}>  
             {/* CARDS */}  
-            <div className={classes.GeralCard}>
+            <Grid className={classes.GeralCard}>
               {/* EM ATENDIMENTO */}
               <Grid item xs={12} sm={6} md={4}>
                 <Paper
@@ -526,10 +526,10 @@ const Dashboard = () => {
                   </Grid>
                 </Paper>
               </Grid>
-            </div>        
+            </Grid>        
 
             {/*Cards e gráficos*/}
-            <div style={{display: "flex", flexDirection: "row",width: "100%",gap: "20px", alignItems:"center",justifyContent: "center"}}>
+            <Grid style={{display: "flex", flexDirection: "row",width: "100%",gap: "20px", alignItems:"center",justifyContent: "center"}}>
               {/* FINALIZADOS */}
               <Grid item xs={12} sm={6} md={4}>
                 <Paper
@@ -589,7 +589,7 @@ const Dashboard = () => {
                   </Grid>
                 </Paper>  
               </Grid>
-              </div>
+              </Grid>
               {/* TOTAL DE ATENDIMENTOS POR USUARIO */}
               <Grid item xs={12} style={{marginTop: "30px"}}>
                 <Typography component="h2" variant="h6" color="primary" gutterBottom>
@@ -607,10 +607,10 @@ const Dashboard = () => {
                 </Paper>
               </Grid>
             
-          </div>
+          </Grid>
 
-        <div style={{width: "35%"}}> 
-            <div style={{display: "flex",flexDirection: "column", gap:"10px", alignItems: "flex-start", justifyContent: "center", marginBottom: "30px", marginTop: "50px"}}>
+        <Grid style={{width: "35%"}}> 
+            <Grid style={{display: "flex",flexDirection: "column", gap:"10px", alignItems: "flex-start", justifyContent: "center", marginBottom: "30px", marginTop: "50px"}}>
               <Typography
                 variant="h6"
                 style={{marginLeft: "60px"}}
@@ -678,7 +678,7 @@ const Dashboard = () => {
                 </Grid>
               </Box>
            
-            </div>
+            </Grid>
 
 
 		  
@@ -728,7 +728,7 @@ const Dashboard = () => {
               />
             ) : null}
           </Grid>
-        </div>
+        </Grid>
 
 
           {/* ATENDENTES ATIVOS */}

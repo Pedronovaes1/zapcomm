@@ -542,9 +542,7 @@ const CampaignModal = ({
                       margin="dense"
                       className={classes.FormControl}
                       fullWidth
-
                     >
-                      
                       <InputLabel id="fileListId-selection-label">{i18n.t("campaigns.dialog.form.fileList")}</InputLabel>
                       <Field
                         as={Select}
@@ -577,7 +575,6 @@ const CampaignModal = ({
                         borderRadius: 2,
                       }}
                     >
-                      
                       <Tab label="Msg. 1" index={0} />
                       <Tab label="Msg. 2" index={1} />
                       <Tab label="Msg. 3" index={2} />
@@ -697,7 +694,6 @@ const CampaignModal = ({
                       {campaignEditable && (
                         <IconButton
                           onClick={() => setConfirmationOpen(true)}
-                          
                           color="secondary"
                         >
                           <DeleteOutlineIcon />
@@ -707,10 +703,11 @@ const CampaignModal = ({
                   )}
                 </Grid>
               </DialogContent>
-              <DialogActions>
+              <DialogActions style={{display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {campaign.status === "CANCELADA" && (
                   <Button
-                    color="primary"
+                    color="#333"
+                    style={{border: "1px solid #333", borderRadius: "20px"}}
                     onClick={() => restartCampaign()}
                     variant="outlined"
                   >
@@ -719,7 +716,8 @@ const CampaignModal = ({
                 )}
                 {campaign.status === "EM_ANDAMENTO" && (
                   <Button
-                    color="primary"
+                    color="#333"
+                    style={{border: "1px solid #333", borderRadius: "20px"}}
                     onClick={() => cancelCampaign()}
                     variant="outlined"
                   >
@@ -728,57 +726,32 @@ const CampaignModal = ({
                 )}
                 {!attachment && !campaign.mediaPath && campaignEditable && (
                   <Button
-                    color="primary"
+                    color="#333"
+                    style={{borderRadius: "20px"}}
                     onClick={() => attachmentFile.current.click()}
                     disabled={isSubmitting}
                     variant="outlined"
-                    style={{ backgroundColor: '#20587C', color: '#ffffff' }}
                   >
                     {i18n.t("campaigns.dialog.buttons.attach")}
                   </Button>
                 )}
-
                 <Button
                   onClick={handleClose}
-                  color="primary"
-                  backgroundColor="primary"
-                  borderRadius='10px'
-                  border='2px solid #ccc'
-                  backgroundCololor='primary'
-
-
-
-                  
-
-
+                  color="#333"
+                  style={{borderRadius: "20px"}}
                   disabled={isSubmitting}
                   variant="outlined"
-                 
-
-
-
                 >
-                  cancelar
-                  {i18n.t("")}
+                  {i18n.t("campaigns.dialog.buttons.close")}
                 </Button>
                 {(campaignEditable || campaign.status === "CANCELADA") && (
                   <Button
                     type="submit"
-                    color="primary"
+                    color="secondary"
+                    style={{ borderRadius: "20px"}}
                     disabled={isSubmitting}
                     variant="contained"
                     className={classes.btnWrapper}
-                   
-
-                    style={{
-                      backgroundColor: '#34D3A3', // Cor de fundo
-                      color: '#000000',           // Cor do texto (preto)
-                      borderRadius: '15px',       // Para deixar o botão mais redondo
-                      marginLeft:'200px'
-
-                    }}
-
-                    
                   >
                     {campaignId
                       ? `${i18n.t("campaigns.dialog.buttons.edit")}`

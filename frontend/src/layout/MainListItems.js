@@ -46,6 +46,7 @@ import usePlans from "../hooks/usePlans";
 import Typography from "@material-ui/core/Typography";
 import useVersion from "../hooks/useVersion";
 import { useLocation } from 'react-router-dom';
+import PersonPinOutlinedIcon from '@material-ui/icons/PersonPinOutlined';
 
 const useStyles = makeStyles((theme) => ({
   ListSubheader: {
@@ -78,6 +79,7 @@ function ListItemLink(props) {
     marginTop: "10px",
     textAlign: 'left',
     gap: '31px',
+    fontFamily: 'Manrope',
   };
 
   const listItemIconStyle = {
@@ -183,6 +185,7 @@ const MainListItems = (props) => {
   const [connectionWarning, setConnectionWarning] = useState(false);
   const [openCampaignSubmenu, setOpenCampaignSubmenu] = useState(false);
   const [showCampaigns, setShowCampaigns] = useState(false);
+  const [openAdminSubmenu, setOpenAdminSubmenu] = useState(false);
   const [showKanban, setShowKanban] = useState(false);
   const [showOpenAi, setShowOpenAi] = useState(false);
   const [showIntegrations, setShowIntegrations] = useState(false); const history = useHistory();
@@ -326,7 +329,7 @@ const MainListItems = (props) => {
   };
 
   return (
-    <div onClick={drawerClose}> 
+    <div> 
       <Can //usado para verificar a permissão do usuário 
         role={user.profile}
         perform="dashboard:view"
@@ -406,28 +409,24 @@ const MainListItems = (props) => {
         perform="drawer-admin-items:view"
         yes={() => (
           <>
-            <Divider style={{marginTop:"10px"}}/>
-            <ListSubheader
-              hidden={collapsed}
-              style={{
-                position: "relative",
-                fontSize: "17px",
-                textAlign: "left",
-                paddingLeft: 20
-              }}
-              inset
-              color="inherit">
-              {i18n.t("mainDrawer.listItems.administration")}
-            </ListSubheader>
-			
-            {showCampaigns && (
+            <ListItem button onClick={() => setOpenAdminSubmenu((prev) => !prev)} style={{  color: "#555", fontSize: "8px" }}>
+              <ListItemIcon style={{  color: "#555", fontSize: "8px" }}>
+                <PersonPinOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Administração" />
+              <ExpandMoreIcon />
+            </ListItem>
+
+            <Collapse in={openAdminSubmenu} timeout="auto" unmountOnExit>
+            <Divider />
+              <List component="div" disablePadding>
+              {showCampaigns && (
               <>
                 <ListItem
-                  button
                   onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
                   style={{  color: "#555", fontSize: "8px" }}
                 >
-                  <ListItemIcon>
+                  <ListItemIcon style={{  color: "#555", fontSize: "8px" }}>
                     <EventAvailableIcon />
                   </ListItemIcon>
                   <ListItemText
@@ -537,6 +536,10 @@ const MainListItems = (props) => {
             />
 			
 			
+              </List>
+            </Collapse>
+                  
+          
             {!collapsed && <React.Fragment>
               <Divider />
               {/* 
