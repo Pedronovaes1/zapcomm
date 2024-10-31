@@ -83,14 +83,33 @@ const reducer = (state, action) => {
 };
 
 const useStyles = makeStyles((theme) => ({
+  TableRow: {
+    backgroundColor: '#F8F9FD',
+  },
+
+  header: {
+    marginBottom: theme.spacing(2),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: theme.spacing(3), 
+    width: "100%"
+  },
+  Button: {
+    backgroundColor: "#34D3A3",
+    color: "black",
+  },
   mainPaper: {
+    backgroundColor: '#FFFFFF',
     flex: 1,
-    padding: theme.spacing(1),
-    overflowY: "scroll",
-    ...theme.scrollbarStyles,
+    padding: theme.spacing(2),
+    width: "100%",
+    height: "100%",
+    borderRadius: "12px",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+    border: '2px solid rgba(248, 248, 255, 0.5)',
   },
 }));
-
 const Contacts = () => {
   const classes = useStyles();
   const history = useHistory();
@@ -265,10 +284,12 @@ const Contacts = () => {
           ? `${i18n.t("contacts.confirmationModal.deleteMessage")}`
           : `${i18n.t("contacts.confirmationModal.importMessage")}`}
       </ConfirmationModal>
-      <MainHeader>
-        <Title>{i18n.t("contacts.title")}</Title>
-        <MainHeaderButtonsWrapper>
-          <TextField
+
+      <div className={classes.header}>
+          <TextField 
+            className={classes.inputField}
+            variant="outlined"
+            size="small"
             placeholder={i18n.t("contacts.searchPlaceholder")}
             type="search"
             value={searchParam}
@@ -281,29 +302,20 @@ const Contacts = () => {
               ),
             }}
           />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={(e) => setConfirmOpen(true)}
-          >
+          <Button className={classes.Button} variant="contained" onClick={handleOpenContactModal}>
+          {i18n.t("contacts.buttons.add")}
+          </Button>
+          <Button className={classes.Button} variant="contained" onClick={(e) => setConfirmOpen(true)}>
             {i18n.t("contacts.buttons.import")}
           </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleOpenContactModal}
-          >
-            {i18n.t("contacts.buttons.add")}
-          </Button>
 
-         <CSVLink style={{ textDecoration:'none'}} separator=";" filename={'contatos.csv'} data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}>
-          <Button	variant="contained" color="primary"> 
-          EXPORTAR CONTATOS 
-          </Button>
-          </CSVLink>		  
-
-        </MainHeaderButtonsWrapper>
-      </MainHeader>
+          <CSVLink
+            style={{ textDecoration:'none' }}
+            separator=";"
+            filename="contatos.csv"
+            data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}
+          />
+      </div>
       <Paper
         className={classes.mainPaper}
         variant="outlined"
@@ -311,18 +323,16 @@ const Contacts = () => {
       >
         <Table size="small">
           <TableHead>
-            <TableRow>
+            <TableRow className={classes.TableRow}>
               <TableCell padding="checkbox" />
               <TableCell>{i18n.t("contacts.table.name")}</TableCell>
               <TableCell align="center">
                 {i18n.t("contacts.table.whatsapp")}
               </TableCell>
+
               <TableCell align="center">
-                {i18n.t("contacts.table.email")}
-              </TableCell>
-              <TableCell align="center">
-                {i18n.t("contacts.table.actions")}
-              </TableCell>
+              Informações adicionais             
+               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -331,10 +341,12 @@ const Contacts = () => {
                 <TableRow key={contact.id}>
                   <TableCell style={{ paddingRight: 0 }}>
                     {<Avatar src={contact.profilePicUrl} />}
+                  </TableCell> 
+                  <TableCell>
+                  <div style={{ fontWeight: "bold" }}>{contact.name}</div>
+                  <div style={{ fontSize: "0.875rem", color: "gray" }}>{contact.email}</div>
                   </TableCell>
-                  <TableCell>{contact.name}</TableCell>
-                  <TableCell align="center">{contact.number}</TableCell>
-                  <TableCell align="center">{contact.email}</TableCell>
+                  <TableCell align="right">{contact.number}</TableCell>
                   <TableCell align="center">
                     <IconButton
                       size="small"
