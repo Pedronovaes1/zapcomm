@@ -46,6 +46,7 @@ import usePlans from "../hooks/usePlans";
 import Typography from "@material-ui/core/Typography";
 import useVersion from "../hooks/useVersion";
 import { useLocation } from 'react-router-dom';
+import PersonPinOutlinedIcon from '@material-ui/icons/PersonPinOutlined';
 
 const useStyles = makeStyles((theme) => ({
   ListSubheader: {
@@ -84,12 +85,12 @@ function ListItemLink(props) {
   const listItemIconStyle = {
     minWidth: '30px', 
     fontSize: '8px', 
-    color: "#1F1F20",
+    color: "#555",
   };
 
   const listItemTextStyle = {
     fontSize: '8px',
-    color: "#1F1F20",
+    color: "#555",
     '&:hover': {
       backgroundColor: 'inherit', 
       color: 'black', 
@@ -328,7 +329,7 @@ const MainListItems = (props) => {
   };
 
   return (
-    <div onClick={drawerClose}> 
+    <div> 
       <Can //usado para verificar a permissão do usuário 
         role={user.profile}
         perform="dashboard:view"
@@ -408,9 +409,9 @@ const MainListItems = (props) => {
         perform="drawer-admin-items:view"
         yes={() => (
           <>
-            <ListItem button onClick={() => setOpenAdminSubmenu((prev) => !prev)} style={{  color: "#1F1F20", fontSize: "8px" }}>
-              <ListItemIcon style={{  color: "#1F1F20", fontSize: "8px" }}>
-                <EventAvailableIcon />
+            <ListItem button onClick={() => setOpenAdminSubmenu((prev) => !prev)} style={{  color: "#555", fontSize: "8px" }}>
+              <ListItemIcon style={{  color: "#555", fontSize: "8px" }}>
+                <PersonPinOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Administração" />
               <ExpandMoreIcon />
@@ -423,9 +424,9 @@ const MainListItems = (props) => {
               <>
                 <ListItem
                   onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
-                  style={{  color: "#1F1F20", fontSize: "8px" }}
+                  style={{  color: "#555", fontSize: "8px" }}
                 >
-                  <ListItemIcon style={{  color: "#1F1F20", fontSize: "8px" }}>
+                  <ListItemIcon style={{  color: "#555", fontSize: "8px" }}>
                     <EventAvailableIcon />
                   </ListItemIcon>
                   <ListItemText
