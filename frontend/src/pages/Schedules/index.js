@@ -262,10 +262,12 @@ const Schedules = () => {
         contactId={contactId}
         cleanContact={cleanContact}
       />
-      <Title>{i18n.t("schedules.title")} ({schedules.length})</Title>
+     
       <MainHeader>
-        <MainHeaderButtonsWrapper>
-        <div className={classes.headerButtonsWrapper}>
+         <Title>{i18n.t("schedules.title")} ({schedules.length})</Title>
+      </MainHeader>
+      <Paper className={classes.mainPaper} variant="outlined" onScroll={handleScroll}>
+      <MainHeaderButtonsWrapper>
           <TextField
             placeholder={i18n.t("contacts.searchPlaceholder")}
             type="search"
@@ -273,26 +275,24 @@ const Schedules = () => {
             onChange={handleSearch}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="end">
+                <InputAdornment position="start">
                   <SearchIcon style={{ color: "grey" }} />
                 </InputAdornment>
               ),
+              disableUnderline: true, // Remove a linha inferior
             }}
-            style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7", marginTop: "10px", marginBottom: "20px"}}
+            style={{padding: '0px 15px', borderRadius: '5px',border: "2px solid #e7e7e7"}}
           />
           <Button
             className={classes.addButton}
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={handleOpenScheduleModal}
-            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px", marginTop: "10px", color:"black", marginLeft:"15px", width: "182px", height: "35px", borderRadius: "10px"}}
+            
           >
             {i18n.t("schedules.buttons.add")}
           </Button>
-        </div>
         </MainHeaderButtonsWrapper>
-      </MainHeader>
-      <Paper className={classes.mainPaper} variant="outlined" onScroll={handleScroll}>
         <Calendar
           messages={defaultMessages}
           formats={{

@@ -246,7 +246,7 @@ return (
             />
             <Button
               variant="contained"
-              style={{ backgroundColor: "#34d3a3", fontWeight: "400"}}
+              color="secondary"
               onClick={handleOpenTagModal}
             >
               {i18n.t("Adicionar")}
