@@ -268,7 +268,7 @@ const Quickemessages = () => {
                   variant="contained"
                   onClick={handleOpenQuickMessageDialog}
                   color="secondary"
-                  
+                  style={{ borderRadius: '10px'}}
                 >
                   {i18n.t("Adicionar")}
                 </Button>

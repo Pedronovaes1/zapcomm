@@ -288,7 +288,6 @@ const Schedules = () => {
             variant="contained"
             color="secondary"
             onClick={handleOpenScheduleModal}
-            
           >
             {i18n.t("schedules.buttons.add")}
           </Button>

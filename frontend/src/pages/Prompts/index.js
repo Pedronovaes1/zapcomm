@@ -218,7 +218,7 @@ const Prompts = () => {
             variant="contained"
             color="secondary"
             onClick={handleOpenPromptModal}
-            style={{marginBottom: "20px"}}
+            style={{marginBottom: "20px", borderRadius: '10px'}}
           >
             {i18n.t("prompts.buttons.add")}
           </Button>

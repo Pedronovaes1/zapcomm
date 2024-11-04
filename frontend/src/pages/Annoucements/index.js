@@ -290,6 +290,7 @@ const Announcements = () => {
                   variant="contained"
                   onClick={handleOpenAnnouncementModal}
                   color="secondary"
+                  style={{ borderRadius: '10px'}}
                 >
                   {i18n.t("Adicionar")}
                 </Button>

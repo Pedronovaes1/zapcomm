@@ -229,7 +229,7 @@ const CampaignsConfig = () => {
               <Button
                 onClick={() => setShowVariablesForm(!showVariablesForm)}
                 color="#333"
-                style={{ padding: "12px 8px", marginRight: 10, borderRadius: '15px',border: "2px solid #e7e7e7"}}
+                style={{marginRight: 10, borderRadius: '10px',border: "2px solid #e7e7e7"}}
               >
                 Adicionar Variável
               </Button>
@@ -237,7 +237,7 @@ const CampaignsConfig = () => {
                 onClick={saveSettings}
                 color="secondary"
                 variant="contained"
-                style={{padding: "12px 8px", borderRadius:"15px"}}
+                style={{borderRadius:"10px"}}
               >
                 Salvar Configurações
               </Button>
@@ -268,7 +268,7 @@ const CampaignsConfig = () => {
                   <Button
                     onClick={() => setShowVariablesForm(!showVariablesForm)}
                     color="#333"
-                    style={{padding: "12px 8px", marginRight: 10, borderRadius:"15px",border: "2px solid #e7e7e7"}}
+                    style={{ marginRight: 10, borderRadius:"10px",border: "2px solid #e7e7e7"}}
 
                   >
                     Fechar
@@ -277,7 +277,7 @@ const CampaignsConfig = () => {
                     onClick={addVariable}
                     color="secondary"
                     variant="contained"
-                    style={{padding: "12px 8px", borderRadius:"15px"}}
+                    style={{ borderRadius:"10px"}}
                   >
                     Adicionar
                   </Button>

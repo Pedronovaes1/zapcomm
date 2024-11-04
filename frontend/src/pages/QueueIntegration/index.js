@@ -113,9 +113,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   customButton: { 
-    width: '184.85px' ,
-    padding: '7px 14px', 
-    color:"black",
     borderRadius: '10px', 
   },
 
