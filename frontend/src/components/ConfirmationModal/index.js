@@ -7,6 +7,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Typography from "@material-ui/core/Typography";
 
 import { i18n } from "../../translate/i18n";
+import { Grid } from "@material-ui/core";
 
 const ConfirmationModal = ({ title, children, open, onClose, onConfirm }) => {
 	return (
@@ -20,11 +21,14 @@ const ConfirmationModal = ({ title, children, open, onClose, onConfirm }) => {
 				<Typography>{children}</Typography>
 			</DialogContent>
 			<DialogActions>
-				<Button
+					<Button
 					variant="contained"
 					onClick={() => onClose(false)}
 					color="default"
-				>
+					style={{
+						backgroundColor: 'white', 
+						border: '2px solid #E7E7E7'
+					  }}>
 					{i18n.t("confirmationModal.buttons.cancel")}
 				</Button>
 				<Button

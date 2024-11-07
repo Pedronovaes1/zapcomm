@@ -33,6 +33,11 @@ const useStyles = makeStyles(theme => ({
 	fullWidth: {
 		width: '100%'
 	},
+    fullWidth2: {
+        width: "100%",
+        backgroundColor: 'white',  //DARK MODE PLW DESIGN//
+        border: '2px solid #E7E7E7',
+      },
     tableContainer: {
 		width: '100%',
 		overflowX: "scroll",
@@ -118,7 +123,7 @@ export function HelpManagerForm (props) {
                             />
                         </Grid>
                         <Grid sm={3} md={1} item>
-                            <ButtonWithSpinner className={classes.fullWidth} loading={loading} onClick={() => onCancel()} variant="contained">
+                            <ButtonWithSpinner className={classes.fullWidth2} loading={loading} onClick={() => onCancel()} variant="contained">
                                 Limpar
                             </ButtonWithSpinner>
                         </Grid>
@@ -130,7 +135,7 @@ export function HelpManagerForm (props) {
                             </Grid>
                         ) : null}
                         <Grid sm={3} md={1} item>
-                            <ButtonWithSpinner className={classes.fullWidth} loading={loading} type="submit" variant="contained" color="primary">
+                            <ButtonWithSpinner className={classes.fullWidth} loading={loading} type="submit" variant="contained" color="secondary">
                                 Salvar
                             </ButtonWithSpinner>
                         </Grid>
