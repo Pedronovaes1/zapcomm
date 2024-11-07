@@ -187,7 +187,7 @@ const Queues = () => {
         <div style={{display: "flex", justifyContent: "flex-end", marginTop: "20px", marginRight:"20px",}}>
           <Button
             variant="contained"
-            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px", }}
+            style={{ backgroundColor: "#34d3a3", fontWeight: "400", marginBottom: "20px",  borderRadius: '10px', }}
             onClick={handleOpenQueueModal}
           >
             {i18n.t("Adicionar")}

@@ -234,6 +234,7 @@ const Users = () => {
             variant="contained"
             color="secondary"
             onClick={handleOpenUserModal}
+            style={{ borderRadius: '10px'}}
           >
             {i18n.t("Adicionar")}
           </Button>

@@ -248,6 +248,7 @@ return (
               variant="contained"
               color="secondary"
               onClick={handleOpenTagModal}
+              style={{ borderRadius: '10px'}}
             >
               {i18n.t("Adicionar")}
             </Button>		  

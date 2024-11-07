@@ -256,6 +256,7 @@ const ContactLists = () => {
                   variant="contained"
                   color="secondary"
                   onClick={handleOpenContactListModal}
+                  style={{ borderRadius: '10px'}}
                 >
                   {i18n.t("contactLists.buttons.add")}
                 </Button>

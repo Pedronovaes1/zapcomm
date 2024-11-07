@@ -303,10 +303,10 @@ const Campaigns = () => {
               </Grid>
               <Grid xs={4} sm={4} item >
                 <Button
-                  
+                  color="secondary"
                   variant="contained"
                   onClick={handleOpenCampaignModal}
-                  style={{ backgroundColor: "#34D3A3", color: "black"}}
+                  style={{ borderRadius: '10px', }}
                 >
                   {i18n.t("Adicionar")}
                 </Button>

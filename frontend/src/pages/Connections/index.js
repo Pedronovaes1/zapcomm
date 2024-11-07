@@ -71,6 +71,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	customButton: { 
 		color:"black",
+		borderRadius: '10px', 
 		[theme.breakpoints.down('sm')]: {
 			justifyContent: "center",
 			alignItems: "center",
