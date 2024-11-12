@@ -58,6 +58,7 @@ import VerticalLine from "../../components/VerticalLine/VerticalLine";
 import Intersect from "../../assets/Intersect.png";
 
 import api from '../../services/api';
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -254,6 +255,50 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     marginTop: "20px",
   },
+  atendimento:{
+    display: "flex", 
+    flexDirection: "column", 
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    gap: "20px",
+    width: "65%",
+    [theme.breakpoints.down('sm')]: {
+      width: "100%",
+		},
+  [theme.breakpoints.down('sm')]: {
+    width: "80%",
+  },
+  [theme.breakpoints.down('md')]: {
+    width: "60%",
+  },
+  [theme.breakpoints.down('lg')]: {
+    width: "40%",
+  },
+  [theme.breakpoints.down('xl')]: {
+    width: "20%",
+  },
+  },
+  graficos:{
+    display: "flex", 
+    flexDirection: "row",
+    width: "100%",
+    gap: "20px", 
+    alignItems:"center",
+    justifyContent: "center"
+  },
+  geral:{
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
+    },
+  },
+  boxGeral:{
+    marginLeft: "10px",
+    gap:"60px",
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: "40px",
+      gap:"20px",
+    },
+  },
 }));
 
 const Dashboard = () => {
@@ -392,10 +437,10 @@ const Dashboard = () => {
               InputLabelProps={{
                 shrink: true,
                 style: {
-                  fontSize: '14px',        // Define o tamanho da fonte
-                  fontWeight: 'bold',      // Define a espessura da fonte
-                  color: "#333",        // Define a cor do label
-                  transform: 'translate(10px, -15px)', // Ajusta a posição vertical do label
+                  fontSize: '14px',      
+                  fontWeight: 'bold',      
+                  color: "#333",       
+                  transform: 'translate(10px, -15px)', 
                 },
               }}
               InputProps={{
@@ -459,11 +504,10 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
-      <Container maxWidth="lg" className={classes.container}>
-        <Grid container spacing={3} justifyContent="end">
-         
-          <Grid style={{display: "flex", flexDirection: "column", paddingLeft: "20px",paddingRight: "20px",gap: "20px",width: "65%"}}>  
+   
+      <Container maxWidth="xl" className={classes.container}>
+        <Grid container spacing={3} justifyContent="flex-end" className={classes.geral}>
+          <Grid item xs={12} md={8} className={classes.atendimento}>  
             {/* CARDS */}  
             <Grid className={classes.GeralCard}>
               {/* EM ATENDIMENTO */}
@@ -529,7 +573,7 @@ const Dashboard = () => {
             </Grid>        
 
             {/*Cards e gráficos*/}
-            <Grid style={{display: "flex", flexDirection: "row",width: "100%",gap: "20px", alignItems:"center",justifyContent: "center"}}>
+            <Grid className={classes.graficos}>
               {/* FINALIZADOS */}
               <Grid item xs={12} sm={6} md={4}>
                 <Paper
@@ -605,19 +649,22 @@ const Dashboard = () => {
                 <Paper className={classes.fixedHeightPaper2}>
                   <ChartsDate />
                 </Paper>
-              </Grid>
+            </Grid>
             
           </Grid>
 
-        <Grid style={{width: "35%"}}> 
-            <Grid style={{display: "flex",flexDirection: "column", gap:"10px", alignItems: "flex-start", justifyContent: "center", marginBottom: "30px", marginTop: "50px"}}>
-              <Typography
-                variant="h6"
-                style={{marginLeft: "60px"}}
-              >
-                Estatísticas
-              </Typography>
-              <Box style={{display: "flex",flexDirection:"row", gap:"60px", alignItems: "center", justifyContent: "center", marginLeft: "30px"}}>
+        <Grid  item xs={12} md={4} style={{ width: "100%" }}> 
+            <Grid container direction="column" spacing={3} style={{ marginBottom: "30px", marginTop: "50px" }}>
+              <Grid item> 
+                <Typography
+                  variant="h6"
+                  style={{marginLeft: "60px"}}
+                >
+                  Estatísticas
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Box display="flex" flexDirection="row" gap="20px" alignItems="center" justifyContent="center" className={classes.boxGeral}>
                 {/* T.M. DE ATENDIMENTO */}
                 <Grid item xs={12} sm={6} md={4} >
                   <Paper
@@ -676,11 +723,9 @@ const Dashboard = () => {
                     </Grid>
                   </Paper>
                 </Grid>
-              </Box>
-           
+                </Box>
+              </Grid>
             </Grid>
-
-
 		  
 		      {/* FILTROS */}
           <Grid item xs={12} sm={6} md={4} style={{marginTop: "130px"}}>
@@ -774,7 +819,7 @@ const Dashboard = () => {
             </Grid>*/}
         </Grid>
       </Container >
-    </div >
+
   );
 };
 
