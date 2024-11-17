@@ -58,6 +58,9 @@ import VerticalLine from "../../components/VerticalLine/VerticalLine";
 import Intersect from "../../assets/Intersect.png";
 
 import api from '../../services/api';
+import { alignProperty } from "@mui/material/styles/cssUtils";
+import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import jsPDF from 'jspdf';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -165,7 +168,7 @@ const useStyles = makeStyles((theme) => ({
     //backgroundColor: "palette",
     //backgroundColor: theme.palette.primary.main,
     backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : "#34d3a3",
-    color: "#000000",
+    color:  theme.palette.type === 'dark' ? theme.pallet.primary : "#000000",
   },
   noUnderline: {
     display: "flex", 
@@ -254,7 +257,71 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     marginTop: "20px",
   },
+  atendimento:{
+    display: "flex", 
+    flexDirection: "column", 
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    gap: "20px",
+    width: "65%",
+    [theme.breakpoints.down('sm')]: {
+      width: "100%",
+		},
+    [theme.breakpoints.down('md')]: {
+      width: "100%",
+    },
+    [theme.breakpoints.down('lg')]: {
+      width: "100%",
+    },
+    [theme.breakpoints.down('xl')]: {
+      width: "100%",
+    },
+  },
+  graficos:{
+    display: "flex", 
+    flexDirection: "row",
+    width: "100%",
+    gap: "20px", 
+    alignItems:"center",
+    justifyContent: "center"
+  },
+  geral:{
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
+    },
+  },
+  boxGeral:{
+    marginLeft: "10px",
+    gap:"60px",
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: "40px",
+      gap:"20px",
+    },
+  },
 }));
+
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'column',
+    padding: 20,
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginBottom: 20,
+    color: '#000000',
+  },
+  text: {
+    fontSize: 14,
+    marginBottom: 10,
+    color: '#000000',
+  },
+});
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -392,10 +459,10 @@ const Dashboard = () => {
               InputLabelProps={{
                 shrink: true,
                 style: {
-                  fontSize: '14px',        // Define o tamanho da fonte
-                  fontWeight: 'bold',      // Define a espessura da fonte
-                  color: "#333",        // Define a cor do label
-                  transform: 'translate(10px, -15px)', // Ajusta a posição vertical do label
+                  fontSize: '14px',      
+                  fontWeight: 'bold',      
+                  color: "#333",       
+                  transform: 'translate(10px, -15px)', 
                 },
               }}
               InputProps={{
@@ -458,12 +525,28 @@ const Dashboard = () => {
     }
   }
 
+  const generatePdf = (counters) => {
+    const doc = new jsPDF();
+  
+    doc.setFontSize(20);
+    doc.text('Dashboard PDF', 20, 20);
+  
+    doc.setFontSize(12);
+    doc.text(`T.M de Conversa: ${formatTime(counters.avgSupportTime)}`, 20, 40);
+    doc.text(`T.M de Espera: ${formatTime(counters.avgWaitTime)}`, 20, 50);
+    doc.text(`Novos Contatos: ${counters.newContacts}`, 20, 60);
+    doc.text(`Suporte Finalizado: ${counters.supportFinished}`, 20, 70);
+    doc.text(`Suporte em Andamento: ${counters.supportHappening}`, 20, 80);
+    doc.text(`Suporte Pendente: ${counters.supportPending}`, 20, 90);
+  
+    doc.save('dashboard.pdf');
+  };
+
   return (
-    <div>
-      <Container maxWidth="lg" className={classes.container}>
-        <Grid container spacing={3} justifyContent="end">
-         
-          <Grid style={{display: "flex", flexDirection: "column", paddingLeft: "20px",paddingRight: "20px",gap: "20px",width: "65%"}}>  
+   
+      <Container maxWidth="xl" className={classes.container}>
+        <Grid container spacing={3} justifyContent="flex-end" className={classes.geral}>
+          <Grid item xs={12} md={8} className={classes.atendimento}>  
             {/* CARDS */}  
             <Grid className={classes.GeralCard}>
               {/* EM ATENDIMENTO */}
@@ -529,7 +612,7 @@ const Dashboard = () => {
             </Grid>        
 
             {/*Cards e gráficos*/}
-            <Grid style={{display: "flex", flexDirection: "row",width: "100%",gap: "20px", alignItems:"center",justifyContent: "center"}}>
+            <Grid className={classes.graficos}>
               {/* FINALIZADOS */}
               <Grid item xs={12} sm={6} md={4}>
                 <Paper
@@ -605,19 +688,22 @@ const Dashboard = () => {
                 <Paper className={classes.fixedHeightPaper2}>
                   <ChartsDate />
                 </Paper>
-              </Grid>
+            </Grid>
             
           </Grid>
 
-        <Grid style={{width: "35%"}}> 
-            <Grid style={{display: "flex",flexDirection: "column", gap:"10px", alignItems: "flex-start", justifyContent: "center", marginBottom: "30px", marginTop: "50px"}}>
-              <Typography
-                variant="h6"
-                style={{marginLeft: "60px"}}
-              >
-                Estatísticas
-              </Typography>
-              <Box style={{display: "flex",flexDirection:"row", gap:"60px", alignItems: "center", justifyContent: "center", marginLeft: "30px"}}>
+        <Grid  item xs={12} md={4} style={{ width: "100%" }}> 
+            <Grid container direction="column" spacing={3} style={{ marginBottom: "30px", marginTop: "50px" }}>
+              <Grid item> 
+                <Typography
+                  variant="h6"
+                  style={{marginLeft: "60px"}}
+                >
+                  Estatísticas
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Box display="flex" flexDirection="row" gap="20px" alignItems="center" justifyContent="center" className={classes.boxGeral}>
                 {/* T.M. DE ATENDIMENTO */}
                 <Grid item xs={12} sm={6} md={4} >
                   <Paper
@@ -676,11 +762,9 @@ const Dashboard = () => {
                     </Grid>
                   </Paper>
                 </Grid>
-              </Box>
-           
+                </Box>
+              </Grid>
             </Grid>
-
-
 		  
 		      {/* FILTROS */}
           <Grid item xs={12} sm={6} md={4} style={{marginTop: "130px"}}>
@@ -728,6 +812,12 @@ const Dashboard = () => {
               />
             ) : null}
           </Grid>
+           {/* BOTÃO PARA GERAR PDF */}
+           <Grid item xs={12} className={classes.alignRight}>
+            <Button variant="contained" color="primary" onClick={generatePdf}>
+              Baixar PDF
+            </Button>
+          </Grid>
         </Grid>
 
 
@@ -774,7 +864,7 @@ const Dashboard = () => {
             </Grid>*/}
         </Grid>
       </Container >
-    </div >
+
   );
 };
 

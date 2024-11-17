@@ -84,3 +84,4 @@ networks:
 volumes:
   db_data:
   redis_data:
+  frontend_node_modules:
