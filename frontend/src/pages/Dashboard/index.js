@@ -59,6 +59,8 @@ import Intersect from "../../assets/Intersect.png";
 
 import api from '../../services/api';
 import { alignProperty } from "@mui/material/styles/cssUtils";
+import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import jsPDF from 'jspdf';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -166,7 +168,7 @@ const useStyles = makeStyles((theme) => ({
     //backgroundColor: "palette",
     //backgroundColor: theme.palette.primary.main,
     backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : "#34d3a3",
-    color: "#000000",
+    color:  theme.palette.type === 'dark' ? theme.pallet.primary : "#000000",
   },
   noUnderline: {
     display: "flex", 
@@ -265,18 +267,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: "100%",
 		},
-  [theme.breakpoints.down('sm')]: {
-    width: "80%",
-  },
-  [theme.breakpoints.down('md')]: {
-    width: "60%",
-  },
-  [theme.breakpoints.down('lg')]: {
-    width: "40%",
-  },
-  [theme.breakpoints.down('xl')]: {
-    width: "20%",
-  },
+    [theme.breakpoints.down('md')]: {
+      width: "100%",
+    },
+    [theme.breakpoints.down('lg')]: {
+      width: "100%",
+    },
+    [theme.breakpoints.down('xl')]: {
+      width: "100%",
+    },
   },
   graficos:{
     display: "flex", 
@@ -300,6 +299,29 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'column',
+    padding: 20,
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginBottom: 20,
+    color: '#000000',
+  },
+  text: {
+    fontSize: 14,
+    marginBottom: 10,
+    color: '#000000',
+  },
+});
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -502,6 +524,23 @@ const Dashboard = () => {
       );
     }
   }
+
+  const generatePdf = (counters) => {
+    const doc = new jsPDF();
+  
+    doc.setFontSize(20);
+    doc.text('Dashboard PDF', 20, 20);
+  
+    doc.setFontSize(12);
+    doc.text(`T.M de Conversa: ${formatTime(counters.avgSupportTime)}`, 20, 40);
+    doc.text(`T.M de Espera: ${formatTime(counters.avgWaitTime)}`, 20, 50);
+    doc.text(`Novos Contatos: ${counters.newContacts}`, 20, 60);
+    doc.text(`Suporte Finalizado: ${counters.supportFinished}`, 20, 70);
+    doc.text(`Suporte em Andamento: ${counters.supportHappening}`, 20, 80);
+    doc.text(`Suporte Pendente: ${counters.supportPending}`, 20, 90);
+  
+    doc.save('dashboard.pdf');
+  };
 
   return (
    
@@ -772,6 +811,12 @@ const Dashboard = () => {
                 loading={loading}
               />
             ) : null}
+          </Grid>
+           {/* BOTÃO PARA GERAR PDF */}
+           <Grid item xs={12} className={classes.alignRight}>
+            <Button variant="contained" color="primary" onClick={generatePdf}>
+              Baixar PDF
+            </Button>
           </Grid>
         </Grid>
 

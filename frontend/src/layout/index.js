@@ -145,9 +145,11 @@ const useStyles = makeStyles((theme) => ({
     }),
     width: theme.spacing(7),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(10),
+      width: theme.spacing(7),
+      width: "100%"
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
+      width: theme.spacing(7),
       width: "100%"
     }
   },
