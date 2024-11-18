@@ -84,7 +84,7 @@ services:
 databases:
   - name: zapcomm-db
     plan: free
-    postgresVersion: 13
+    databaseType: postgres
     databases:
       - name: db_name
     user: seu_user
