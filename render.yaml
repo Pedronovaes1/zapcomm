@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: zapcomm-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    repo: https://github.com/seu-usuario/seu-repositorio
+    branch: main
+    autoDeploy: true
+
+  - type: web
+    name: zapcomm-frontend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    repo: https://github.com/seu-usuario/seu-repositorio
+    branch: main
+    autoDeploy: true
+    routes:
+        - type: rewrite
+        source: /*
+        destination: /index.html
+
+databases:
+  - name: zapcomm-db
+    plan: free
+    postgresVersion: 13
+    databases:
+      - name: zapcomm
+    user: zapcomm_user
+    password: secure_password
