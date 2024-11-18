@@ -3,12 +3,12 @@ services:
     name: zapcomm-backend
     env: node
     plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: npm install && npm run build && npm run db:migration && npm run db:seed
+    startCommand: npm run dev:server
     envVars:
       - key: NODE_ENV
         value: production
-    repo: https://github.com/seu-usuario/seu-repositorio
+    repo: https://github.com/Pedronovaes1/zapcomm
     branch: main
     autoDeploy: true
 
@@ -16,12 +16,12 @@ services:
     name: zapcomm-frontend
     env: node
     plan: free
-    buildCommand: npm install && npm run build
+    buildCommand: npm install
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-    repo: https://github.com/seu-usuario/seu-repositorio
+    repo: https://github.com/Pedronovaes1/zapcomm
     branch: main
     autoDeploy: true
     routes:
