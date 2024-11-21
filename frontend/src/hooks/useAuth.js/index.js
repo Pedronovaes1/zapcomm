@@ -97,7 +97,7 @@ const useAuth = () => {
     setLoading(true);
 
     try {
-      const { data } = await api.post("http://localhost:8080/auth/login", userData);
+      const { data } = await api.post("https://zapcomm-7zjy.vercel.app/auth/login", userData);
       const {
         user: { companyId, id, company },
       } = data;
