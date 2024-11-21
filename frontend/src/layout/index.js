@@ -75,7 +75,9 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 24, // keep right padding when drawer closed
     color: theme.palette.dark.main,
     background: theme.palette.barraSuperior,
-
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "space-between",
+    }
   },
   toolbarIcon: { /* Aqui fica a parte do drawer com a logo */
     display: "flex",
@@ -146,7 +148,7 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(7),
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(7),
-      width: "100%"
+      width: "100%",
     },
     [theme.breakpoints.down("md")]: {
       width: theme.spacing(7),
@@ -183,13 +185,16 @@ const useStyles = makeStyles((theme) => ({
   },
   Profile:{
     padding: "20px 60px", 
-    margin: "7px 0px",
     backgroundColor: "rgba(54, 159, 255, 0.15)",
     color:"#000000", 
     borderRadius: "10px", 
     display:"flex", 
     alignItems:"center",
     cursor: "pointer",
+    [theme.breakpoints.up("sm")]: {
+      margin:"0",
+      padding: "0px 20px",
+    },
   },
   logo: {
     width: "80%",
@@ -201,6 +206,29 @@ const useStyles = makeStyles((theme) => ({
     },
     logo: theme.logo
   },
+  user:{
+    display: "flex",
+    flexDirection:"row", 
+    alignItems:"initial",
+    [theme.breakpoints.down("sm")]: {
+      alignItems: "center",
+      marginLeft: "0px",
+    },
+  },
+  bar:{
+    display: "flex", 
+    flexDirection: "column", 
+    alignItems: "end",
+    [theme.breakpoints.down("sm")]: {
+      alignItems: "center",
+      marginLeft: "0px",
+    },
+  },
+  userType:{
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "0px",
+    },
+  }
 }));
 
 const LoggedInLayout = ({ children, themeToggle }) => {
@@ -430,7 +458,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
           </Typography>
           
           
-        <div style={{display: "flex", flexDirection: "column", alignItems: "end"}}>
+        <div className={classes.bar}>
           
           { /*
           <NotificationsVolume
@@ -450,7 +478,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
           {user.id && <NotificationsPopOver volume={volume} /> */}
  
           {/*Essa é a parte do botão de usuário*/}
-         <div style={{display: "flex", flexDirection:"row", alignItems:"initial"}}>
+         <div className={classes.user}>
           <AnnouncementsPopover/>
           <div 
             className={classes.Profile}
@@ -462,7 +490,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
              
               <AccountCircle  style={{color: "#0C2454"}}/>   
               <div style={{display: "flex", alignItems: "center"}}>
-                <Typography variant="caption" style={{marginLeft: "7px"}}>
+                <Typography variant="caption"  style={{marginLeft: "7px"}}>
                   {user.name}
                 </Typography>                  
               </div>
