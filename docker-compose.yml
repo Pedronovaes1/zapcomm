@@ -49,7 +49,7 @@ services:
           cpus: '2.0'
     command: >
       sh -c "
-      npm run db:migrates &&
+      npm run db:migrate &&
       npm run db:seed &&
       npm run dev:server
       "
