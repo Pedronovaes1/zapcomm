@@ -1,0 +1,91 @@
+services:
+  - type: web
+    name: zapcomm-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build && npm run db:migration && npm run db:seed
+    startCommand: npm run dev:server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_DIALECT
+        value: postgres
+      - key: DB_HOST
+        value: zapcomm-db
+      - key: DB_PORT
+        value: 5432
+      - key: DB_USER
+        value: seu_user
+      - key: DB_PASS
+        value: sua_senha
+      - key: DB_NAME
+        value: db_name
+      - key: JWT_SECRET
+        value: kZaOTd+YZpjRUyyuQUpigJaEMk4vcW4YOymKPZX0Ts8=
+      - key: JWT_REFRESH_SECRET
+        value: dBSXqFg9TaNUEDXVp6fhMTRLBysP+j2DSqf7+raxD3A=
+      - key: REDIS_URI
+        value: redis://redis:6379
+      - key: REDIS_OPT_LIMITER_MAX
+        value: 1
+      - key: REDIS_OPT_LIMITER_DURATION
+        value: 3000
+      - key: USER_LIMIT
+        value: 10000
+      - key: CONNECTIONS_LIMIT
+        value: 100000
+      - key: CLOSED_SEND_BY_ME
+        value: true
+      - key: GERENCIANET_SANDBOX
+        value: false
+      - key: GERENCIANET_CLIENT_ID
+        value: Client_Id_Gerencianet
+      - key: GERENCIANET_CLIENT_SECRET
+        value: Client_Secret_Gerencianet
+      - key: GERENCIANET_PIX_CERT
+        value: certificado-Gerencianet
+      - key: GERENCIANET_PIX_KEY
+        value: chave pix gerencianet
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_USER
+        value: seu@gmail.com
+      - key: MAIL_PASS
+        value: SuaSenha
+      - key: MAIL_FROM
+        value: seu@gmail.com
+      - key: MAIL_PORT
+        value: 465
+    repo: https://github.com/Pedronovaes1/zapcomm
+    branch: main
+    autoDeploy: true
+
+  - type: web
+    name: zapcomm-frontend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: REACT_APP_BACKEND_URL
+        value: http://zapcomm-backend:8080
+      - key: REACT_APP_HOURS_CLOSE_TICKETS_AUTO
+        value: 24
+    repo: https://github.com/Pedronovaes1/zapcomm
+    branch: main
+    autoDeploy: true
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+databases:
+  - name: zapcomm-db
+    plan: free
+    databaseType: postgres
+    databases:
+      - name: db_name
+    user: seu_user
+    password: sua_senha
