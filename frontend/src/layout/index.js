@@ -146,7 +146,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     width: theme.spacing(7),
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
       width: theme.spacing(7),
       width: "100%",
     },
@@ -191,9 +191,10 @@ const useStyles = makeStyles((theme) => ({
     display:"flex", 
     alignItems:"center",
     cursor: "pointer",
-    [theme.breakpoints.up("sm")]: {
-      margin:"0",
-      padding: "0px 20px",
+    margin: "5px",
+    [theme.breakpoints.down("sm")]: {
+      margin:"10px",
+      padding: "10px 20px",
     },
   },
   logo: {
@@ -222,6 +223,14 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       alignItems: "center",
       marginLeft: "0px",
+    },
+  },
+  btnColor:{
+    marginLeft: "7px", 
+    textTransform: "none", 
+    fontFamily: "manrope",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "120px",
     },
   },
   userType:{
@@ -499,7 +508,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
           </div>
           
           </div>
-          <Button edge="start" onClick={toggleColorMode}>
+          <Button edge="start" onClick={toggleColorMode} className={classes.btnColor}>
             {theme.mode === 'dark' ? <ToggleOffOutlinedIcon style={{ color: "white" }} /> : <ToggleOnOutlinedIcon style={{ color: "#0c2c54", width: 20}} />}
             <Typography 
             component="h5"
