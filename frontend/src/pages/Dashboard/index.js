@@ -68,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.padding,
     paddingLeft: theme.spacing(1),
     paddingRight: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(5),
+		},
   },
   fixedHeightPaper: {
     padding: theme.spacing(2),
@@ -96,6 +99,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     marginTop: "40px",
     marginBottom: "40px",
+    [theme.breakpoints.down('sm')]: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "center",
+      marginLeft: "30px",
+		},
   },
   fullWidth: {
     width: "300px",
@@ -109,6 +118,11 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: " 0px 0px 10px rgba(128, 144, 155, 0.2)",  
     backgroundColor: "#ffffff", 
     cursor: "pointer",
+    [theme.breakpoints.down('sm')]: {
+      marginTop: "20px",
+      marginLeft: "20px",
+      marginRight: "20px",
+		},
   },
   selectContainer: {
     width: "300px",
@@ -121,6 +135,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "20px",
     boxShadow: " 0px 0px 10px rgba(128, 144, 155, 0.2)",  
     backgroundColor: "#ffffff",
+    [theme.breakpoints.down('sm')]: {
+      marginTop: "20px",
+      marginLeft: "20px",
+      marginRight: "20px",
+      alignItems: "center",
+		},
   },
   iframeDashboard: {
     width: "100%",
@@ -134,6 +154,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(5),
+		},
   },
   fixedHeightPaper: {
     padding: theme.spacing(2),
@@ -168,7 +191,10 @@ const useStyles = makeStyles((theme) => ({
     //backgroundColor: "palette",
     //backgroundColor: theme.palette.primary.main,
     backgroundColor: theme.palette.type === 'dark' ? theme.palette.boxticket.main : "#34d3a3",
-    color:  theme.palette.type === 'dark' ? theme.pallet.primary : "#000000",
+    color:  "#000000",
+    [theme.breakpoints.down('sm')]: {
+      marginTop: "20px",
+		},
   },
   noUnderline: {
     display: "flex", 
@@ -197,6 +223,9 @@ const useStyles = makeStyles((theme) => ({
     gap: "20px", 
     alignItems:"center",
     justifyContent: "center",
+    [theme.breakpoints.down('sm')]: {
+      display: "block",
+		},
   },
   card5: {
     padding: theme.spacing(2),
@@ -266,16 +295,8 @@ const useStyles = makeStyles((theme) => ({
     width: "65%",
     [theme.breakpoints.down('sm')]: {
       width: "100%",
+      display: "block",
 		},
-    [theme.breakpoints.down('md')]: {
-      width: "100%",
-    },
-    [theme.breakpoints.down('lg')]: {
-      width: "100%",
-    },
-    [theme.breakpoints.down('xl')]: {
-      width: "100%",
-    },
   },
   graficos:{
     display: "flex", 
@@ -283,7 +304,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     gap: "20px", 
     alignItems:"center",
-    justifyContent: "center"
+    justifyContent: "center",
+    [theme.breakpoints.down('sm')]: {
+      display: "block",
+      marginTop:"0",
+		},
   },
   geral:{
     [theme.breakpoints.down('sm')]: {
@@ -298,6 +323,15 @@ const useStyles = makeStyles((theme) => ({
       gap:"20px",
     },
   },
+  filtros:{
+    marginTop: "130px",
+    alignItems: "center",
+    [theme.breakpoints.down('sm')]: {
+      marginTop: "20px",
+      alignItems: "center",
+      marginRight: "200px",
+    },
+  }
 }));
 
 const styles = StyleSheet.create({
@@ -449,7 +483,7 @@ const Dashboard = () => {
     if (filterType === 1) {
       return (
         <>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4} >
             <TextField
               label="Data Inicial"
               type="date"
@@ -470,7 +504,7 @@ const Dashboard = () => {
               }}
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4} >
             <TextField
               label= "Data Final"
               type="date"
@@ -767,7 +801,7 @@ const Dashboard = () => {
             </Grid>
 		  
 		      {/* FILTROS */}
-          <Grid item xs={12} sm={6} md={4} style={{marginTop: "130px"}}>
+          <Grid item xs={12} sm={6} md={4} className={classes.filtros}>
             < Typography
               variant="h6"
               style={{marginLeft: "60px"}}
@@ -787,11 +821,11 @@ const Dashboard = () => {
               </Select>
             
             </FormControl>
+            
+            {renderFilters()}
           </Grid>
 
-          {renderFilters()}
-
-          {/* BOTAO FILTRAR */}
+           {/* BOTAO FILTRAR */}
           <Grid item xs={12} className={classes.alignRight}>
             <ButtonWithSpinner
               loading={loading}
