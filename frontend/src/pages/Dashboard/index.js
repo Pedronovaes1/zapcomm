@@ -61,6 +61,7 @@ import api from '../../services/api';
 import { alignProperty } from "@mui/material/styles/cssUtils";
 import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import jsPDF from 'jspdf';
+import template from '../../assets/baasicTemplate.jpeg';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -561,19 +562,40 @@ const Dashboard = () => {
 
   const generatePdf = (counters) => {
     const doc = new jsPDF();
+
+    const img = new Image();
+    img.src = template;
+
+    img.onload = () => {
+      // Adicionar a imagem primeiro
+      doc.addImage(img, "jpeg", 0, 0, 210, 50); // (imagem, formato, x, y, largura, altura)
   
-    doc.setFontSize(20);
-    doc.text('Dashboard PDF', 20, 20);
+      // Adicionar os textos depois
+      doc.setFontSize(40);
+      doc.setFont('helvetica', 'bold'); // Fonte e estilo
+      doc.setTextColor(0, 0, 255); // Cor do texto em RGB
+      doc.text('Dashboard Baasic', 20, 70); // Ajuste y para não sobrepor a imagem
+
+      doc.setDrawColor(0, 0, 255); // Cor da linha
+      doc.setLineWidth(1); // Largura da linha
+      doc.line(20, 75, 200, 75); // Desenha uma linha de (x1, y1) para (x2, y2)
   
-    doc.setFontSize(12);
-    doc.text(`T.M de Conversa: ${formatTime(counters.avgSupportTime)}`, 20, 40);
-    doc.text(`T.M de Espera: ${formatTime(counters.avgWaitTime)}`, 20, 50);
-    doc.text(`Novos Contatos: ${counters.newContacts}`, 20, 60);
-    doc.text(`Suporte Finalizado: ${counters.supportFinished}`, 20, 70);
-    doc.text(`Suporte em Andamento: ${counters.supportHappening}`, 20, 80);
-    doc.text(`Suporte Pendente: ${counters.supportPending}`, 20, 90);
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text(`Tempo Médio de Conversa: ${formatTime(counters.avgSupportTime)}`, 20, 100);
+      doc.text(`Tempo Médio de Espera: ${formatTime(counters.avgWaitTime)}`, 120, 100);
+      doc.text(`Novos Contatos: ${counters.newContacts}`, 20, 130);
+      doc.text(`Suporte Finalizado: ${counters.supportFinished}`, 120, 130);
+      doc.text(`Suporte em Andamento: ${counters.supportHappening}`, 20, 160);
+      doc.text(`Suporte Pendente: ${counters.supportPending}`, 120, 160);
   
-    doc.save('dashboard.pdf');
+      // Salvar o PDF
+      doc.save('dashboard.pdf');
+    };
+  
+    img.onerror = () => {
+      console.error('Erro ao carregar a imagem.');
+    };
   };
 
   return (

@@ -60,7 +60,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
-      - REACT_APP_API_URL=http://localhost:8080
+      - REACT_APP_API_URL=http://34.151.237.198
       - REACT_APP_HOURS_CLOSE_TICKETS_AUTO=24
       - NODE_OPTIONS=--openssl-legacy-provider
     volumes:
@@ -85,3 +85,4 @@ volumes:
   db_data:
   redis_data:
   frontend_node_modules:
+  backend_node_modules:
