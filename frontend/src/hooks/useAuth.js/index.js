@@ -97,7 +97,7 @@ const useAuth = () => {
     setLoading(true);
 
     try {
-      const { data } = await api.post("/auth/login", userData);
+      const { data } = await api.post("https://34.95.203.227/auth/login", userData);
       const {
         user: { companyId, id, company },
       } = data;
